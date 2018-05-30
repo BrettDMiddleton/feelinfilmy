@@ -61,14 +61,25 @@ user = User.new(
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 user.save!
 
-
-
-
-
-
-
-
-
-
-
-
+DBMOVIES = [
+  "Forest Gump",
+  "Alien",
+  "American Beauty",
+  "Saving Private Ryan",
+  "Let the Right One In",
+  "The Hunt",
+  "The Place Beyond the Pines",
+  "Shawshank Redemption",
+  "Moonlight",
+  "Eyes Wide Shut",
+  "The Dark Knight",
+  "Star Wars A New Hope",
+  "Star Wars Return of the Jedi",
+  "Event Horizon",
+  "Primer",
+  "Back to the Future",
+  "Blade Runner",
+  "Arrival",
+  "Prometheus",
+  "Mad Max"
+  ]
