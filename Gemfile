@@ -4,6 +4,7 @@ ruby '2.4.4'
 # Manually installed Gems
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+gem 'admin'
 
 # Automatically generated gems
 gem 'bootsnap', require: false

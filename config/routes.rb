@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get 'home/show'
-  get 'home/index'
-  get 'home/update_tag'
-  get 'home/update_watchlist'
-  get 'landing_page/create'
-  get 'dashboard/edit'
-  get 'dashboard/update'
-  get 'dashboard/destroy'
-  get 'dashboard/friend'
   devise_for :users
-  root to: 'pages#home'
+  root to: 'landing_page#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    root to: 'home#index'
+  end
+
+  # if current_user?
+  #   root to: 'home#index'
+  # else
+  #   root to: 'landing_page#index'
+  # end
 end
