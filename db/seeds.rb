@@ -16,6 +16,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
@@ -25,6 +26,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
@@ -34,6 +36,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
@@ -43,6 +46,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
 user.save!
 
 user = User.new(
@@ -53,6 +57,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 user.save!
 
 
