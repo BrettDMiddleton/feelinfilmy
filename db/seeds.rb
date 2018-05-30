@@ -83,3 +83,15 @@ DBMOVIES = [
   "Prometheus",
   "Mad Max"
   ]
+
+  USERS = User.all
+
+  # # Review seed when movie seed is done
+  # MOVIES = Movie.all
+
+  # review = Review.new(
+  #   text: Faker::Lorem.paragraph
+  #   user_id: USERS.sample
+  #   movie_id: MOVIES.sample
+  #   )
+  # review.save!
