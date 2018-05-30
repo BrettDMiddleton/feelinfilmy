@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: 'homes#index'
   end
+  resources :dashboard, :home, :landing_pages
 end
