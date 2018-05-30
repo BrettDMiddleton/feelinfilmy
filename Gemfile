@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+# Manually installed Gems
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
+# Automatically generated gems
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'figaro'
