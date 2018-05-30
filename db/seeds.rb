@@ -16,7 +16,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
+user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
@@ -26,7 +26,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
+user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
@@ -36,7 +36,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
+user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
@@ -46,7 +46,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
+user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
 user.save!
 
 user = User.new(
@@ -57,17 +57,40 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
 )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
+user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 user.save!
 
+DBMOVIES = [
+  "Forest Gump",
+  "Alien",
+  "American Beauty",
+  "Saving Private Ryan",
+  "Let the Right One In",
+  "The Hunt",
+  "The Place Beyond the Pines",
+  "Shawshank Redemption",
+  "Moonlight",
+  "Eyes Wide Shut",
+  "The Dark Knight",
+  "Star Wars A New Hope",
+  "Star Wars Return of the Jedi",
+  "Event Horizon",
+  "Primer",
+  "Back to the Future",
+  "Blade Runner",
+  "Arrival",
+  "Prometheus",
+  "Mad Max"
+  ]
 
+  USERS = User.all
 
+  # # Review seed when movie seed is done
+  # MOVIES = Movie.all
 
-
-
-
-
-
-
-
-
+  # review = Review.new(
+  #   text: Faker::Lorem.paragraph
+  #   user_id: USERS.sample
+  #   movie_id: MOVIES.sample
+  #   )
+  # review.save!

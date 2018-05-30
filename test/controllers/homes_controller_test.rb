@@ -1,23 +1,23 @@
 require 'test_helper'
 
-class HomeControllerTest < ActionDispatch::IntegrationTest
+class HomesControllerTest < ActionDispatch::IntegrationTest
   test "should get show" do
-    get home_show_url
+    get homes_show_url
     assert_response :success
   end
 
   test "should get index" do
-    get home_index_url
+    get homes_index_url
     assert_response :success
   end
 
   test "should get update_tag" do
-    get home_update_tag_url
+    get homes_update_tag_url
     assert_response :success
   end
 
   test "should get update_watchlist" do
-    get home_update_watchlist_url
+    get homes_update_watchlist_url
     assert_response :success
   end
 
