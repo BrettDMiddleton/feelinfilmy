@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
     @tags = Tag.all
     movies = Movie.all
     @movies = movies[12..17]
+
   end
 
   def show
