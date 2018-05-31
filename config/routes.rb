@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   get 'user_movies/update'
   get 'movies/index'
   get 'movies/show'
+  get 'pages/landing'
+  get 'pages/dashboard'
 end
