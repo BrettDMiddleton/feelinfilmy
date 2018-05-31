@@ -1,6 +1,7 @@
 class PageController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  def landing
+  end
 
-  def home
+  def dashboard
   end
 end
