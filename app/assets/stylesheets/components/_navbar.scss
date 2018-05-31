@@ -8,7 +8,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  opacity: .8;
 }
 
 /* Logo */
@@ -18,10 +17,15 @@
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
+  border: 2px solid $lred;
 }
+
+.navbar-wagon .avatar:hover {
+  border: 2px solid $lblue;
+  }
 
 /* Right section */
 .navbar-wagon-right {

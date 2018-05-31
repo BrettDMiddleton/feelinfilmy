@@ -5,6 +5,7 @@ ruby '2.4.4'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'rails_admin'
+gem 'cloudinary'
 
 # Automatically generated gems
 gem 'bootsnap', require: false
