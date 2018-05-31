@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def landing
   end
 
-  # Dashboard Methods
+  #------------Dashboard Methods-------------#
   def dashboard
     search;
     my_profile;
@@ -20,9 +20,8 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
-  def friendships
-    @user_friendships = @user.friendships
-  end
+  def user_tags
 
+  end
 end
 
