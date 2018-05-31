@@ -1,2 +1,0 @@
-class Friendship < ApplicationRecord
-end
