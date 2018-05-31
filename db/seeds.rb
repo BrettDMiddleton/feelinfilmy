@@ -32,7 +32,7 @@ DBMOVIES = [
   "Blade Runner",
   "Arrival",
   "Prometheus",
-  "Mad Max"
+  "Mad Max: Fury Road"
 ]
 
 DBMOVIES.each do |dbmovie|
@@ -41,13 +41,19 @@ DBMOVIES.each do |dbmovie|
   movie_serialized = open(url).read
   moviejson = JSON.parse(movie_serialized)
 
-  urlPoster = "https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=#{dbmovie}"
-  poster_serialized = open(urlPoster).read
+  url_poster = "https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=#{dbmovie}"
+  poster_serialized = open(url_poster).read
   posterjson = JSON.parse(poster_serialized)
+  poster_path = posterjson["results"][0]["poster_path"]
 
+  # url_trailer = "https://www.googleapis.com/youtube/v3/search?q=#{dbmovie}+official+trailer+#{moviejson['Year']}&order=date&part=snippet&type=video&maxResults=1&key=AIzaSyBpGfvPwLf49l-SLjxRw0sczKe2XIYniCk"
 
-    poster_path = posterjson["results"][0]["poster_path"]
+  url_trailer = "https://www.googleapis.com/youtube/v3/search?q=#{moviejson["Title"]}+official+trailer+#{moviejson['Year']}&order=relevance&part=snippet&maxResults=1&key=AIzaSyBpGfvPwLf49l-SLjxRw0sczKe2XIYniCk"
 
+  trailer_serialized = open(url_trailer).read
+  trailerjson = JSON.parse(trailer_serialized)
+
+  trailer_path = trailerjson["items"][0]["id"]["videoId"]
 
   movie = Movie.new(
     title: moviejson["Title"],
@@ -56,7 +62,8 @@ DBMOVIES.each do |dbmovie|
     rating: moviejson["Metascore"],
     plot: moviejson["Plot"],
     director: moviejson["Director"],
-    poster:"http://image.tmdb.org/t/p/w500/#{poster_path}"
+    poster:"http://image.tmdb.org/t/p/w500/#{poster_path}",
+    trailer:"https://www.youtube.com/watch?v=#{trailer_path}"
     )
   movie.save!
 
