@@ -63,7 +63,6 @@ DBMOVIES.each do |dbmovie|
     plot: moviejson["Plot"],
     director: moviejson["Director"],
     poster:"http://image.tmdb.org/t/p/w500/#{poster_path}",
-    # trailer:"https://www.youtube.com/watch?v=#{trailer_path}"
     trailer:trailer_path
     )
   movie.save!
@@ -86,59 +85,74 @@ TAGS = [
   "witty humour"
 ]
 
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch documentaries.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  admin: true,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch romantic films.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
+GENRES = ["action","adventure","experimental","family","comedy","crime","drama","fantasy","historical","horror","musical",
+  "mistery", "romance", "science fiction", "thriller", "war", "western"]
 
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch fantasy films such as harry potter.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I am a big fan of movies that have a lot of action.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
-  )
-user.save!
 
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch any movie. i just love movies in general.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
-  )
-user.save!
+  GENRES.each do |genre|
+    new_genre = Genre.new(
+      name: genre
+    )
+    new_genre.save!
+  end
+
+
+
+
+
+  user = User.new(
+    email: Faker::Internet.email,
+    bio: "I love to watch documentaries.",
+    password: "feelinfilmy",
+    username: Faker::HarryPotter.character,
+    last_name: Faker::Name.last_name,
+    first_name: Faker::Name.first_name,
+    admin: true,
+    avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
+    )
+  user.save!
+  user = User.new(
+    email: Faker::Internet.email,
+    bio: "I love to watch romantic films.",
+    password: "feelinfilmy",
+    username: Faker::HarryPotter.character,
+    last_name: Faker::Name.last_name,
+    first_name: Faker::Name.first_name,
+    avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
+
+    )
+  user.save!
+  user = User.new(
+    email: Faker::Internet.email,
+    bio: "I love to watch fantasy films such as harry potter.",
+    password: "feelinfilmy",
+    username: Faker::HarryPotter.character,
+    last_name: Faker::Name.last_name,
+    first_name: Faker::Name.first_name,
+    avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
+    )
+  user.save!
+  user = User.new(
+    email: Faker::Internet.email,
+    bio: "I am a big fan of movies that have a lot of action.",
+    password: "feelinfilmy",
+    username: Faker::HarryPotter.character,
+    last_name: Faker::Name.last_name,
+    first_name: Faker::Name.first_name,
+    avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
+    )
+  user.save!
+
+  user = User.new(
+    email: Faker::Internet.email,
+    bio: "I love to watch any movie. i just love movies in general.",
+    password: "feelinfilmy",
+    username: Faker::HarryPotter.character,
+    last_name: Faker::Name.last_name,
+    first_name: Faker::Name.first_name,
+    avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
+    )
+  user.save!
 
 # 10.times do
 #   movie = Movie.new(
