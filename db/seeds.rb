@@ -100,10 +100,14 @@ user = User.new(
 user.save!
 
 # Tag Seed
+<<<<<<< HEAD
 TAGS.each do |tag|
   newtag = Tag.new(name: tag)
   newtag.save!
 end
+=======
+TAGS.each { |tag| newtag = Tag.new( name: tag ); newtag.save! }
+>>>>>>> d5ff3e3d6e02a1bd01a8c61b789375c11001c2b5
 
   USERS = User.all
 
@@ -116,3 +120,16 @@ end
   #   movie_id: MOVIES.sample
   #   )
   # review.save!
+
+10.times do
+  movie = Movie.new(
+    title: "Star Wars: Episode IV - A New Hope",
+    year: 1978,
+    runtime: 121,
+    rating: "PG-13",
+    plot: "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
+    director: "George Lucas",
+    poster: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527776092/anewhope.jpg"
+  )
+  movie.save!
+end

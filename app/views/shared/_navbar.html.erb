@@ -3,12 +3,9 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
-
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
     <% if user_signed_in? %>
-
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -19,13 +16,11 @@
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
-
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-search"></i> <%= t(".search", default: "Search") %>
               <% end %>
             </li>
-
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
@@ -36,7 +31,6 @@
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
-
           </ul>
         </div>
       </div>
@@ -45,7 +39,6 @@
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
-
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
@@ -58,4 +51,3 @@
     </div>
   </div>
 </div>
-
