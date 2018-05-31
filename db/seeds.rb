@@ -5,16 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+require 'open-uri'
 
 User.destroy_all
 Movie.destroy_all
 Tag.destroy_all
 
 DBMOVIES = [
-  "Forest Gump",
+  "Forrest Gump",
   "Alien",
   "American Beauty",
-  "Saving Private Ryan",
+  "terminator 2",
   "Let the Right One In",
   "The Hunt",
   "The Place Beyond the Pines",
@@ -22,8 +24,8 @@ DBMOVIES = [
   "Moonlight",
   "Eyes Wide Shut",
   "The Dark Knight",
-  "Star Wars A New Hope",
-  "Star Wars Return of the Jedi",
+  "star wars",
+  "star wars episode vi",
   "Event Horizon",
   "Primer",
   "Back to the Future",
@@ -32,6 +34,34 @@ DBMOVIES = [
   "Prometheus",
   "Mad Max"
 ]
+
+DBMOVIES.each do |dbmovie|
+
+  url = "http://www.omdbapi.com/?apikey=6d63447f&t=#{dbmovie}"
+  movie_serialized = open(url).read
+  moviejson = JSON.parse(movie_serialized)
+
+  urlPoster = "https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=#{dbmovie}"
+  poster_serialized = open(urlPoster).read
+  posterjson = JSON.parse(poster_serialized)
+
+
+    poster_path = posterjson["results"][0]["poster_path"]
+
+
+  movie = Movie.new(
+    title: moviejson["Title"],
+    year: moviejson["Year"],
+    runtime: moviejson["Runtime"],
+    rating: moviejson["Metascore"],
+    plot: moviejson["Plot"],
+    director: moviejson["Director"],
+    poster:"http://image.tmdb.org/t/p/w500/#{poster_path}"
+    )
+  movie.save!
+
+end
+
 
 TAGS = [
   "character development",
@@ -56,7 +86,7 @@ user = User.new(
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name,
   admin: true
-)
+  )
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
 user.save!
 user = User.new(
@@ -66,7 +96,7 @@ user = User.new(
   username: Faker::HarryPotter.character,
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
-)
+  )
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
 user.save!
 user = User.new(
@@ -76,7 +106,7 @@ user = User.new(
   username: Faker::HarryPotter.character,
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
-)
+  )
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
 user.save!
 user = User.new(
@@ -86,7 +116,7 @@ user = User.new(
   username: Faker::HarryPotter.character,
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
-)
+  )
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
 user.save!
 
@@ -97,7 +127,7 @@ user = User.new(
   username: Faker::HarryPotter.character,
   last_name: Faker::Name.last_name,
   first_name: Faker::Name.first_name
-)
+  )
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 user.save!
 
