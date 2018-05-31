@@ -19,4 +19,10 @@ class PagesController < ApplicationController
   def my_profile
     @user = current_user
   end
+
+  def friendships
+    @user_friendships = @user.friendships
+  end
+
 end
+
