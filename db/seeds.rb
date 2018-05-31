@@ -131,18 +131,18 @@ user = User.new(
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 user.save!
 
-# 10.times do
-#   movie = Movie.new(
-#     title: "Star Wars: Episode IV - A New Hope",
-#     year: 1978,
-#     runtime: 121,
-#     rating: "PG-13",
-#     plot: "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
-#     director: "George Lucas",
-#     poster: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527776092/anewhope.jpg"
-#   )
-#   movie.save!
-# end
+10.times do
+  movie = Movie.new(
+    title: "Star Wars: Episode IV - A New Hope",
+    year: 1978,
+    runtime: 121,
+    rating: "PG-13",
+    plot: "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
+    director: "George Lucas",
+    poster: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527776092/anewhope.jpg"
+  )
+  movie.save!
+end
 
 # Tag Seed
 
