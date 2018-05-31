@@ -12,6 +12,7 @@ User.destroy_all
 Movie.destroy_all
 Tag.destroy_all
 
+
 user = User.new(
   email: Faker::Internet.email,
   bio: "I love to watch documentaries.",

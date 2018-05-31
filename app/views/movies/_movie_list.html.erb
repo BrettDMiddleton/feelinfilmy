@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <% @movies.each do |movie|%>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= movie.poster? ? image_path(movie.poster, height: 300, width: 400, crop: :fill) : 'http://placeholder.it' ; %>');">
+      <a class="card-link" href="#" ></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
