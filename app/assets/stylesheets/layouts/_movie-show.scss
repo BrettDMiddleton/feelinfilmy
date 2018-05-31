@@ -1,0 +1,48 @@
+.show-wrapper{
+  display:flex;
+  background-color:$lblue;
+  align-items:center;
+  justify-content:center;
+  padding: 50px 5%;
+}
+.movie-show-container{
+  background-color:white;
+  width:100%;
+  margin:0px;
+
+  box-shadow: 2px 1px 1px black;
+}
+.movie-description-section{
+  padding:30px;
+}
+.movie-box{
+  background-color:black;
+  min-height:500px;
+  height:30%;
+  margin-bottom:40px;
+}
+.watch-button{
+  background-color:$lred;
+  padding:20px 30px!important;
+
+}
+.director h3{
+  margin-top:0px;
+}
+.movie-review-section{
+padding:30px;
+}
+
+.blue-bar-reviews{
+  background-color:$dblue;
+  width:100%;
+  padding:10px 0px;
+  color:white;
+  text-align:center;
+
+}
+iframe{
+  width:100%;
+  height:500px;
+}
+
