@@ -1,0 +1,40 @@
+.card-review{
+background-color:white;
+margin-top:30px;
+position:relative
+
+// max-width:24%;
+// margin:0px 5px;
+}
+.card-review-body{
+  border-top:20px solid $lred;
+  background-color:$dblue;
+  height:100%;
+  text-align:center;
+  padding:10px;
+  min-height: 480px;
+}
+.card-review-avatar{
+  z-index:3;
+  position:absolute;
+  background-color:red;
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  top:-10;
+  right:-10;
+}
+.card-review-title{
+  padding-top:30px;
+  color:$lred;
+
+}
+.card-review-subtitle{
+  color:white;
+  padding-bottom:10px;
+
+}
+.card-review-content{
+  color:white;
+
+}

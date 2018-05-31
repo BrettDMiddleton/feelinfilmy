@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'user_movies/create'
   get 'user_movies/update'
   get 'movies/index'
-  get 'movies/show'
+  get "/movies/:id", to: "movies#show"
   get 'pages/landing'
   get 'pages/dashboard'
 end

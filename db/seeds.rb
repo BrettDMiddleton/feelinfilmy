@@ -63,7 +63,8 @@ DBMOVIES.each do |dbmovie|
     plot: moviejson["Plot"],
     director: moviejson["Director"],
     poster:"http://image.tmdb.org/t/p/w500/#{poster_path}",
-    trailer:"https://www.youtube.com/watch?v=#{trailer_path}"
+    # trailer:"https://www.youtube.com/watch?v=#{trailer_path}"
+    trailer:trailer_path
     )
   movie.save!
 
