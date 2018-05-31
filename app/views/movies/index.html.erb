@@ -1,9 +1,21 @@
-<div class="container">
-  <div class="row">
-    <% @tags.each do |tag|%>
-      <div class="col-xs-12 col-sm-4">
-        <a href="" class="btn-filmy"> <%= tag.name %></a>
+
+<div class = "wrap">
+  <div class = "pbox">
+    <div class = "genres"> <p >GENRE</p> </div>
+    <div class = "tag"> <p>TAGS</p> </div>
+    <div class = "tag2"> <p>TAGS</p> </div>
+  </div>
+  <div>
+    <div class="container">
+      <div class="row">
+        <% @tags.each do |tag|%>
+          <div class="col-xs-12 col-sm-3">
+            <div class = "card text-center">
+              <a href="" class="btn-filmy"> <%= tag.name %></a>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

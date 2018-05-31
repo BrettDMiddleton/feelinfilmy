@@ -11,3 +11,27 @@
   text-decoration: none;
   color: #999999;
 }
+
+.card {
+  height: 40px;
+  margin-top: 15px;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.pbox{
+  display: flex;
+  flex-direction: column;
+}
+.genres {
+  margin-top: 14px;
+}
+.tag {
+  margin-top: 18px;
+}
+.tag2 {
+  margin-top: 20px;
+}
