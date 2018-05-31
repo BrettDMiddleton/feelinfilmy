@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2018_05_30_191832) do
 
   # These are extensions that must be enabled in order to support this database
@@ -99,12 +98,8 @@ ActiveRecord::Schema.define(version: 2018_05_30_191832) do
 
   create_table "reviews", force: :cascade do |t|
     t.text "text"
-    t.bigint "user_id"
-    t.bigint "movie_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_reviews_on_movie_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -152,8 +147,6 @@ ActiveRecord::Schema.define(version: 2018_05_30_191832) do
   add_foreign_key "movie_tags", "movies"
   add_foreign_key "movie_tags", "tags"
   add_foreign_key "movie_tags", "users"
-  add_foreign_key "reviews", "movies"
-  add_foreign_key "reviews", "users"
   add_foreign_key "user_movies", "movies"
   add_foreign_key "user_movies", "users"
 end
