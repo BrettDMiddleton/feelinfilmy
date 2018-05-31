@@ -1,12 +1,10 @@
-<!-- <div class="wrapper">
-  <div class="tag-bar">
-    <h3>Tags</h3>
-    <% #@tags.each do |tag| %>
-    <p><%= tag %></p>
-    <% #end %>
+<div class="container">
+  <div class="row">
+    <% @tags.each do |tag| %>
+      <div class="col-xs-12 col-sm-4">
+        <a href="" class="btn-filmy"><%=tag.name %></a>
+      </div>
+    <% end %>
   </div>
-  <div class="container">
+</div>
 
-  </div>
-</div> -->
-<h1>HOMEPAGE INDEX</h1>

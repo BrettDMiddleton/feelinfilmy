@@ -1,9 +1,10 @@
 class HomesController < ApplicationController
   def show
-    @tags = Tag.all
   end
 
   def index
+    @tags = Tag.all
+    @genres = Genre.all
   end
 
   def update_tag

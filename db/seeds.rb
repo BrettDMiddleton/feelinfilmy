@@ -100,7 +100,10 @@ user = User.new(
 user.save!
 
 # Tag Seed
-TAGS.each { |tag| newtag = Tag.new( name: tag ) newtag.save! }
+TAGS.each do |tag|
+  newtag = Tag.new(name: tag)
+  newtag.save!
+end
 
   USERS = User.all
 
