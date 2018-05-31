@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Movie.destroy_all
+Tag.destroy_all
 
 DBMOVIES = [
   "Forest Gump",
@@ -99,30 +101,28 @@ user = User.new(
 # user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 user.save!
 
+# 10.times do
+#   movie = Movie.new(
+#     title: "Star Wars: Episode IV - A New Hope",
+#     year: 1978,
+#     runtime: 121,
+#     rating: "PG-13",
+#     plot: "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
+#     director: "George Lucas",
+#     poster: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527776092/anewhope.jpg"
+#   )
+#   movie.save!
+# end
+
 # Tag Seed
 TAGS.each { |tag| newtag = Tag.new( name: tag ); newtag.save! }
 
-  USERS = User.all
-
-  # # Review seed when movie seed is done
-  # MOVIES = Movie.all
-
-  # review = Review.new(
-  #   text: Faker::Lorem.paragraph
-  #   user_id: USERS.sample
-  #   movie_id: MOVIES.sample
-  #   )
-  # review.save!
-
-10.times do
-  movie = Movie.new(
-    title: "Star Wars: Episode IV - A New Hope",
-    year: 1978,
-    runtime: 121,
-    rating: "PG-13",
-    plot: "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
-    director: "George Lucas",
-    poster: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527776092/anewhope.jpg"
-  )
-  movie.save!
-end
+# Review Seed
+# 10.times do
+#   review = Review.new(
+#     text: Faker::Lorem.paragraph,
+#     user_id: User.all.sample,
+#     movie_id: Movie.all.sample
+#     )
+#   review.save!
+# end
