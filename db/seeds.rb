@@ -192,6 +192,7 @@ end
 
 # ----------- FRIENDSHIPS SEED ------------
 
+
 unique_users_who_are_not_the_first_user = User.where.not(id: User.first.id).sample(3)
 
 unique_users_who_are_not_the_first_user.each do |user|

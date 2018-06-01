@@ -1,0 +1,145 @@
+.banner-dashboard{
+  height:33vh;
+  background-color:$dblue;
+  z-index:4;
+  text-align:center;
+  display:flex;
+
+  justify-content:center;
+
+}
+
+.friend-chat-container{
+  background-color:$lblue;
+  padding-top:150px;
+
+}
+.friends-zone{
+
+  border-left:1px solid $black;
+  text-align:center;
+  h1{
+    color:white;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+.chat-zone{
+  text-align:center;
+
+  padding:0px 20px;
+    h1{
+    color:white;
+  }
+}
+
+.chat-container{
+
+  min-height:300px;
+}
+.chat-title{
+  background-color:$lred;
+  height:40px;
+  padding:10px;
+  color:white;
+}
+.chat-containt{
+  background-color:$black;
+  min-height:300px;
+  overflow:scroll;
+  resize:vertical;
+}
+.chat-footer{
+  background-color:white;
+  height:40px;
+  padding:10px;
+  color:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.friend-card-container{
+
+
+}
+.friend-card-body{
+  width:100%;
+  background-color:red;
+}
+.friend-card-photo{
+  width:100%;
+}
+.friend-card-footer{
+  background-color:$black;
+  text-align:center;
+  height:50px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:3px;
+  p{margin:0px;
+  color:white;
+  line-height:20px;
+
+  }
+}
+
+
+
+
+.cards-columns{
+  padding:10px;
+
+}
+
+
+
+.current-user-card{
+  height:400px;
+  border-top:15px solid $lred;
+  border-bottom:15px solid white;
+  background-color:$black;
+  width:450px;
+  z-index:10;
+  margin-top:5vh;
+  padding:20px;
+  .card-details h2{
+    color:$lred;
+    font-weight:lighter;
+
+  }
+  .card-details h3{
+    color:white;
+    font-weight:lighter;
+
+  }
+
+}
+.card-user-pic{
+  border-radius:50%!important;
+  height:auto!important;
+  width:170px!important;
+}

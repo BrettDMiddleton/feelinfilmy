@@ -1,65 +1,115 @@
 <div class="wrapper">
-  <div class="container">
-    <div class="col-sm-12">
-      <div class="my-card">
-        <div class="user-pic">
-          <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;") %>
-        </div>
+  <div class="dashboard-main-container">
+
+    <div class="banner-dashboard">
+      <div class="current-user-card">
+        <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
         <div class="card-details">
-          <h2><%= @user.username %></h2>
+          <h2><%= @user.username.upcase %></h2>
           <h3>Tags Added: </h3>
         </div>
       </div>
+
     </div>
-    <div class="col-sm-12">
-      <div class="friends">
-        <h2>Friends</h2>
-        <% @user.friendships.pluck(:username).each do |username| %>
-        <h3><%= username %></h3>
-        <% end %>
+
+    <div class="friend-chat-container row">
+
+      <div class="friends-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <h1>FRIENDS</h1>
+        <div class="row">
+          <% current_user.friendships.each do |friend| %>
+
+          <div class="cards-columns col-xs-6 col-sm-3 col-md-4 col-lg-3">
+            <div class="friend-card-container">
+              <div class="friend-card-body">
+                <%= image_tag(friend.avatar, :class => "friend-card-photo") %>
+                <div class="friend-card-footer">
+                  <p>
+
+                    <%= friend.username.upcase %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% end %>
+
+        </div>
       </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="chat">
-        <h2>Chat</h2>
+      <div class="chat-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
+       <h1>CHAT</h1>
+       <div class="chat-container">
+         <div class="chat-title">
+            CURRENTLY TALKING TO BIFF TANNEN
+         </div>
+         <div class="chat-containt">
+         </div>
+         <div class="chat-footer">
+
+         </div>
+
+
+
+
+
+
+       </div>
+
+
+     </div>
+
+
+
+<!--
+      <div class="col-sm-12">
+        <div class="friends">
+          <h2>Friends</h2>
+          <% @user.friendships.pluck(:username).each do |username| %>
+          <h3><%= username %></h3>
+          <% end %>
+        </div>
+      </div> -->
+      <div class="col-sm-12">
+        <div class="chat">
+          <h2>Chat</h2>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="my-movies">
-        <h2>My Movies</h2>
-        <% @movies.each do |movie| %>
+      <div class="col-sm-12">
+        <div class="my-movies">
+          <h2>My Movies</h2>
+          <% @movies.each do |movie| %>
           <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="my-watchlist">
-        <h2>My Watchlist</h2>
+      <div class="col-sm-12">
+        <div class="my-watchlist">
+          <h2>My Watchlist</h2>
 <!--         <% @movies.each do |movie| %>
           <div class="movie-poster"><%= image_tag(movie.poster) %></div>
           <h3><%= movie.title %></h3>
           <p><%= movie.plot %></p>
           <p>Director: <%= movie.director %></p>
-        <% end %> -->
+          <% end %> -->
+        </div>
       </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="search-bar">
-        <div class="search">
-          <%= form_tag movies_index_path, method: :get do %>
+      <div class="col-sm-12">
+        <div class="search-bar">
+          <div class="search">
+            <%= form_tag movies_index_path, method: :get do %>
             <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
+            params[:query],
+            class: "form-control",
               placeholder: "Find a movie"
-            %>
-          <% end %>
-        </div>{}
-      </div>
-    </div>
-    <div class="col-sm-12">
-      <div class="edit-profile">
+              %>
+              <% end %>
+            </div>{}
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="edit-profile">
+
+          </div>
+        </div>
 
       </div>
-    </div>
-  </div>
-</div>
