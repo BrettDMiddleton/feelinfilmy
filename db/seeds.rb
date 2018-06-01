@@ -1,16 +1,70 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
 require 'open-uri'
 
-User.destroy_all
 Movie.destroy_all
 Tag.destroy_all
+User.destroy_all
+
+
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch documentaries.",
+  password: "feelinfilmy",
+  username: Faker::BackToTheFuture.character,
+  last_name: "Ott",
+  first_name: "Lauren",
+  admin: true,
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864307/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
+
+  )
+user.save!
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch romantic films.",
+  password: "feelinfilmy",
+  username: Faker::HarryPotter.character,
+  last_name: "Queen",
+  first_name: "Jack",
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864480/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
+
+  )
+user.save!
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch fantasy films such as harry potter.",
+  password: "feelinfilmy",
+  username: Faker::DragonBall.character,
+  last_name: "Whitestone",
+  first_name: "Jess",
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864552/feelin-filmy/eli-defaria-14556-unsplash.jpg"
+
+  )
+user.save!
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I am a big fan of movies that have a lot of action.",
+  password: "feelinfilmy",
+  username: Faker::DrWho.character,
+  last_name: "Witherbee",
+  first_name: "Joshua",
+  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864699/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
+
+  )
+user.save!
+
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch any movie. i just love movies in general.",
+  password: "feelinfilmy",
+  username: Faker::BreakingBad.character,
+  last_name: "Stone",
+  first_name: "Ben",
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864798/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
+
+  )
+user.save!
 
 DBMOVIES = [
   "Forrest Gump",
@@ -24,8 +78,8 @@ DBMOVIES = [
   "Moonlight",
   "Eyes Wide Shut",
   "The Dark Knight",
-  "star wars",
-  "star wars episode vi",
+  "Star Wars Return of the Jedi",
+  "The Green Mile",
   "Event Horizon",
   "Primer",
   "Back to the Future",
@@ -34,6 +88,30 @@ DBMOVIES = [
   "Prometheus",
   "Mad Max: Fury Road"
 ]
+
+TAGS = [
+  "character development",
+  "acting",
+  "dialogue",
+  "cinematography",
+  "special effects",
+  "characters",
+  "music and sound design",
+  "thought-provoking",
+  "awesome villain",
+  "storyline/plot",
+  "explosions",
+  "witty humour"
+]
+
+# ----------- TAG SEED ------------
+
+TAGS.each do |tag|
+  newtag = Tag.new(name: tag)
+  newtag.save!
+end
+
+# ----------- MOVIE SEED ------------
 
 DBMOVIES.each do |dbmovie|
 
@@ -67,94 +145,9 @@ DBMOVIES.each do |dbmovie|
     trailer:trailer_path
     )
   movie.save!
-
 end
 
-
-TAGS = [
-  "character development",
-  "acting",
-  "dialogue",
-  "cinematography",
-  "special effects",
-  "characters",
-  "music and sound design",
-  "thought-provoking",
-  "awesome villain",
-  "storyline/plot",
-  "explosions",
-  "witty humour"
-]
-
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch documentaries.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  admin: true,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch romantic films.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
-
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch fantasy films such as harry potter.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I am a big fan of movies that have a lot of action.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
-  )
-user.save!
-
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch any movie. i just love movies in general.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
-  )
-user.save!
-
-# 10.times do
-#   movie = Movie.new(
-#     title: "Star Wars: Episode IV - A New Hope",
-#     year: 1978,
-#     runtime: 121,
-#     rating: "PG-13",
-#     plot: "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
-#     director: "George Lucas",
-#     poster: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527776092/anewhope.jpg"
-#   )
-#   movie.save!
-# end
-
-# Tag Seed
-TAGS.each { |tag| newtag = Tag.new( name: tag ); newtag.save! }
+# ----------- REVIEW SEED ------------
 
 # Review Seed
 # 10.times do
@@ -165,3 +158,9 @@ TAGS.each { |tag| newtag = Tag.new( name: tag ); newtag.save! }
 #     )
 #   review.save!
 # end
+
+# ----------- FRIENDSHIPS SEED ------------
+
+# ----------- MOVIE TAGS SEED ------------
+
+# ----------- USER TAGS ON MOVIES SEED ------------
