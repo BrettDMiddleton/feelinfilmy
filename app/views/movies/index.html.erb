@@ -16,11 +16,11 @@
               <div class = "cards text-center">
 
                 <button class="btn-filmy"><%= tag.name %><%= check_box_tag "clicked_tag[#{tag.id}]" %></button>
-                <%# link_to tag.name, movies_index_path(tag_id: tag.id), remote: true, class: "btn-filmy" %>
+
               </div>
             </div>
           <% end %>
-          <%= submit_tag "filter" %>
+          <%= submit_tag "filter", id: "filter-moives", style: "display: none" %>
         <% end %>
       </div>
     </div>
