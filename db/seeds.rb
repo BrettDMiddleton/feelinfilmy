@@ -6,6 +6,8 @@ require 'open-uri'
 Movie.destroy_all
 Tag.destroy_all
 User.destroy_all
+MovieTag.destroy_all
+Review.destroy_all
 
 
 user = User.new(
@@ -78,7 +80,7 @@ DBMOVIES = [
   "Moonlight",
   "Eyes Wide Shut",
   "The Dark Knight",
-  "Star Wars Return of the Jedi",
+  "Star Wars",
   "The Green Mile",
   "Event Horizon",
   "Primer",
@@ -147,31 +149,56 @@ DBMOVIES.each do |dbmovie|
   movie.save!
 end
 
-# ----------- REVIEW SEED ------------
+# ----------- USERS MOVIES SEED ------------
 
-# Review Seed
-# 10.times do
-#   review = Review.new(
-#     text: Faker::Lorem.paragraph,
-#     user_id: User.all.sample,
-#     movie_id: Movie.all.sample
-#     )
-#   review.save!
-# end
+@movies = Movie.all
+unique_movies = @movies.sample(5)
 
-# ----------- FRIENDSHIPS SEED ------------
-
-# 10.times do
-#   users = User.all.sample(2),
-#   frendship = Friendship.new(
-
-#     user_id: users[0].id,
-#     friend_user_id: users[1].id
-#     )
-#   frendship.save!
-# end
-
+unique_movies.each do |movie|
+  user_movie = UserMovie.new(
+    user_id: User.first.id,
+    movie_id: movie.id
+    )
+  user_movie.save!
+end
 
 # ----------- MOVIE TAGS SEED ------------
 
-# ----------- USER TAGS ON MOVIES SEED ------------
+@tags = Tag.all
+unique_user_movies = User.first.movies.sample(3)
+
+unique_user_movies.each do |movie|
+  unique_movie_tags = @tags.sample(3)
+  unique_movie_tags.each do |tag|
+    movie_tag = MovieTag.new(
+      movie_id: movie.id,
+      user_id: User.first.id,
+      tag_id: tag.id
+      )
+    movie_tag.save!
+  end
+end
+
+# ----------- REVIEW SEED ------------
+
+unique_user_movies.each do |movie|
+  review = Review.new(
+    text: Faker::Lorem.paragraph,
+    user_id: User.first.id,
+    movie_id: movie.id
+    )
+  review.save!
+end
+
+# ----------- FRIENDSHIPS SEED ------------
+
+
+unique_users_who_are_not_the_first_user = User.where.not(id: User.first.id).sample(3)
+
+unique_users_who_are_not_the_first_user.each do |user|
+  friendship = Friendship.new(
+    user_id: User.first.id,
+    friend_user_id: user.id
+    )
+  friendship.save!
+end
