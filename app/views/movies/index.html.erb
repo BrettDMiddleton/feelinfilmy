@@ -10,7 +10,7 @@
   <div>
     <div class="container">
       <div class="row">
-        <%= form_tag movies_index_path, remote: true, method: :get do %>
+        <%= form_tag movies_index_path, remote: true, method: :get, id: "form" do %>
           <% @tags.each do |tag|%>
             <div class="col-xs-12 col-sm-3">
               <div class = "cards text-center">
@@ -20,9 +20,8 @@
               </div>
             </div>
           <% end %>
-          <%=  submit_tag %>
+          <%= submit_tag "filter" %>
         <% end %>
-
       </div>
     </div>
   </div>
@@ -35,7 +34,5 @@
 </div>
 
 
-# everytime i click a tag i will add a params in the request
-# the tags are links to index
 
 
