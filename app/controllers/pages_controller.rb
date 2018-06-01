@@ -21,7 +21,7 @@ class PagesController < ApplicationController
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  # Dashboard Methods
+  #------------Dashboard Methods-------------#
   def dashboard
     search;
     my_profile;
