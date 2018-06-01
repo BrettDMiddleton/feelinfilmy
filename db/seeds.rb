@@ -8,6 +8,7 @@ Tag.destroy_all
 User.destroy_all
 MovieTag.destroy_all
 Review.destroy_all
+Genre.destroy_all
 
 
 user = User.new(
@@ -115,6 +116,10 @@ end
 
 # ----------- MOVIE SEED ------------
 
+genre_array = []
+movie_genre_hash = {}
+
+
 DBMOVIES.each do |dbmovie|
 
   url = "http://www.omdbapi.com/?apikey=6d63447f&t=#{dbmovie}"
@@ -147,7 +152,86 @@ DBMOVIES.each do |dbmovie|
     trailer:trailer_path
     )
   movie.save!
+
+  genre_movie = moviejson["Genre"].split(",")
+  genre_movie.each do |genre_alone|
+    genre_alone.strip!
+    genre_array << genre_alone
+    movie_genre_hash[moviejson["Title"]] = genre_movie
+
+  end
 end
+
+genre_array = genre_array.uniq
+
+genre_array.each do |genre|
+ genre_movie = Genre.new(
+  name: genre
+  )
+ genre_movie.save!
+end
+
+movie_genre_hash.each do |key, values|
+  newmovie = Movie.all.select { |m| m.title == key }
+  values.each do |value|
+    newgenre = Genre.all.select { |m| m.name == value }
+    genre_movie = MovieGenre.new(
+      movie_id: newmovie[0].id,
+      genre_id: newgenre[0].id
+      )
+    genre_movie.save!
+  end
+end
+
+ #   movie_genres = MovieGenre.new(
+
+
+
+ #    )
+
+
+
+
+
+ # create_table "movie_genres", force: :cascade do |t|
+ #    t.bigint "movie_id"
+ #    t.bigint "genre_id"
+ #    t.datetime "created_at", null: false
+ #    t.datetime "updated_at", null: false
+ #    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
+ #    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
+ #  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # ----------- USERS MOVIES SEED ------------
 
