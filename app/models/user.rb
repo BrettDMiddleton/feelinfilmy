@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :movies, through: :user_movies
   has_many :movie_tags, dependent: :destroy
   has_many :tags, through: :movie_tags
+  has_many :reviews
 end
