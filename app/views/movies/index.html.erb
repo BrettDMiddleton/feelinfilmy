@@ -1,9 +1,45 @@
-<h1>Movies#index</h1>
+
+
+<div class = "wrap">
+  <div class = "pbox">
+    <div class = "genres"> <p >GENRE</p> </div>
+    <div class = "tag"> <p>TAGS</p> </div>
+    <div class = "tag2"> <p>TAGS</p> </div>
+  </div>
+  <div>
+    <div class="container">
+      <div class="row">
+        <%= form_tag movies_index_path, remote: true, method: :get do %>
+          <% @tags.each do |tag|%>
+            <div class="col-xs-12 col-sm-3">
+              <div class = "cards text-center">
+
+                <button class="btn-filmy"><%= tag.name %><%= check_box_tag "clicked_tag[#{tag.id}]" %></button>
+                <%# link_to tag.name, movies_index_path(tag_id: tag.id), remote: true, class: "btn-filmy" %>
+              </div>
+            </div>
+          <% end %>
+          <%=  submit_tag %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="movies-index">
+  <%= render "movie_list" %>
+</div>
+
+
+# everytime i click a tag i will add a params in the request
+# the tags are links to index
+
+<!-- <h1>Movies#index</h1>
 <p>Find me in app/views/movies/index.html.erb</p>
 
 <ul>
-<% @movies.each do |movie| %>
-<li><%= link_to movie.title, movies_show_path(movie.id) %></li>
-<%end %>
+<% #@movies.each do |movie| %>
+<li><%= #link_to movie.title, movies_show_path(movie.id) %></li>
+<%#end %>
 
-</ul>
+</ul> -->

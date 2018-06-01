@@ -12,6 +12,60 @@ User.destroy_all
 Movie.destroy_all
 Tag.destroy_all
 
+
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch documentaries.",
+  password: "feelinfilmy",
+  username: Faker::HarryPotter.character,
+  last_name: Faker::Name.last_name,
+  first_name: Faker::Name.first_name,
+  admin: true
+  )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
+user.save!
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch romantic films.",
+  password: "feelinfilmy",
+  username: Faker::HarryPotter.character,
+  last_name: Faker::Name.last_name,
+  first_name: Faker::Name.first_name
+  )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
+user.save!
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch fantasy films such as harry potter.",
+  password: "feelinfilmy",
+  username: Faker::HarryPotter.character,
+  last_name: Faker::Name.last_name,
+  first_name: Faker::Name.first_name
+  )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
+user.save!
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I am a big fan of movies that have a lot of action.",
+  password: "feelinfilmy",
+  username: Faker::HarryPotter.character,
+  last_name: Faker::Name.last_name,
+  first_name: Faker::Name.first_name
+  )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
+user.save!
+
+user = User.new(
+  email: Faker::Internet.email,
+  bio: "I love to watch any movie. i just love movies in general.",
+  password: "feelinfilmy",
+  username: Faker::HarryPotter.character,
+  last_name: Faker::Name.last_name,
+  first_name: Faker::Name.first_name
+  )
+# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
+user.save!
+
 DBMOVIES = [
   "Forrest Gump",
   "Alien",
@@ -34,6 +88,28 @@ DBMOVIES = [
   "Prometheus",
   "Mad Max: Fury Road"
 ]
+
+TAGS = [
+  "character development",
+  "acting",
+  "dialogue",
+  "cinematography",
+  "special effects",
+  "characters",
+  "music and sound design",
+  "thought-provoking",
+  "awesome villain",
+  "storyline/plot",
+  "explosions",
+  "witty humour"
+]
+
+# Tag Seed
+
+TAGS.each do |tag|
+  newtag = Tag.new(name: tag)
+  newtag.save!
+end
 
 DBMOVIES.each do |dbmovie|
 
@@ -71,20 +147,12 @@ DBMOVIES.each do |dbmovie|
 end
 
 
-TAGS = [
-  "character development",
-  "acting",
-  "dialogue",
-  "cinematography",
-  "special effects",
-  "characters",
-  "music and sound design",
-  "thought-provoking",
-  "awesome villain",
-  "storyline/plot",
-  "explosions",
-  "witty humour"
-]
+# select a user
+# select a movie
+# select a tag
+# create a movie tag
+
+
 
 user = User.new(
   email: Faker::Internet.email,
@@ -139,6 +207,11 @@ user = User.new(
   avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
   )
 user.save!
+User.all.each do |user|
+  Movie.all.each do |movie|
+    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
+  end
+end
 
 # 10.times do
 #   movie = Movie.new(
@@ -153,8 +226,7 @@ user.save!
 #   movie.save!
 # end
 
-# Tag Seed
-TAGS.each { |tag| newtag = Tag.new( name: tag ); newtag.save! }
+
 
 # Review Seed
 # 10.times do
