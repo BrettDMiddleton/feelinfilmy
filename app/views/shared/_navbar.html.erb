@@ -9,7 +9,11 @@
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag (current_user.avatar), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% if current_user.avatar? %>
+        <%= image_tag current_user.avatar, height: 300, width: 400, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% else %>
+        <img src="https://vignette.wikia.nocookie.net/tumblr-survivor-athena/images/7/7a/Blank_Avatar.png/revision/latest/scale-to-width-down/477?cb=20161204161729" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "/pages/dashboard" do %>
