@@ -288,7 +288,7 @@ DEPENDENCIES
   devise
   faker
   figaro
-  font-awesome-sass (~> 5.0.9)
+  font-awesome-sass (~> 5.0.13)
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   pg (~> 0.21)
