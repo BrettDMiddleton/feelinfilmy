@@ -4,6 +4,7 @@ class PagesController < ApplicationController
 
   def landing
     @movie = Movie.all
+    @user = User.all
   end
 
   def resource_name
