@@ -1,5 +1,7 @@
 import "bootstrap";
-import "tags";
+import { initTags } from "./../components/tag.js";
+
+initTags();
 
 $("#slideshow > div:gt(0)").hide();
 
