@@ -5,9 +5,47 @@
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
+  position: relative;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
 }
 .btn-filmy:hover {
   opacity: 1;
   text-decoration: none;
   color: #999999;
+}
+
+.cards {
+  height: 40px;
+  margin-top: 15px;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.pbox{
+  display: flex;
+  flex-direction: column;
+}
+.genres {
+  margin-top: 14px;
+}
+.tag {
+  margin-top: 18px;
+}
+.tag2 {
+  margin-top: 20px;
+}
+
+.movie{
+  height:40px;
 }
