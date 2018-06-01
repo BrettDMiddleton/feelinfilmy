@@ -8,6 +8,9 @@ class User < ApplicationRecord
       join_table:  :friendships,
       foreign_key: :user_id,
       association_foreign_key: :friend_user_id
+  has_many :user_movies, dependent: :destroy
   has_many :movies, through: :user_movies
+  has_many :movie_tags, dependent: :destroy
   has_many :tags, through: :movie_tags
+  has_many :reviews
 end
