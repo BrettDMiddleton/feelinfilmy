@@ -161,6 +161,17 @@ end
 
 # ----------- FRIENDSHIPS SEED ------------
 
+# 10.times do
+#   users = User.all.sample(2),
+#   frendship = Friendship.new(
+
+#     user_id: users[0].id,
+#     friend_user_id: users[1].id
+#     )
+#   frendship.save!
+# end
+
+
 # ----------- MOVIE TAGS SEED ------------
 
 # ----------- USER TAGS ON MOVIES SEED ------------
