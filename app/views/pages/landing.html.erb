@@ -36,7 +36,7 @@
     <h2 style="text-align: center">WHAT WILL <br>YOU DISCOVER?</h2>
   </div>
   <div style="width:100%">
-    <h3 style="text-align: center; word-spacing: 14%">BECAUSE BRIAN LIKED THESE FILMS, HE DISCOVERED...</h3>
+    <h3 style="text-align: center">BECAUSE BRIAN LIKED THESE FILMS, HE DISCOVERED...</h3>
   </div>
   <div>
     <ul class="liked flexbox">
@@ -47,47 +47,47 @@
       <li style="display:inline-block"><%= image_tag "#{@movie[5].poster}" %></li>
     </ul>
   </div>
-    <ul>
-  <div class="flexbox">
-      <li style="display:inline-block">
-        <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
-          <div class="avatar">
-            <%= image_tag "#{@user.sample.avatar}" %>
+  <ul class="bottom-third">
+    <div class="flexbox">
+        <li style="display:inline-block">
+          <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
+            <div class="avatar">
+              <%= image_tag "#{@user.sample.avatar}" %>
+            </div>
+            <h3 style="text-align: center; color: white"><%= @user.sample.first_name %></h3>
+            <h4 style="text-align:center; color:white">Characters</h4>
+            <div>
+              <%= image_tag "#{@movie.sample.poster}" %>
+              <%= image_tag "#{@movie.sample.poster}" %>
+            </div>
           </div>
-          <h3 style="text-align: center"><%= @user.sample.first_name %></h3>
-          <h4><%= @user.sample.tags.limit(1) %></h4>
-          <div>
-            <%= image_tag "#{@movie[6].poster}" %>
-            <%= image_tag "#{@movie[7].poster}" %>
+        </li>
+        <li style="display:inline-block">
+          <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
+            <div class="avatar">
+              <%= image_tag "#{@user.sample.avatar}" %>
+            </div>
+            <h3 style="text-align: center; color: white"><%= @user.sample.first_name %></h3>
+            <h4 style="text-align:center; color:white">Dialogue</h4>
+            <div>
+              <%= image_tag "#{@movie.sample.poster}" %>
+              <%= image_tag "#{@movie.sample.poster}" %>
+            </div>
           </div>
-        </div>
-      </li>
-      <li style="display:inline-block">
-        <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
-          <div class="avatar">
-            <%= image_tag "#{@user.sample.avatar}" %>
+        </li>
+        <li style="display:inline-block">
+          <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
+            <div class="avatar">
+              <%= image_tag "#{@user.sample.avatar}" %>
+            </div>
+            <h3 style="text-align: center; color: white"><%= @user.sample.first_name %></h3>
+            <h4 style="text-align:center; color:white">Acting</h4>
+            <div>
+              <%= image_tag "#{@movie.sample.poster}" %>
+              <%= image_tag "#{@movie.sample.poster}" %>
+            </div>
           </div>
-          <h3 style="text-align: center"><%= @user.sample.first_name %></h3>
-          <h4><%= @user.sample.tags.limit(1) %></h4>
-          <div>
-            <%= image_tag "#{@movie[6].poster}" %>
-            <%= image_tag "#{@movie[7].poster}" %>
-          </div>
-        </div>
-      </li>
-      <li style="display:inline-block">
-        <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
-          <div class="avatar">
-            <%= image_tag "#{@user.sample.avatar}" %>
-          </div>
-          <h3 style="text-align: center"><%= @user.sample.first_name %></h3>
-          <h4><%= @user.sample.tags.limit(1) %></h4>
-          <div>
-            <%= image_tag "#{@movie[6].poster}" %>
-            <%= image_tag "#{@movie[7].poster}" %>
-          </div>
-        </div>
-      </li>
-  </div>
-    </ul>
+        </li>
+    </div>
+  </ul>
 </div>
