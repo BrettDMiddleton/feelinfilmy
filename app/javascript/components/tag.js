@@ -1,8 +1,8 @@
 const initTags = () => {
-  form = document.getElementById("form")
+  const form = document.getElementById("form")
 
 
-  tags = document.querySelectorAll(".btn-filmy");
+  const tags = document.querySelectorAll(".btn-filmy");
 
   tags.forEach(function(tag){
     tag.addEventListener("click", function() {
