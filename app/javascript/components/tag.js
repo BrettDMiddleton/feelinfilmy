@@ -18,3 +18,5 @@ const initTags = () => {
 
 
 }
+
+exoprt { initTags };
