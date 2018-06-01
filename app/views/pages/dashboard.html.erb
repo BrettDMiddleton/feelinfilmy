@@ -1,0 +1,65 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="col-sm-12">
+      <div class="my-card">
+        <div class="user-pic">
+          <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;") %>
+        </div>
+        <div class="card-details">
+          <h2><%= @user.username %></h2>
+          <h3>Tags Added: </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="friends">
+        <h2>Friends</h2>
+        <% @user.friendships.pluck(:username).each do |username| %>
+        <h3><%= username %></h3>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="chat">
+        <h2>Chat</h2>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="my-movies">
+        <h2>My Movies</h2>
+        <% @movies.each do |movie| %>
+          <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="my-watchlist">
+        <h2>My Watchlist</h2>
+<!--         <% @movies.each do |movie| %>
+          <div class="movie-poster"><%= image_tag(movie.poster) %></div>
+          <h3><%= movie.title %></h3>
+          <p><%= movie.plot %></p>
+          <p>Director: <%= movie.director %></p>
+        <% end %> -->
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="search-bar">
+        <div class="search">
+          <%= form_tag movies_index_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find a movie"
+            %>
+          <% end %>
+        </div>{}
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="edit-profile">
+
+      </div>
+    </div>
+  </div>
+</div>

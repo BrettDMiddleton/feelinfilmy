@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   def index
+
     @tags = Tag.all
     movies = Movie.all
 
@@ -13,9 +14,11 @@ class MoviesController < ApplicationController
       format.html
       format.js
     end
+
   end
 
   def show
+@movie = Movie.find(params[:id])
   end
 
   private
