@@ -14,3 +14,9 @@
 @import "components/index";
 @import "pages/index";
 @import "layouts/movie-show";
+
+//BOOTSTRAPT OVERRIDE TO AVOID HORIZONTAL SCROLLING CAUSE BY ROWS MARGIN ----- DONT DELETE ---- ASK DAVID IF QUESTIONS
+
+.row{
+  margin:0px!important;
+}

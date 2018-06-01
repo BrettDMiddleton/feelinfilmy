@@ -1,69 +1,72 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
 require 'open-uri'
 
-User.destroy_all
 Movie.destroy_all
 Tag.destroy_all
+User.destroy_all
+MovieTag.destroy_all
+Review.destroy_all
+Genre.destroy_all
 
 
 user = User.new(
   email: Faker::Internet.email,
   bio: "I love to watch documentaries.",
   password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  admin: true
+  username: Faker::BackToTheFuture.character,
+  last_name: "Ott",
+  first_name: "Lauren",
+  admin: true,
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864307/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
+
   )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
   bio: "I love to watch romantic films.",
   password: "feelinfilmy",
   username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name
+  last_name: "Queen",
+  first_name: "Jack",
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864480/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
+
   )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
   bio: "I love to watch fantasy films such as harry potter.",
   password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name
+  username: Faker::DragonBall.character,
+  last_name: "Whitestone",
+  first_name: "Jess",
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864552/feelin-filmy/eli-defaria-14556-unsplash.jpg"
+
   )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
 user.save!
 user = User.new(
   email: Faker::Internet.email,
   bio: "I am a big fan of movies that have a lot of action.",
   password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name
+  username: Faker::DrWho.character,
+  last_name: "Witherbee",
+  first_name: "Joshua",
+  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864699/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
+
   )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
 user.save!
 
 user = User.new(
   email: Faker::Internet.email,
   bio: "I love to watch any movie. i just love movies in general.",
   password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name
+  username: Faker::BreakingBad.character,
+  last_name: "Stone",
+  first_name: "Ben",
+  avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864798/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
+
   )
-# user.remote_avatar_url = "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 user.save!
 
 DBMOVIES = [
@@ -78,8 +81,8 @@ DBMOVIES = [
   "Moonlight",
   "Eyes Wide Shut",
   "The Dark Knight",
-  "star wars",
-  "star wars episode vi",
+  "Star Wars",
+  "The Green Mile",
   "Event Horizon",
   "Primer",
   "Back to the Future",
@@ -104,12 +107,18 @@ TAGS = [
   "witty humour"
 ]
 
-# Tag Seed
+# ----------- TAG SEED ------------
 
 TAGS.each do |tag|
   newtag = Tag.new(name: tag)
   newtag.save!
 end
+
+# ----------- MOVIE SEED ------------
+
+genre_array = []
+movie_genre_hash = {}
+
 
 DBMOVIES.each do |dbmovie|
 
@@ -144,96 +153,136 @@ DBMOVIES.each do |dbmovie|
     )
   movie.save!
 
-end
+  genre_movie = moviejson["Genre"].split(",")
+  genre_movie.each do |genre_alone|
+    genre_alone.strip!
+    genre_array << genre_alone
+    movie_genre_hash[moviejson["Title"]] = genre_movie
 
-
-# select a user
-# select a movie
-# select a tag
-# create a movie tag
-
-
-
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch documentaries.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  admin: true,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/allef-vinicius-152932-unsplash.jpg"
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch romantic films.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/cristian-lozan-371397-unsplash.jpg"
-
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch fantasy films such as harry potter.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/eli-defaria-14556-unsplash.jpg"
-  )
-user.save!
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I am a big fan of movies that have a lot of action.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699133/feelin-filmy/ethan-hoover-311143-unsplash.jpg"
-  )
-user.save!
-
-user = User.new(
-  email: Faker::Internet.email,
-  bio: "I love to watch any movie. i just love movies in general.",
-  password: "feelinfilmy",
-  username: Faker::HarryPotter.character,
-  last_name: Faker::Name.last_name,
-  first_name: Faker::Name.first_name,
-  avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527699134/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
-  )
-user.save!
-User.all.each do |user|
-  Movie.all.each do |movie|
-    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
   end
 end
 
-# 10.times do
-#   movie = Movie.new(
-#     title: "Star Wars: Episode IV - A New Hope",
-#     year: 1978,
-#     runtime: 121,
-#     rating: "PG-13",
-#     plot: "The Imperial Forces, under orders from cruel Darth Vader, hold Princess Leia hostage in their efforts to quell the rebellion against the Galactic Empire. Luke Skywalker and Han Solo, captain of the Millennium Falcon, work together with the companionable droid duo R2-D2 and C-3PO to rescue the beautiful princess, help the Rebel Alliance and restore freedom and justice to the Galaxy.",
-#     director: "George Lucas",
-#     poster: "https://res.cloudinary.com/chimeraggeddon/image/upload/v1527776092/anewhope.jpg"
-#   )
-#   movie.save!
-# end
+genre_array = genre_array.uniq
+
+genre_array.each do |genre|
+ genre_movie = Genre.new(
+  name: genre
+  )
+ genre_movie.save!
+end
+
+movie_genre_hash.each do |key, values|
+  newmovie = Movie.all.select { |m| m.title == key }
+  values.each do |value|
+    newgenre = Genre.all.select { |m| m.name == value }
+    genre_movie = MovieGenre.new(
+      movie_id: newmovie[0].id,
+      genre_id: newgenre[0].id
+      )
+    genre_movie.save!
+  end
+end
+
+ #   movie_genres = MovieGenre.new(
 
 
 
-# Review Seed
-# 10.times do
-#   review = Review.new(
-#     text: Faker::Lorem.paragraph,
-#     user_id: User.all.sample,
-#     movie_id: Movie.all.sample
-#     )
-#   review.save!
-# end
+ #    )
+
+
+
+
+
+ # create_table "movie_genres", force: :cascade do |t|
+ #    t.bigint "movie_id"
+ #    t.bigint "genre_id"
+ #    t.datetime "created_at", null: false
+ #    t.datetime "updated_at", null: false
+ #    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
+ #    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
+ #  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------- USERS MOVIES SEED ------------
+
+@movies = Movie.all
+unique_movies = @movies.sample(5)
+
+unique_movies.each do |movie|
+  user_movie = UserMovie.new(
+    user_id: User.first.id,
+    movie_id: movie.id
+    )
+  user_movie.save!
+end
+
+# ----------- MOVIE TAGS SEED ------------
+
+@tags = Tag.all
+unique_user_movies = User.first.movies.sample(3)
+
+unique_user_movies.each do |movie|
+  unique_movie_tags = @tags.sample(3)
+  unique_movie_tags.each do |tag|
+    movie_tag = MovieTag.new(
+      movie_id: movie.id,
+      user_id: User.first.id,
+      tag_id: tag.id
+      )
+    movie_tag.save!
+  end
+end
+
+# ----------- REVIEW SEED ------------
+
+unique_user_movies.each do |movie|
+  review = Review.new(
+    text: Faker::Lorem.paragraph,
+    user_id: User.first.id,
+    movie_id: movie.id
+    )
+  review.save!
+end
+
+# ----------- FRIENDSHIPS SEED ------------
+
+
+unique_users_who_are_not_the_first_user = User.where.not(id: User.first.id).sample(3)
+
+unique_users_who_are_not_the_first_user.each do |user|
+  friendship = Friendship.new(
+    user_id: User.first.id,
+    friend_user_id: user.id
+    )
+  friendship.save!
+end
