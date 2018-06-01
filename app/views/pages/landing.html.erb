@@ -1,103 +1,93 @@
 <div class="landing">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-7">
-        <h1>Feeling<br>Filmy</h1>
+  <div class="flexbox">
+    <div class="flex-item">
+      <h1 class="title">Feeling<br>Filmy</h1>
+    </div>
+    <div class="flex-item">
+      <div id="slideshow">
+        <div>
+          <img src="http://www.cutestpaw.com/wp-content/uploads/2016/02/Yawn..jpeg", style="width:300px">
+        </div>
+        <div>
+          <img src="https://catvetofhebron.com/wp-content/uploads/2016/01/CATImage00034-300x200.jpg">
+        </div>
+        <div>
+         <img src="https://www.smartpettoysreview.com/wp-content/uploads/2018/02/cat-spraying-no-more-review-99-300x200.jpg">
+       </div>
       </div>
-      <div class="col-xs-5">
-        <div class="poster">
-          <div id="slideshow">
-            <div>
-            <img src="http://www.cutestpaw.com/wp-content/uploads/2016/02/Yawn..jpeg", style="width:300px">
-            </div>
-            <div>
-             <img src="https://catvetofhebron.com/wp-content/uploads/2016/01/CATImage00034-300x200.jpg">
-            </div>
-            <div>
-             Get your film on, sexy mothafucka!
-            </div>
-         </div>
 
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
 
-          <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-            <%= f.input :password_confirmation, required: true %>
-          </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up" %>
-          </div>
-          <% end %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password_confirmation, required: true %>
         </div>
 
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <h2 style="text-align: center">WHAT WILL <br>YOU DISCOVER?</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <h3 style="text-align: center">BECAUSE BRIAN LIKED THESE FILMS, HE DISCOVERED...</h3>
-      </div>
-    </div>
-    <div class="row">
-      <div>
-        <ul class="liked flexbox">
-          <li style="display:inline-block"><%= image_tag "#{@movie[1].poster}" %></li>
-          <li style="display:inline-block"><%= image_tag "#{@movie[2].poster}" %></li>
-          <li style="display:inline-block"><%= image_tag "#{@movie[3].poster}" %></li>
-          <li style="display:inline-block"><%= image_tag "#{@movie[4].poster}" %></li>
-          <li style="display:inline-block"><%= image_tag "#{@movie[5].poster}" %></li>
-        </ul>
-      </div>
-    </div>
-    <div class="row" style="background-color: grey">
-      <ul>
-        <li style="dislplay:inline-block">
-          <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
-            <div style="background-color: purple">
-              <h4>Avatar</h4>
-            </div>
-            <h3>Ben Calef</h3>
-            <h4>Big Tit-ehs!!</h4>
-            <div>
-              <%= image_tag "#{@movie[6].poster}" %>
-              <%= image_tag "#{@movie[7].poster}" %>
-            </div>
-          </div>
-        </li>
-        <li style="dislplay:inline-block">
-          <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
-            <div style="background-color: purple">
-              <h4>Avatar</h4>
-            </div>
-            <h3>Ben Calef</h3>
-            <h4>Big Tit-ehs!!</h4>
-            <div>
-              <%= image_tag "#{@movie[6].poster}" %>
-              <%= image_tag "#{@movie[7].poster}" %>
-            </div>
-          </div>
-        </li>
-        <li style="dislplay:inline-block">
-          <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
-            <div style="background-color: purple">
-              <h4>Avatar</h4>
-            </div>
-            <h3>Ben Calef</h3>
-            <h4>Big Tit-ehs!!</h4>
-            <div>
-              <%= image_tag "#{@movie[6].poster}" %>
-              <%= image_tag "#{@movie[7].poster}" %>
-            </div>
-          </div>
-        </li>
-      </ul>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
     </div>
   </div>
+
+  <div>
+    <h2 style="text-align: center">WHAT WILL <br>YOU DISCOVER?</h2>
+  </div>
+  <div style="width:100%">
+    <h3 style="text-align: center; word-spacing: 14%">BECAUSE BRIAN LIKED THESE FILMS, HE DISCOVERED...</h3>
+  </div>
+  <div>
+    <ul class="liked flexbox">
+      <li style="display:inline-block"><%= image_tag "#{@movie[1].poster}" %></li>
+      <li style="display:inline-block"><%= image_tag "#{@movie[2].poster}" %></li>
+      <li style="display:inline-block"><%= image_tag "#{@movie[3].poster}" %></li>
+      <li style="display:inline-block"><%= image_tag "http://www.pngmart.com/files/3/Right-Arrow-PNG-Image.png" %></li>
+      <li style="display:inline-block"><%= image_tag "#{@movie[5].poster}" %></li>
+    </ul>
+  </div>
+    <ul>
+  <div class="flexbox">
+      <li style="display:inline-block">
+        <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
+          <div class="avatar">
+            <%= image_tag "#{@user.sample.avatar}" %>
+          </div>
+          <h3 style="text-align: center"><%= @user.sample.first_name %></h3>
+          <h4><%= @user.sample.tags.limit(1) %></h4>
+          <div>
+            <%= image_tag "#{@movie[6].poster}" %>
+            <%= image_tag "#{@movie[7].poster}" %>
+          </div>
+        </div>
+      </li>
+      <li style="display:inline-block">
+        <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
+          <div class="avatar">
+            <%= image_tag "#{@user.sample.avatar}" %>
+          </div>
+          <h3 style="text-align: center"><%= @user.sample.first_name %></h3>
+          <h4><%= @user.sample.tags.limit(1) %></h4>
+          <div>
+            <%= image_tag "#{@movie[6].poster}" %>
+            <%= image_tag "#{@movie[7].poster}" %>
+          </div>
+        </div>
+      </li>
+      <li style="display:inline-block">
+        <div style="border-top: 15px solid pink; border-bottom: 15px solid white; background-color: navy">
+          <div class="avatar">
+            <%= image_tag "#{@user.sample.avatar}" %>
+          </div>
+          <h3 style="text-align: center"><%= @user.sample.first_name %></h3>
+          <h4><%= @user.sample.tags.limit(1) %></h4>
+          <div>
+            <%= image_tag "#{@movie[6].poster}" %>
+            <%= image_tag "#{@movie[7].poster}" %>
+          </div>
+        </div>
+      </li>
+  </div>
+    </ul>
 </div>

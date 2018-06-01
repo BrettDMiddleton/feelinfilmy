@@ -1,8 +1,12 @@
+.landing .title {
+  font-size: 68px;
+}
+
 #slideshow {
     margin: 50px auto;
     position: relative;
-    width: 240px;
-    height: 240px;
+    width: 320px;
+    height: 220px;
     padding: 10px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
@@ -15,12 +19,30 @@
     bottom: 10px;
 }
 
-.landing ul.flexbox li img {
+.landing ul.liked.flexbox li img {
   width: 100px;
   flex: 0 0 0;
 }
 
-.landing.flexbox {
+.landing .flexbox {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+
+.landing .flex-item {
+  flex: 0 0 0;
+}
+
+.landing ul div.flexbox li div div img {
+  width: 100px;
+}
+
+.landing .avatar {
+  text-align: center;
+}
+
+.landing .avatar img {
+    border-radius: 50%;
+    margin-top: 10px;
 }
