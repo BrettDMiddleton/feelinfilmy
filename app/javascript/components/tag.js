@@ -19,4 +19,4 @@ const initTags = () => {
 
 }
 
-exoprt { initTags };
+export { initTags };
