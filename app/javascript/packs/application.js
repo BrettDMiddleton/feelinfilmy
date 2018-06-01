@@ -1,4 +1,5 @@
 import "bootstrap";
+import "tags";
 
 $("#slideshow > div:gt(0)").hide();
 
