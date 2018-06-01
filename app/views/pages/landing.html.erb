@@ -6,7 +6,17 @@
       </div>
       <div class="col-xs-5">
         <div class="poster">
-          <h2>Sign up</h2>
+          <div id="slideshow">
+            <div>
+            <img src="http://www.cutestpaw.com/wp-content/uploads/2016/02/Yawn..jpeg", style="width:300px">
+            </div>
+            <div>
+             <img src="https://catvetofhebron.com/wp-content/uploads/2016/01/CATImage00034-300x200.jpg">
+            </div>
+            <div>
+             Get your film on, sexy mothafucka!
+            </div>
+         </div>
 
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
@@ -37,7 +47,7 @@
     </div>
     <div class="row">
       <div>
-        <ul>
+        <ul class="liked flexbox">
           <li style="display:inline-block"><%= image_tag "#{@movie[1].poster}" %></li>
           <li style="display:inline-block"><%= image_tag "#{@movie[2].poster}" %></li>
           <li style="display:inline-block"><%= image_tag "#{@movie[3].poster}" %></li>

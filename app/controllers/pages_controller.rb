@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
+  skip_before_action :authenticate_user!
 
   def landing
     @movie = Movie.all
