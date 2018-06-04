@@ -40,15 +40,31 @@
   flex-direction: column;
 }
 .genres {
-  margin-top: 14px;
+  margin-top: 21px;
 }
 .tag {
   margin-top: 18px;
 }
 .tag2 {
-  margin-top: 20px;
+  margin-top: 43px;
 }
 
 .movie{
   height:40px;
+}
+.btn-sites {
+  border: 2px solid $lblue;
+  padding: 10px 15px;
+  border-radius: 20px;
+  width: 100px;
+  position: relative;
+  text-align: center;
+  color: $lblue;
+  font-weight: bolder;
+}
+.btn-sites:hover {
+  opacity: 1;
+  text-decoration: none;
+  border: 2px solid $lred;
+  color: $lred;
 }
