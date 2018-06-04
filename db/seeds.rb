@@ -3,6 +3,7 @@
 require 'json'
 require 'open-uri'
 
+MovieGenre.destroy_all
 Movie.destroy_all
 Tag.destroy_all
 User.destroy_all
@@ -183,6 +184,11 @@ movie_genre_hash.each do |key, values|
   end
 end
 
+User.all.each do |user|
+  Movie.all.each do |movie|
+    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
+  end
+end
 
 # ----------- USERS MOVIES SEED ------------
 

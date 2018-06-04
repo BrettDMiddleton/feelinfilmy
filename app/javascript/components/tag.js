@@ -12,7 +12,7 @@ const initTags = () => {
         this.classList.add('active');
       }
 
-      document.getElementById("filter-moives").click();
+      document.getElementById("filter-movies").click();
     });
   });
 
