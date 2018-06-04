@@ -3,6 +3,7 @@
 require 'json'
 require 'open-uri'
 
+MovieGenre.destroy_all
 Movie.destroy_all
 Tag.destroy_all
 User.destroy_all
@@ -183,55 +184,11 @@ movie_genre_hash.each do |key, values|
   end
 end
 
- #   movie_genres = MovieGenre.new(
-
-
-
- #    )
-
-
-
-
-
- # create_table "movie_genres", force: :cascade do |t|
- #    t.bigint "movie_id"
- #    t.bigint "genre_id"
- #    t.datetime "created_at", null: false
- #    t.datetime "updated_at", null: false
- #    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
- #    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
- #  end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+User.all.each do |user|
+  Movie.all.each do |movie|
+    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
+  end
+end
 
 # ----------- USERS MOVIES SEED ------------
 
