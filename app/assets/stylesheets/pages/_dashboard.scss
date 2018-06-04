@@ -144,25 +144,129 @@
 
 
 .container-my-movies{
-height:600px;
+  height:600px;
 
 
 }
 
 
 .my-movie-box{
-  height:280px;
+  height:420px;
   padding:3px;
+  position:relative;
   .my-movies{
-    border-top:10px solid $lred;
-    border-bottom:10px solid white;
+    border-top:20px solid $lred;
+    border-bottom:20px solid white;
     height:100%;
     width:100%;
     background-size:cover;
     background-position:center;
+    position:relative;
+
   }
 
 }
+
 .display-none{
   display:none;
+}
+
+
+
+
+//Code for mouseOver on cards movie
+
+
+.movie-hover{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.8);
+  text-align:center;
+}
+.my-movie-title{
+  width:100%;
+  background-color:white;
+  height:70px;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:30px;
+  h2{
+    font-size:1.3em;
+  }
+
+}
+.upvote-downvote{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:74%;
+  margin-left:13%;
+  height:50px;
+  margin-bottom:30px;
+  cursor:pointer;
+  .up{
+    width:46%;
+    height:100%;
+    background-color:white;
+    display:flex;
+  align-items:center;
+  justify-content:center;
+  i{
+    color:$lred;
+    font-size:2em;
+  }
+
+
+
+
+  }
+  .down{width:46%;
+    height:100%;
+    background-color:white;
+    display:flex;
+  align-items:center;
+    justify-content:center;
+  i{
+    color:$lblue;
+    font-size:2em;
+  }
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+.tag-this-movie{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:74%;
+  margin-left:13%;
+  background-color:white;
+  height:50px;
+  margin-bottom:30px;
+  cursor:pointer;
+
+}
+.add-to-watch{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:74%;
+  background-color:white;
+  height:50px;
+  margin-left:13%;
+  cursor:pointer;
+
 }
