@@ -1,6 +1,3 @@
-
-
-
 <div class = "wrap">
   <div class = "pbox">
     <div class = "genres"> <p >GENRE</p> </div>
@@ -15,7 +12,9 @@
           <% (@genres + @tags).each do |filter|%>
             <div class="col-xs-12 col-sm-3">
               <div class = "cards text-center">
+
                 <button class="btn-filmy"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
+
               </div>
             </div>
           <% end %>
@@ -23,10 +22,9 @@
         <% end %>
       </div>
     </div>
- <!--  </div>
-</div> -->
 
-
+  </div>
+</div>
 
 <div id="movies-index">
   <%= render "movie_list" %>
