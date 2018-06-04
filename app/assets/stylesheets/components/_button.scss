@@ -1,11 +1,12 @@
 .btn-filmy {
-  color: #999999;
-  border: 1px solid #999999;
+  border: 2px solid $lblue;
   padding: 10px 15px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
+  border-radius: 20px;
+  width: 100px;
   position: relative;
+  text-align: center;
+  color: $lblue;
+  font-weight: bolder;
 
   input {
     position: absolute;
@@ -17,13 +18,15 @@
   }
 }
 .btn-filmy:hover {
-  opacity: 1;
   text-decoration: none;
-  color: #999999;
+  border: 2px solid $lred;
+  color: $lred;
 }
 
 .active {
-  background-color: blue;
+  text-decoration: none;
+  border: 2px solid $lred;
+  color: $lred;
 }
 .cards {
   height: 40px;
