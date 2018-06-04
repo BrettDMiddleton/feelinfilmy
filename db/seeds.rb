@@ -185,7 +185,11 @@ movie_genre_hash.each do |key, values|
 end
 
 
-
+User.all.each do |user|
+  Movie.all.each do |movie|
+    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
+  end
+end
 
 
  # create_table "movie_genres", force: :cascade do |t|

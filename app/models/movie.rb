@@ -4,6 +4,7 @@ class Movie < ApplicationRecord
   has_many :users, through: :user_movies
   has_many :movie_actors
   has_many :actors, through: :movie_actors
+  has_many :movie_genres
   has_many :genres, through: :movie_genres
   # has_many :movie_genres, through: :genres
   # has_many :tags
