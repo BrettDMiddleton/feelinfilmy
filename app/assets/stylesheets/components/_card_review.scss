@@ -2,32 +2,25 @@
 background-color:white;
 margin-top:30px;
 position:relative
-
-// max-width:24%;
-// margin:0px 5px;
 }
 .card-review-body{
   border-top:20px solid $lred;
   background-color:$dblue;
-  height:100%;
+  margin: 40px;
   text-align:center;
   padding:10px;
-  min-height: 480px;
 }
-.card-review-avatar{
-  z-index:3;
+.review_avatar{
   position:absolute;
-  background-color:red;
-  width:80px;
-  height:80px;
+  border: 2px solid $lblue;
   border-radius:50%;
-  top:-10;
-  right:-10;
+  top:20;
+  left:20;
+  width: 90px;
 }
 .card-review-title{
   padding-top:30px;
   color:$lred;
-
 }
 .card-review-subtitle{
   color:white;
@@ -36,5 +29,4 @@ position:relative
 }
 .card-review-content{
   color:white;
-
 }
