@@ -9,7 +9,6 @@ Tag.destroy_all
 User.destroy_all
 MovieTag.destroy_all
 Review.destroy_all
-MovieGenre.destroy_all
 Genre.destroy_all
 
 
