@@ -3,11 +3,13 @@
 require 'json'
 require 'open-uri'
 
+MovieGenre.destroy_all
 Movie.destroy_all
 Tag.destroy_all
 User.destroy_all
 MovieTag.destroy_all
 Review.destroy_all
+MovieGenre.destroy_all
 Genre.destroy_all
 
 
@@ -182,12 +184,6 @@ movie_genre_hash.each do |key, values|
     genre_movie.save!
   end
 end
-
- #   movie_genres = MovieGenre.new(
-
-
-
- #    )
 
 
 
