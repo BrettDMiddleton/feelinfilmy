@@ -2,217 +2,175 @@
  <div class="dashboard-main-container">
 
    <div class="banner-dashboard">
-     <div class="current-user-card">
+    <div class="current-user-card">
+
       <% if current_user.avatar? %>
-         <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
-       <% else %>
-         <%= image_tag(url="https://vignette.wikia.nocookie.net/tumblr-survivor-athena/images/7/7a/Blank_Avatar.png/revision/latest/scale-to-width-down/477?cb=20161204161729", :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
-       <% end %>
-       <div class="card-details">
+      <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
+      <% else %>
+      <%= image_tag(url="https://vignette.wikia.nocookie.net/tumblr-survivor-athena/images/7/7a/Blank_Avatar.png/revision/latest/scale-to-width-down/477?cb=20161204161729", :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
+      <% end %>
+
+      <div class="card-details">
         <% if current_user.username? %>
-         <h2><%= @user.username.upcase %></h2>
-         <% else %>
-         <h2></h2>
-         <% end %>
-         <h3>Tags Added: <%= @user.tags.count %> </h3>
-       </div>
-     </div>
+        <h2><%= @user.username.upcase %></h2>
+        <% else %>
+        <h2></h2>
+        <% end %>
+        <h3>Tags Added: <%= @user.tags.count %> </h3>
+      </div>
+    </div>
+  </div>
 
-   </div>
-
-   <div class="friend-chat-container row">
-
-     <div class="friends-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
-       <h1>FRIENDS</h1>
+  <div class="friend-chat-container row">
+   <div class="friends-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
+   <h1>FRIENDS</h1>
        <div class="row">
          <% current_user.friendships.each do |friend| %>
 
          <div class="cards-columns col-xs-6 col-sm-3 col-md-4 col-lg-3">
-           <%= link_to( profile_path(friend.id), html_options = {} ) do  %>
            <div class="friend-card-container">
              <div class="friend-card-body">
-                <div class="friend-card-header">
-                  <p>
-                    <%= friend.username.upcase %>
-                  </p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <% end %>
-
-        </div>
-      </div>
-      <div class="chat-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
-       <h1>CHAT</h1>
-       <div class="chat-container">
-         <div class="chat-title">
-          CURRENTLY TALKING TO BIFF TANNEN
-        </div>
-        <div class="chat-containt">
-        </div>
-        <div class="chat-footer">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-12 bottom-section">
-    <h2>My Movies</h2>
-    <div class="container container-my-movies">
-      <div class="row">
-
-        <% @movies.each_with_index do |movie, index| %>
-        <% if index < 4 %>
-        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 my-movie-box" id=<%= "my-movie"+index.to_s%>>
-          <div class="my-movies" style="background-image:url(<%= movie.poster %>)">
-            <div class="movie-hover display-none" id=<%= "my-movie"+index.to_s+"hover"%>>
-              <div class="my-movie-title">
-                <h2>
-                  <%= movie.title.upcase %>
-                </h2>
-              </div>
-              <div class="upvote-downvote"><div class="up"><i class="fas fa-thumbs-up"></i></div>
-              <div class="down"><i class="fas fa-thumbs-down"></i></div>
-
-            </div>
-            <div class="tag-this-movie">TAG THIS MOVIE</div>
-            <div class="add-to-watch">ADD TO WATCHLIST</div>
-
-          </div>
-        </div>
-      </div>
-      <% else %>
-      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 display-none my-movie-box" id=<%= "my-movie"+index.to_s%>>
-        <div class="my-movies" style="background-image:url(<%= movie.poster %>)">
-          <div class="movie-hover display-none" id=<%= "my-movie"+index.to_s+"hover"%>>
-            <div class="my-movie-title">
-                <h2>
-                  <%= movie.title.upcase %>
-                </h2>
-              </div>
-              <div class="upvote-downvote"><div class="up"><i class="fas fa-thumbs-up"></i></div>
-              <div class="down"><i class="fas fa-thumbs-down"></i></div>
-
-            </div>
-            <div class="tag-this-movie">TAG THIS MOVIE</div>
-            <div class="add-to-watch">ADD TO WATCHLIST</div>
-          </div>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-      <script>
-        var movie_length = "<%= @movies.length %>";
-      </script>
-    </div>
-    <div class="slidecontainer">
-      <input type="range" min="0" max=<%= (@movies.length - 4) %> value="0" class="slider" id="myRange">
-      <p>Value: <span id="demo"></span></p>
-    </div>
-  </div>
-</div>
-<div class="col-sm-12">
-  <div class="my-watchlist">
-    <h2>My Watchlist</h2>
-
-  </div>
-</div>
-<div class="col-sm-12">
-  <div class="search-bar">
-    <div class="search">
-      <%= form_tag movies_index_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-        placeholder: "Find a movie"
-        %>
-        <% end %>
-      </div>{}
-    </div>
-  </div>
-  <div class="col-sm-12">
-    <div class="edit-profile">
-
-    </div>
-  </div>
-
-
-
-               </div>
                <%= image_tag(friend.avatar, :class => "friend-card-photo") %>
                <div class="friend-card-footer">
                  <p>
 
+                   <%= friend.username.upcase %>
                  </p>
                </div>
              </div>
            </div>
-           <% end %>
          </div>
          <% end %>
 
        </div>
      </div>
-     <div class="chat-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <h1>CHAT</h1>
-      <div class="chat-container">
-        <div class="chat-title">
-         CURRENTLY TALKING TO BIFF TANNEN
-       </div>
-       <div class="chat-containt">
-       </div>
-       <div class="chat-footer">
-
-       </div>
+ <div class="chat-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
+   <h1>CHAT</h1>
+   <div class="chat-container">
+     <div class="chat-title">
+      CURRENTLY TALKING TO BIFF TANNEN
     </div>
+    <div class="chat-containt">
+    </div>
+    <div class="chat-footer">
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-sm-12 bottom-section">
+
+
+
+
+</div>
+
+<div class="col-sm-12">
+  <div class="edit-profile">
+
+  </div>
+</div>
+</div>
+
+
+
+<!-- OK SO FAR -->
+
+
+
+
+
+
+
+
+<!-- TAB MY MOVIES -->
+<div class="col-sm-12 bottom-section">
+
+
+  <h2>My Movies</h2>
+  <div class="container container-my-movies">
+    <div class="row">
+
+      <% @movies.each_with_index do |movie, index| %>
+      <% if index < 4 %>
+      <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 my-movie-box" id=<%= "my-movie"+index.to_s%>>
+        <div class="my-movies" style="background-image:url(<%= movie.poster %>)">
+          <div class="movie-hover display-none" id=<%= "my-movie"+index.to_s+"hover"%>>
+            <div class="my-movie-title">
+              <h2>
+                <%= movie.title.upcase %>
+              </h2>
+            </div>
+            <div class="upvote-downvote"><div class="up"><i class="fas fa-thumbs-up"></i></div>
+            <div class="down"><i class="fas fa-thumbs-down"></i></div>
+
+          </div>
+          <div class="tag-this-movie">TAG THIS MOVIE</div>
+          <div class="add-to-watch">ADD TO WATCHLIST</div>
+
+        </div>
+      </div>
+    </div>
+    <% else %>
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 display-none my-movie-box" id=<%= "my-movie"+index.to_s%>>
+      <div class="my-movies" style="background-image:url(<%= movie.poster %>)">
+        <div class="movie-hover display-none" id=<%= "my-movie"+index.to_s+"hover"%>>
+          <div class="my-movie-title">
+            <h2>
+              <%= movie.title.upcase %>
+            </h2>
+          </div>
+          <div class="upvote-downvote"><div class="up"><i class="fas fa-thumbs-up"></i></div>
+          <div class="down"><i class="fas fa-thumbs-down"></i></div>
+
+        </div>
+        <div class="tag-this-movie">TAG THIS MOVIE</div>
+        <div class="add-to-watch">ADD TO WATCHLIST</div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  <script>
+    var movie_length = "<%= @movies.length %>";
+  </script>
+
+</div>
+<div class="slidecontainer">
+  <input type="range" min="0" max=<%= (@movies.length - 4) %> value="0" class="slider" id="myRange">
+</div>
+</div>
+
+
+
+</div>
+
+<!-- TAB ADD TOWATCHLISTS -->
+<div class="col-sm-12">
+ <div class="my-watchlist">
+   <h2>My Watchlist</h2>
+
+ </div>
+</div>
+
+
+<!-- TAB FIND A MOVIE -->
+<div class="col-sm-12">
+ <div class="search-bar">
+   <div class="search">
+     <%= form_tag movies_index_path, method: :get do %>
+     <%= text_field_tag :query,
+     params[:query],
+     class: "form-control",
+       placeholder: "Find a movie"
+       %>
+       <% end %>
      </div>
    </div>
-     <div class="col-sm-12">
-       <h2>My Movies</h2>
-       <div class="container">
-         <div class="row">
-           <button id="buttonPreviousMovie">previous</button>
+ </div>
 
-           <% @movies.each_with_index do |movie, index| %>
-
-             <% if index < 5 %>
-               <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 my-movies" id=<%= "my-movie"+index.to_s%>>
-                 <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
-               </div>
-             <% else %>
-               <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 my-movies display-none" id=<%= "my-movie"+index.to_s%>>
-                 <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
-               </div>
-             <% end %>
-
-           <% end %>
-           <button id="buttonNextMovie">next</button>
-         </div>
-       </div>
-     </div>
-     <div class="col-sm-12">
-       <div class="my-watchlist">
-         <h2>My Watchlist</h2>
-
-       </div>
-     </div>
-     <div class="col-sm-12">
-       <div class="search-bar">
-         <div class="search">
-           <%= form_tag movies_index_path, method: :get do %>
-           <%= text_field_tag :query,
-           params[:query],
-           class: "form-control",
-             placeholder: "Find a movie"
-             %>
-             <% end %>
-           </div>{}
-         </div>
-       </div>
-       <div class="col-sm-12">
-         <div class="edit-profile">
-
-         </div>
-       </div>
+ <!-- TAB EDIT PROFILE -->
+ <div class="col-sm-12">
+   <div class="edit-profile">
+   </div>
+ </div>
 
