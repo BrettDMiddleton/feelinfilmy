@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container col-xs-12 col-sm-12 col-md-6 col-lg-6">
   <div class="row">
     <% @movies.each do |movie|%>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= movie.poster? ? image_path(movie.poster, height: 300, width: 400, crop: :fill) : 'http://placeholder.it' ; %>');">
+        <div class="card"> <%= image_tag(movie.poster, :style => "width: 80%; border-radius: 10px;") %>
         <%= link_to "", movies_show_path(movie), class: "card-link" %>
         </div>
       </div>

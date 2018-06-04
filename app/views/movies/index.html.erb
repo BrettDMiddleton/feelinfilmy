@@ -1,36 +1,37 @@
-
-
-
-<div class = "wrap">
+<div class="page-wrapper">
   <div class = "pbox">
     <div class = "genres"> <p >GENRES</p> </div>
     <div class = "tag"> <p></p> </div>
     <div class = "tag2"> <p>TAGS</p> </div>
   </div>
-  <div>
-
-    <div class="container">
-      <div class="row">
-          <%= form_tag movies_index_path, remote: true, method: :get, id: "form" do %>
-          <% (@genres + @tags).each do |filter|%>
-            <div class="col-xs-12 col-sm-3">
-              <div class = "cards text-center">
-                <button class="btn-filmy"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
+  <div class = "page-content">
+    <div class = "wrap">
+      <div class="container">
+        <div class="row">
+            <%= form_tag movies_index_path, remote: true, method: :get, id: "form" do %>
+            <% (@genres + @tags).each do |filter|%>
+              <div class="col-xs-12 col-sm-3">
+                <div class = "cards text-center">
+                  <button class="btn-filmy"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
+                </div>
               </div>
-            </div>
+            <% end %>
+            <%= submit_tag "filter", id: "filter-movies", style: "display: none" %>
           <% end %>
-          <%= submit_tag "filter", id: "filter-movies", style: "display: none" %>
-        <% end %>
+        </div>
       </div>
     </div>
- <!--  </div>
-</div> -->
+    <div id="movies-index">
+      <%= render "movie_list" %>
+    </div>
 
-
-
-<div id="movies-index">
-  <%= render "movie_list" %>
+    </div>
+  </div>
 </div>
+
+
+
+
 
 
 

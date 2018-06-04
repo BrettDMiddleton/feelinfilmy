@@ -6,6 +6,7 @@
   color: white;
   position: relative;
   width: 200px;
+  padding-top: 85px;
 }
 .card-user {
   position: absolute;
@@ -36,12 +37,12 @@
 }
 .card-link {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
+  top: -1px;
+  bottom: 40px;
+  right: 40px;
+  width: 80%;
   z-index: 2;
-  background: black;
+  background: #a3ff00;
   opacity: 0;
 }
 .card-link:hover {

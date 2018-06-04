@@ -33,11 +33,13 @@
 .wrap {
   display: flex;
   justify-content: center;
+
 }
 
 .pbox{
   display: flex;
   flex-direction: column;
+  margin-bottom: -173px;
 }
 .genres {
   margin-top: 21px;
@@ -51,4 +53,7 @@
 
 .movie{
   height:40px;
+}
+
+.page-content{
 }

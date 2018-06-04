@@ -4,7 +4,9 @@
   align-items: center;
   justify-content: space-around;
   height: 100px;
-  padding: 0px 50px;
+  position: relative;
+  bottom: 0px;
+  width: 100%;
 }
 .footer-links {
   // display: flex;
