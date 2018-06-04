@@ -7,7 +7,7 @@
         </div>
         <div class="movie-title">
         </div>
-        <h1><%= @movie.title.upcase %><small><%= @movie.year %></small></h1>
+        <h1><%= @movie.title.upcase %><small> <%= @movie.year %></small></h1>
         <hr>
         <div class="movie-description"><p>
           <%= @movie.plot %>
@@ -35,9 +35,9 @@
         </div>
         <div class="button-link-watch">
           <ul class="list-inline">
-            <li class="watch-button">netflix</li>
-            <li class="watch-button">hulu</li>
-            <li class="watch-button">amazon</li>
+            <li class="btn-sites">Netflix</li>
+            <li class="btn-sites">Hulu</li>
+            <li class="btn-sites">Amazon</li>
           </ul>
         </div>
       </div>
@@ -51,31 +51,17 @@
       <div class="movie-review-section row">
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-review" >
+          <% @reviews.limit(3).each do |review| %>
           <div class="card-review-body">
             <div class="card-review-avatar">
+              <% review_user_id = review.user_id %>
+              <% review_user = User.find_by_id(review_user_id) %>
+              <%= image_tag(review_user.avatar, :class => "review_avatar") %>
             </div>
-            <h3 class="card-review-title">LOREM IPSUM</h3>
-            <h4 class="card-review-subtitle">LOREM IPSUM</h4>
-            <p class="card-review-content"> How The Internet Is Changing The Way Dogs Find Homes. In the age of the viral doggo, shelters and rescue organizations are recognizing the need to hop aboard the meme train — or risk getting left behind. </p>
+            <h3 class="card-review-title"><%= review_user.username %>s Review</h3>
+            <p class="card-review-content"><%= review.text %></p>
           </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-review" >
-          <div class="card-review-body">
-            <div class="card-review-avatar"></div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-review" >
-          <div class="card-review-body">
-            <div class="card-review-avatar"></div>
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 card-review" >
-          <div class="card-review-body">
-            <div class="card-review-avatar"></div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

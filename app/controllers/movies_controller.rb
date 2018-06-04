@@ -12,6 +12,12 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    reviews
+  end
+
+  def reviews
+    @reviews = @movie.reviews
+    @users_with_reviews = @reviews.pluck(:user_id)
   end
 
   private
