@@ -9,7 +9,6 @@ Tag.destroy_all
 User.destroy_all
 MovieTag.destroy_all
 Review.destroy_all
-MovieGenre.destroy_all
 Genre.destroy_all
 
 
@@ -186,7 +185,11 @@ movie_genre_hash.each do |key, values|
 end
 
 
-
+User.all.each do |user|
+  Movie.all.each do |movie|
+    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
+  end
+end
 
 
  # create_table "movie_genres", force: :cascade do |t|
