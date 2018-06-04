@@ -6,6 +6,10 @@
         <%= link_to "", movies_show_path(movie), class: "card-link" %>
         </div>
       </div>
+      <%= simple_form_for movie, :url => user_movies_create_path, :method => :get do |t| %>
+        <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
+        <%= t.submit "Add", class: "btn" %>
+      <% end %>
     <% end %>
   </div>
 </div>
