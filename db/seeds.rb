@@ -183,55 +183,6 @@ movie_genre_hash.each do |key, values|
   end
 end
 
- #   movie_genres = MovieGenre.new(
-
-
-
- #    )
-
-
-
-
-
- # create_table "movie_genres", force: :cascade do |t|
- #    t.bigint "movie_id"
- #    t.bigint "genre_id"
- #    t.datetime "created_at", null: false
- #    t.datetime "updated_at", null: false
- #    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
- #    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
- #  end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # ----------- USERS MOVIES SEED ------------
 

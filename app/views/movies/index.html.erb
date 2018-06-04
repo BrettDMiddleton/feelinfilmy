@@ -1,6 +1,3 @@
-
-
-
 <div class = "wrap">
   <div class = "pbox">
     <div class = "genres"> <p >GENRE</p> </div>
@@ -14,9 +11,7 @@
           <% @tags.each do |tag|%>
             <div class="col-xs-12 col-sm-3">
               <div class = "cards text-center">
-
                 <button class="btn-filmy"><%= tag.name %><%= check_box_tag "clicked_tag[#{tag.id}]" %></button>
-
               </div>
             </div>
           <% end %>
@@ -26,9 +21,6 @@
     </div>
   </div>
 </div>
-
-
-
 <div id="movies-index">
   <%= render "movie_list" %>
 </div>

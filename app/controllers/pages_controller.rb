@@ -40,5 +40,8 @@ class PagesController < ApplicationController
   def my_profile
     @user = current_user
   end
+
+  def friends_dashboard
+  end
 end
 

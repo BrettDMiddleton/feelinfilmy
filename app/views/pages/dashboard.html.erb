@@ -1,50 +1,103 @@
 <div class="wrapper">
-  <div class="dashboard-main-container">
+ <div class="dashboard-main-container">
 
-    <div class="banner-dashboard">
-      <div class="current-user-card">
-        <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
-        <div class="card-details">
-          <h2><%= @user.username.upcase %></h2>
-          <h3>Tags Added: </h3>
-        </div>
-      </div>
+   <div class="banner-dashboard">
+     <div class="current-user-card">
+       <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
+       <div class="card-details">
+         <h2><%= @user.username.upcase %></h2>
+         <h3>Tags Added: <%= @user.tags.count %> </h3>
+       </div>
+     </div>
+
+   </div>
+
+   <div class="friend-chat-container row">
+
+     <div class="friends-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
+       <h1>FRIENDS</h1>
+       <div class="row">
+         <% current_user.friendships.each do |friend| %>
+
+         <div class="cards-columns col-xs-6 col-sm-3 col-md-4 col-lg-3">
+           <%= link_to( profile_path(friend.id), html_options = {} ) do  %>
+           <div class="friend-card-container">
+             <div class="friend-card-body">
+                <div class="friend-card-header">
+                  <p>
+                    <%= friend.username.upcase %>
+                  </p>
+               </div>
+               <%= image_tag(friend.avatar, :class => "friend-card-photo") %>
+               <div class="friend-card-footer">
+                 <p>
+
+                 </p>
+               </div>
+             </div>
+           </div>
+           <% end %>
+         </div>
+         <% end %>
+
+       </div>
+     </div>
+     <div class="chat-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h1>CHAT</h1>
+      <div class="chat-container">
+        <div class="chat-title">
+         CURRENTLY TALKING TO BIFF TANNEN
+       </div>
+       <div class="chat-containt">
+       </div>
+       <div class="chat-footer">
+
+       </div>
+
 
     </div>
 
-    <div class="friend-chat-container row">
 
-      <div class="friends-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <h1>FRIENDS</h1>
-        <div class="row">
-          <% current_user.friendships.each do |friend| %>
 
-          <div class="cards-columns col-xs-6 col-sm-3 col-md-4 col-lg-3">
-            <div class="friend-card-container">
-              <div class="friend-card-body">
-                <%= image_tag(friend.avatar, :class => "friend-card-photo") %>
-                <div class="friend-card-footer">
-                  <p>
 
-                    <%= friend.username.upcase %>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <% end %>
+     </div>
 
-        </div>
-      </div>
-      <div class="chat-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
-       <h1>CHAT</h1>
-       <div class="chat-container">
-         <div class="chat-title">
-            CURRENTLY TALKING TO BIFF TANNEN
-         </div>
-         <div class="chat-containt">
-         </div>
-         <div class="chat-footer">
+
+   </div>
+
+
+
+
+
+     <div class="col-sm-12">
+       <h2>My Movies</h2>
+       <div class="container">
+         <div class="row">
+           <button id="buttonPreviousMovie">previous</button>
+
+           <% @movies.each_with_index do |movie, index| %>
+
+             <% if index < 5 %>
+               <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 my-movies" id=<%= "my-movie"+index.to_s%>>
+                 <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
+               </div>
+             <% else %>
+               <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 my-movies display-none" id=<%= "my-movie"+index.to_s%>>
+                 <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
+               </div>
+             <% end %>
+
+
+
+
+
+
+
+           <% end %>
+           <button id="buttonNextMovie">next</button>
+
+
+
 
          </div>
 
@@ -54,62 +107,51 @@
 
 
        </div>
-
-
      </div>
 
 
 
-<!--
-      <div class="col-sm-12">
-        <div class="friends">
-          <h2>Friends</h2>
-          <% @user.friendships.pluck(:username).each do |username| %>
-          <h3><%= username %></h3>
-          <% end %>
-        </div>
-      </div> -->
-      <div class="col-sm-12">
-        <div class="chat">
-          <h2>Chat</h2>
-        </div>
-      </div>
-      <div class="col-sm-12">
-        <div class="my-movies">
-          <h2>My Movies</h2>
-          <% @movies.each do |movie| %>
-          <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-sm-12">
-        <div class="my-watchlist">
-          <h2>My Watchlist</h2>
-<!--         <% @movies.each do |movie| %>
-          <div class="movie-poster"><%= image_tag(movie.poster) %></div>
-          <h3><%= movie.title %></h3>
-          <p><%= movie.plot %></p>
-          <p>Director: <%= movie.director %></p>
-          <% end %> -->
-        </div>
-      </div>
-      <div class="col-sm-12">
-        <div class="search-bar">
-          <div class="search">
-            <%= form_tag movies_index_path, method: :get do %>
-            <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-              placeholder: "Find a movie"
-              %>
-              <% end %>
-            </div>{}
-          </div>
-        </div>
-        <div class="col-sm-12">
-          <div class="edit-profile">
 
-          </div>
-        </div>
 
-      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <div class="col-sm-12">
+       <div class="my-watchlist">
+         <h2>My Watchlist</h2>
+
+       </div>
+     </div>
+     <div class="col-sm-12">
+       <div class="search-bar">
+         <div class="search">
+           <%= form_tag movies_index_path, method: :get do %>
+           <%= text_field_tag :query,
+           params[:query],
+           class: "form-control",
+             placeholder: "Find a movie"
+             %>
+             <% end %>
+           </div>{}
+         </div>
+       </div>
+       <div class="col-sm-12">
+         <div class="edit-profile">
+
+         </div>
+       </div>
