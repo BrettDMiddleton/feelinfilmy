@@ -1,15 +1,12 @@
 <div class="wrapper">
  <div class="dashboard-main-container">
-
    <div class="banner-dashboard">
     <div class="current-user-card">
-
       <% if current_user.avatar? %>
       <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
       <% else %>
       <%= image_tag(url="https://vignette.wikia.nocookie.net/tumblr-survivor-athena/images/7/7a/Blank_Avatar.png/revision/latest/scale-to-width-down/477?cb=20161204161729", :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
       <% end %>
-
       <div class="card-details">
         <% if current_user.username? %>
         <h2><%= @user.username.upcase %></h2>
@@ -20,7 +17,6 @@
       </div>
     </div>
   </div>
-
   <div class="friend-chat-container row">
    <div class="friends-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
    <h1>FRIENDS</h1>
@@ -81,7 +77,7 @@
   <div class="container container-my-movies">
     <div class="row">
 
-      <% @movies.each_with_index do |movie, index| %>
+      <% current_user.movies.each_with_index do |movie, index| %>
       <% if index < 4 %>
       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 my-movie-box" id=<%= "my-movie"+index.to_s%>>
         <div class="my-movies" style="background-image:url(<%= movie.poster %>)">
