@@ -3,11 +3,12 @@ class MoviesController < ApplicationController
     @tags = Tag.all
     @genres = Genre.all
 
-    if params[:clicked_tag].present? || params[:clicked_genre].present?
-      filter_movies_by_selected_tags
-    else
-      @movies = Movie.all
-    end
+    watched_movies = UserMovie.where(user_id: current_user)
+
+    @movies = Movie.where.not(id: watched_movies.pluck(:movie_id))
+
+  if params[:clicked_tag].present?
+    filter_movies_by_selected_tags
   end
 
   def show
@@ -17,7 +18,10 @@ class MoviesController < ApplicationController
   private
 
   def filter_movies_by_selected_tags
-    @movies = Movie.includes(:tags, :genres).select do |movie|
+    selected_tag_ids = params[:clicked_tag].keys
+
+    # Not the most efficient way of doing things
+    @movies = @movies.select do |movie|
       movies_tags = movie.tags.pluck(:id)
       movies_genres = movie.genres.pluck(:id)
       clicked_tag_ids = params[:clicked_tag]&.keys&.map(&:to_i)
