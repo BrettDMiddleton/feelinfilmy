@@ -1,6 +1,9 @@
 import "bootstrap";
-import "tags";
 import "movie_caroussel";
+
+import { initTags } from "./../components/tag.js";
+
+initTags();
 
 $("#slideshow > div:gt(0)").hide();
 

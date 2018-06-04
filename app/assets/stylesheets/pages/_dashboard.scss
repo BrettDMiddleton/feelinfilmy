@@ -57,26 +57,6 @@
   color:black;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.friend-card-container{
-
-
-}
 .friend-card-body{
   width:100%;
   background-color:red;
@@ -98,17 +78,10 @@
 
   }
 }
-
-
-
-
 .cards-columns{
   padding:10px;
 
 }
-
-
-
 .current-user-card{
   height:400px;
   border-top:15px solid $lred;
@@ -148,8 +121,6 @@
 
 
 }
-
-
 .my-movie-box{
   height:420px;
   padding:3px;
@@ -170,8 +141,6 @@
 .display-none{
   display:none;
 }
-
-
 
 
 //Code for mouseOver on cards movie
@@ -218,10 +187,6 @@
     color:$lred;
     font-size:2em;
   }
-
-
-
-
   }
   .down{width:46%;
     height:100%;
@@ -234,19 +199,7 @@
     font-size:2em;
   }
   }
-
-
-
 }
-
-
-
-
-
-
-
-
-
 .tag-this-movie{
   display:flex;
   align-items:center;
