@@ -1,0 +1,69 @@
+<div class="wrapper">
+ <div class="dashboard-main-container">
+	 <div class="banner-dashboard">
+		 <div class="current-user-card">
+			 <%= image_tag(@friend.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
+			 <div class="card-details">
+				 <h2><%= @friend.username.upcase %></h2>
+				 <h3>Tags Added: <%= @friend.tags.count %></h3>
+			 </div>
+		 </div>
+	 </div>
+	 <div class="friend-chat-container row">
+		 <div class="friends-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
+			 <h1><%= @friend.username.upcase %>S FRIENDS</h1>
+			 <div class="row">
+				 <% @friend.friendships.each do |friend| %>
+				 <div class="cards-columns col-xs-6 col-sm-3 col-md-4 col-lg-3">
+					 <div class="friend-card-container">
+						 <div class="friend-card-body">
+								<div class="friend-card-header">
+									<p>
+										<%= friend.username.upcase %>
+									</p>
+							 </div>
+							 <%= image_tag(friend.avatar, :class => "friend-card-photo") %>
+							 <div class="friend-card-footer">
+								 <p>
+								 </p>
+							 </div>
+						 </div>
+					 </div>
+				 </div>
+				 <% end %>
+			 </div>
+		 </div>
+	 </div>
+	 <div class="col-sm-12">
+		 <div class="my-tags">
+			 <h2><%= @friend.username %>s Top 3 Tags</h2>
+				<% @top_tags.each do |tag| %>
+				<span class="favorite-tags"><%= tag.name %></span>
+				<% end %>
+		 </div>
+	 </div>
+	 <div class="col-sm-12">
+		 <h2><%= @friend.username %>s Movies</h2>
+		 <div class="container">
+			 <div class="row">
+				 <% @movies.each_with_index do |movie, index| %>
+					 <% if index < 5 %>
+						 <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 my-movies" id=<%= "my-movie"+index.to_s%>>
+							 <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
+						 </div>
+					 <% else %>
+						 <div class="col-xs-6 col-sm-6 col-md-2 col-lg-2 my-movies display-none" id=<%= "my-movie"+index.to_s%>>
+							 <span class="movie-poster"><%= image_tag(movie.poster, :style => "width: 100px; border-radius: 10px;") %></span>
+						 </div>
+					 <% end %>
+				 <% end %>
+			 </div>
+		 </div>
+	 </div>
+		 <div class="col-sm-12">
+			 <div class="my-watchlist">
+				 <h2><%= @friend.username %>s Watchlist</h2>
+
+			 </div>
+		 </div>
+	 </div>

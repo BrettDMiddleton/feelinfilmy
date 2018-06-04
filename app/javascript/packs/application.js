@@ -1,4 +1,5 @@
 import "bootstrap";
+
 import "movie_caroussel";
 
 import { initTags } from "./../components/tag.js";
