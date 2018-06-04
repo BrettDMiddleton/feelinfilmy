@@ -4,7 +4,6 @@ var output = document.getElementById("demo");
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
   let x = parseInt(this.value);
-  console.log(x)
 
   if (x < movie_length - 5){
 

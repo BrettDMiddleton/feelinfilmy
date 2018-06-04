@@ -12,6 +12,7 @@
 .friend-chat-container{
   background-color:$lblue;
   padding-top:150px;
+  padding-bottom:50px;
 
 }
 .friends-zone{
@@ -136,11 +137,15 @@
 }
 
 
+.bottom-section{
+  background-color:$dblue;
 
+}
 
 
 .container-my-movies{
 height:600px;
+
 
 }
 
@@ -149,6 +154,8 @@ height:600px;
   height:280px;
   padding:3px;
   .my-movies{
+    border-top:10px solid $lred;
+    border-bottom:10px solid white;
     height:100%;
     width:100%;
     background-size:cover;
