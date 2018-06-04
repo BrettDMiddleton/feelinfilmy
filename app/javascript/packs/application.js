@@ -1,4 +1,7 @@
 import "bootstrap";
+
+import "movie_caroussel";
+
 import { initTags } from "./../components/tag.js";
 
 initTags();
@@ -13,4 +16,3 @@ setInterval(function() {
     .end()
     .appendTo('#slideshow');
 }, 3000);
-

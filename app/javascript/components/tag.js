@@ -12,7 +12,9 @@ const initTags = () => {
         this.classList.add('active');
       }
 
+
       document.getElementById("filter-movies").click();
+
     });
   });
 
