@@ -17,14 +17,10 @@
 				 <div class="cards-columns col-xs-6 col-sm-3 col-md-4 col-lg-3">
 					 <div class="friend-card-container">
 						 <div class="friend-card-body">
-								<div class="friend-card-header">
-									<p>
-										<%= friend.username.upcase %>
-									</p>
-							 </div>
 							 <%= image_tag(friend.avatar, :class => "friend-card-photo") %>
 							 <div class="friend-card-footer">
 								 <p>
+                  <%= friend.username.upcase %>
 								 </p>
 							 </div>
 						 </div>
