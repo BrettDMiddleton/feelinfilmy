@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
   if params[:clicked_tag].present?
     filter_movies_by_selected_tags
   end
+end
 
   def show
     @movie = Movie.find(params[:id])
