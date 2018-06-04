@@ -3,9 +3,17 @@
 
    <div class="banner-dashboard">
      <div class="current-user-card">
-       <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
+      <% if current_user.avatar? %>
+         <%= image_tag(@user.avatar, :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
+       <% else %>
+         <%= image_tag(url="https://vignette.wikia.nocookie.net/tumblr-survivor-athena/images/7/7a/Blank_Avatar.png/revision/latest/scale-to-width-down/477?cb=20161204161729", :style => "width: 300px; border-radius: 50px;", :class => "card-user-pic") %>
+       <% end %>
        <div class="card-details">
+        <% if current_user.username? %>
          <h2><%= @user.username.upcase %></h2>
+         <% else %>
+         <h2></h2>
+         <% end %>
          <h3>Tags Added: <%= @user.tags.count %> </h3>
        </div>
      </div>
