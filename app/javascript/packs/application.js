@@ -1,5 +1,6 @@
 import "bootstrap";
 import "tags";
+import "movie_caroussel";
 
 $("#slideshow > div:gt(0)").hide();
 
@@ -11,4 +12,3 @@ setInterval(function() {
     .end()
     .appendTo('#slideshow');
 }, 3000);
-

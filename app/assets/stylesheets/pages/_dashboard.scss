@@ -24,20 +24,11 @@
 
 }
 
-
-
-
-
-
-
-
-
-
 .chat-zone{
   text-align:center;
 
   padding:0px 20px;
-    h1{
+  h1{
     color:white;
   }
 }
@@ -101,8 +92,8 @@
   align-items:center;
   padding:3px;
   p{margin:0px;
-  color:white;
-  line-height:20px;
+    color:white;
+    line-height:20px;
 
   }
 }
@@ -142,4 +133,29 @@
   border-radius:50%!important;
   height:auto!important;
   width:170px!important;
+}
+
+
+
+
+
+.container-my-movies{
+height:600px;
+
+}
+
+
+.my-movie-box{
+  height:280px;
+  padding:3px;
+  .my-movies{
+    height:100%;
+    width:100%;
+    background-size:cover;
+    background-position:center;
+  }
+
+}
+.display-none{
+  display:none;
 }
