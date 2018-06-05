@@ -25,7 +25,6 @@ class MoviesController < ApplicationController
       @users_with_reviews = @reviews.pluck(:user_id)
     end
 
-
     def filter_movies
       if params[:clicked_tag].present?
         filter_movies_by_selected_tags

@@ -1,9 +1,7 @@
-.show-wrapper{
-  display:flex;
-  background-color:$lblue;
+.show-container{
   align-items:center;
-  justify-content:center;
-  padding: 50px 5%;
+  padding: 10px 10px;
+  color: white;
 }
 .movie-show-container{
   background-color:white;
@@ -16,8 +14,6 @@
 }
 .movie-box{
   background-color:black;
-  min-height:500px;
-  height:30%;
   margin-bottom:40px;
 }
 .watch-button{
@@ -39,6 +35,8 @@
 }
 iframe{
   width:100%;
-  height:500px;
+  height:350px;
 }
-
+.movie-box-buttons {
+  display: inline;
+}
