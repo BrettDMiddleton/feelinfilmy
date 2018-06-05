@@ -1,0 +1,58 @@
+.homepage-container{
+  min-height: 80%;
+}
+.btn-filmy2 {
+  border: 2px solid $lblue;
+  padding: 2px 8px;
+  border-radius: 20px;
+  text-align: center;
+  width: 150px;
+  color: $lblue;
+  font-weight: bolder;
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+.btn-filmy2:hover {
+  text-decoration: none;
+  border: 2px solid $lred;
+  color: $lred;
+}
+.header {
+  margin-top: -21px;
+  height:120px;
+  background-color: $lblue;
+  border-bottom: 3px solid $dblue;
+}
+.flex {
+  display: flex;
+}
+.flexbox-movie-info {
+  height: 100vh;
+  width: 25vw;
+  background-color: $lblue;
+}
+.flex-movie {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 75vw;
+  justify-content: space-around;
+  background-color: $lblue;
+  border-right: 3px solid $dblue;
+}
+.movie-card {
+  height: 280px;
+  width: 200px;
+  background-size: cover !important;
+  background-position: center;
+  position: relative;
+  border-radius: 10px;
+  margin: 10px;
+  border: 3px solid $dblue;
+}
