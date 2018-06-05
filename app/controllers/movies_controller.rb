@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
   end
 
   def filter_movies
-    if params[:clicked_tag].present?
+    if params[:clicked_tag].present? || params[:clicked_genre].present?
       filter_movies_by_selected_tags
     end
   end
@@ -31,9 +31,8 @@ class MoviesController < ApplicationController
   private
 
   def filter_movies_by_selected_tags
-    selected_tag_ids = params[:clicked_tag].keys
+    # selected_tag_ids = params[:clicked_tag].keys
 
-    # Not the most efficient way of doing things
     @my_movies = @my_movies.select do |movie|
       movies_tags = movie.tags.pluck(:id)
       movies_genres = movie.genres.pluck(:id)
