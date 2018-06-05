@@ -6,14 +6,14 @@
         <%= link_to "", movies_show_path(movie), class: "card-link", remote: true %>
         </div>
       </div>
-      <!--<%= simple_form_for movie, :url => user_movies_create_catalog_path, :method => :get do |t| %>
+      <%= simple_form_for movie, :url => user_movies_create_catalog_path, :method => :get do |t| %>
         <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
         <%= t.submit "Catalog", class: "btn" %>
       <% end %>
       <%= simple_form_for movie, :url => user_movies_create_watch_path, :method => :get do |t| %>
         <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
         <%= t.submit "Watchlist", class: "btn" %>
-      <% end %>-->
     <% end %>
   <% end %>
+  </div>
 </div>
