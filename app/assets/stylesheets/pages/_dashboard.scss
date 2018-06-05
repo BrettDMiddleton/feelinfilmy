@@ -192,59 +192,27 @@
   }
 
 }
-.upvote-downvote{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  width:74%;
-  margin-left:13%;
-  height:50px;
-  margin-bottom:30px;
-  cursor:pointer;
-  .up{
-    width:46%;
-    height:100%;
-    background-color:white;
-    display:flex;
-  align-items:center;
-  justify-content:center;
-  i{
-    color:$lred;
-    font-size:2em;
-  }
-  }
-  .down{width:46%;
-    height:100%;
-    background-color:white;
-    display:flex;
-  align-items:center;
-    justify-content:center;
-  i{
-    color:$lblue;
-    font-size:2em;
-  }
+
+.my-movie-tags-list{
+  list-style-type:none;
+  li{
+    color:white;
+    border:1px solid white;
+    border-radius:15px;
+    padding:10px;
+    margin-bottom:10px;
   }
 }
-.tag-this-movie{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:74%;
-  margin-left:13%;
-  background-color:white;
-  height:50px;
-  margin-bottom:30px;
+
+
+
+// ---------------------------
+.my-movie-tags{
+  color:white;
   cursor:pointer;
+  text-align:center;
 
 }
-.add-to-watch{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:74%;
-  background-color:white;
-  height:50px;
-  margin-left:13%;
-  cursor:pointer;
-
+.my-movie-tags:hover{
+  color:$lblue;
 }

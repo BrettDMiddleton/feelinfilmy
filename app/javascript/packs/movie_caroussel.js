@@ -23,10 +23,10 @@ for (i = 0; i < movie_length; i++) {
   });
 
 }
+
 function makeVisible(x){
   document.getElementById(`${x}hover`).classList.remove("display-none");
 }
 function makeInvisible(x){
   document.getElementById(`${x}hover`).classList.add("display-none");
 }
-
