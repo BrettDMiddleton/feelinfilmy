@@ -1,13 +1,17 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,100,300,700,500|Gidugu");
+
 
 // Define fonts for body and headers
 $body-font: 'Questrial', sans-serif;
 // "Open Sans", "Helvetica", "sans-serif";
-$headers-font: 'Rock Salt', cursive;
+$headers-font: 'Roboto', sans-serif;
 // Needs font-weight: lighter; in scss
 // "Raleway", "Helvetica", "sans-serif";
-$title-font: 'Ultra', serif;
+$title-font: 'Gidugu', sans-serif;
+
+
+
 // Needs font-weight: lighter; in scss
 
 // To use a font file (.woff) uncomment following lines
