@@ -1,0 +1,41 @@
+<div class="show-container">
+  <div class="movie-box">
+    <iframe src='https://www.youtube.com/embed/<%= @movie.trailer%>?rel=0&autoplay=<%= params[:autoplay] || 0 %>' frameborder='0' allowfullscreen></iframe>
+  </div>
+  <div class="movie-title">
+    <h1><%= movie.title.upcase %><small> <%=movie.year %></small></h1>
+  </div>
+  <hr>
+  <div class="movie-description"><p>
+    <%= movie.plot %>
+  </p>
+  </div>
+  <div class="movie-box-buttons">
+    <div class="more-info">
+      <%= link_to "More info", movies_show_path(movie), class: "btn-filmy" %>
+    </div>
+    <div class="add-to-watchlist">
+      <%= simple_form_for movie, :url => user_movies_create_watch_path, :method => :get do |t| %>
+        <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
+        <%= t.submit "Watchlist", class: "btn-filmy" %>
+      <% end %>
+    </div>
+    <div class="add-to-catalog">
+      <%= simple_form_for movie, :url => user_movies_create_catalog_path, :method => :get do |t| %>
+        <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= simple_form_for(@movie_tag, remote: true) do |f| %>
+  <%= f.input :movie_id, input_html: { value: movie.id } %>
+
+  <% @tags.uniq.each do |tag| %>
+    <%= f.label tag.name %>
+    <%= check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
+  <% end %>
+
+
+  <%= f.submit %>
+  <% end  %>
+</div>

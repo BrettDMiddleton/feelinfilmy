@@ -83,12 +83,18 @@
 
 
 
-.form-navbar .btn{
-margin-top:30px;
-}
+// .form-navbar .btn{
+// margin-top:30px;
+// }
 
 .form-navbar input{
 background-color:transparent;
 border-color:$lred;
 color:white;
+}
+
+.sign-in-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

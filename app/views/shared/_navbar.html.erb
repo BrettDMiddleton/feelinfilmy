@@ -1,19 +1,20 @@
+  <!-- New Navbar -->
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
-  <% end %>
-  <!-- Right Navigation -->
+  <div>
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo.png", height: 50 %>
+    <% end %>
+  </div>
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <% if user_signed_in? %>
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.avatar? %>
-        <%= image_tag current_user.avatar, height: 300, width: 400, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-        <% else %>
-        <img src="https://vignette.wikia.nocookie.net/tumblr-survivor-athena/images/7/7a/Blank_Avatar.png/revision/latest/scale-to-width-down/477?cb=20161204161729" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <% end %>
+            <%= image_tag current_user.avatar, height: 300, width: 400, crop: :fill, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% else %>
+            <img src="https://vignette.wikia.nocookie.net/tumblr-survivor-athena/images/7/7a/Blank_Avatar.png/revision/latest/scale-to-width-down/477?cb=20161204161729" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "/pages/dashboard" do %>
@@ -36,21 +37,25 @@
     <% else %>
       <!-- Login link (when logged out) -->
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-navbar row"}) do |f| %>
-  <div class="col-sm-5">
-    <%= f.input :email, required: false, autofocus: true, placeholder: "EMAIL" %>
-  </div>
-  <div class="col-sm-5">
-    <%= f.input :password, required: false, placeholder: "PASSWORD" %>
-    </div>
+      <div class="sign-in-form"; style="padding-top: 20px">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name),
+        wrapper: :inline_form, html: { class: "form-navbar form-inline"}) do |f| %>
 
-  <div class="form-actions col-sm-2">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+            <%= f.input :email, required: false, autofocus: true, placeholder: "EMAIL", label: false %>
 
+
+            <%= f.input :password, required: false, placeholder: "PASSWORD", label: false %>
+
+
+            <%= f.button :submit, "Log in" %>
+
+        <% end %>
+      </div>
     <% end %>
   </div>
+</div>
+
+
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
