@@ -7,6 +7,7 @@ class MoviesController < ApplicationController
     filter_movies
   end
 
+
   def show
     @tags = Tag.all
     @movie = Movie.find(params[:id])
@@ -32,7 +33,6 @@ class MoviesController < ApplicationController
     end
 
     private
-
     def filter_movies_by_selected_tags
       selected_tag_ids = params[:clicked_tag].keys
 
