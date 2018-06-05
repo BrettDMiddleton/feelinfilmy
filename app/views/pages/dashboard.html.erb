@@ -91,7 +91,7 @@
             <div class="down"><i class="fas fa-thumbs-down"></i></div>
 
           </div>
-          <div class="tag-this-movie">TAG THIS MOVIE</div>
+          <button class="tag-this-movie" id=<%= movie.id %> onclick="handleTag(event, this)">TAG THIS MOVIE</button>
           <div class="add-to-watch">ADD TO WATCHLIST</div>
 
         </div>
@@ -110,7 +110,7 @@
           <div class="down"><i class="fas fa-thumbs-down"></i></div>
 
         </div>
-        <div class="tag-this-movie">TAG THIS MOVIE</div>
+        <button class="tag-this-movie" id=<%= movie.id %> >TAG THIS MOVIE</button>
         <div class="add-to-watch">ADD TO WATCHLIST</div>
       </div>
     </div>
@@ -128,15 +128,27 @@
 </div>
 
 
+<!-- TAGGGGGGGGGGGGGGGGGGGGGGGGSSSSSSSSSSSSSSS -->
+
+
+<div class="col-sm-12 tags-section">
+<%= simple_form_for(@movie_tag, remote: true) do |f| %>
+  <%= f.input :movie_id %>
+  <%= f.input :user_id, input_html: { value: current_user.id } %>
+  <%= f.input :tag_id %>
+<%= f.submit %>
+<% end  %>
+
+<% Tag.all.each do |tag| %>
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 my-movie-tags">
+  <p id="<%= tag.id %>" onclick="handleTagClick(event,this)"><%= tag.name.capitalize %></p>
 
 <!-- TAGSSSSS -->
 
 <div class="tags-container container"></div>
 
-
-
-
 </div>
+<% end %>
 
 <!-- TAB ADD TOWATCHLISTS -->
 <div class="col-sm-12">
@@ -151,6 +163,7 @@
 <div class="col-sm-12">
  <div class="search-bar">
    <div class="search">
+
      <%= form_tag movies_index_path, method: :get do %>
      <%= text_field_tag :query,
      params[:query],

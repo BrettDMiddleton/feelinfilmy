@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get 'pages/landing'
   get 'pages/dashboard'
   resources :profiles, only: [ :show ]
+  resources :movie_tags, only: [:create]
+
 end
