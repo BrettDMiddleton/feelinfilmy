@@ -31,8 +31,6 @@ class MoviesController < ApplicationController
   private
 
   def filter_movies_by_selected_tags
-    # selected_tag_ids = params[:clicked_tag].keys
-
     @my_movies = @my_movies.select do |movie|
       movies_tags = movie.tags.pluck(:id)
       movies_genres = movie.genres.pluck(:id)
