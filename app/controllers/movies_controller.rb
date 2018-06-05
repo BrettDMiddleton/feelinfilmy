@@ -24,10 +24,6 @@ class MoviesController < ApplicationController
       @users_with_reviews = @reviews.pluck(:user_id)
     end
 
-    def my_movies
-      watched_movies = UserMovie.where(user_id: current_user)
-      @my_movies = Movie.where.not(id: watched_movies.pluck(:movie_id))
-    end
 
     def filter_movies
       if params[:clicked_tag].present?
