@@ -25,8 +25,9 @@ class PagesController < ApplicationController
 
   #------------Dashboard Methods-------------#
   def dashboard
-    search;
-    my_profile;
+    search
+    my_profile
+    @movie_tag = MovieTag.new
   end
 
   def search
@@ -43,5 +44,7 @@ class PagesController < ApplicationController
 
   def friends_dashboard
   end
+
+
 end
 

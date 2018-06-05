@@ -29,4 +29,3 @@ function makeVisible(x){
 function makeInvisible(x){
   document.getElementById(`${x}hover`).classList.add("display-none");
 }
-
