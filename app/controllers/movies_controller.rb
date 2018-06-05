@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     my_movies
     filter_movies
   end
-end
+
 
   def show
     @movie = Movie.find(params[:id])
