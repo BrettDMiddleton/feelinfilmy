@@ -2,22 +2,38 @@ class MoviesController < ApplicationController
   def index
     @tags = Tag.all
     @genres = Genre.all
-
-    if params[:clicked_tag].present? || params[:clicked_genre].present?
-      filter_movies_by_selected_tags
-    else
-      @movies = Movie.all
-    end
+    my_movies
+    filter_movies
   end
 
   def show
     @movie = Movie.find(params[:id])
+    reviews
+  end
+
+  def reviews
+    @reviews = @movie.reviews
+    @users_with_reviews = @reviews.pluck(:user_id)
+  end
+
+  def my_movies
+    watched_movies = UserMovie.where(user_id: current_user)
+    @my_movies = Movie.where.not(id: watched_movies.pluck(:movie_id))
+  end
+
+  def filter_movies
+    if params[:clicked_tag].present?
+      filter_movies_by_selected_tags
+    end
   end
 
   private
 
   def filter_movies_by_selected_tags
-    @movies = Movie.includes(:tags, :genres).select do |movie|
+    selected_tag_ids = params[:clicked_tag].keys
+
+    # Not the most efficient way of doing things
+    @my_movies = @my_movies.select do |movie|
       movies_tags = movie.tags.pluck(:id)
       movies_genres = movie.genres.pluck(:id)
       clicked_tag_ids = params[:clicked_tag]&.keys&.map(&:to_i)
