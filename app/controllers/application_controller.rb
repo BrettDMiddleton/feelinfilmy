@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :load_quote
   helper_method :resource_name, :resource, :devise_mapping, :resource_class
 
   def my_movies
@@ -23,4 +24,19 @@ class ApplicationController < ActionController::Base
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+
+private
+
+def load_quote
+
+ response = open("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1000",
+        {
+    "X-Mashape-Key" => "cG6SGJcfYDmshzKop80UmgWNqIhqp1NaNx3jsnPxNDl9cQydXX",
+    "Accept" => "application/json"
+  })
+
+    @quote = JSON.parse(response.read)[0]
+  end
+
 end

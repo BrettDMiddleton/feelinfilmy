@@ -1,5 +1,4 @@
 require_relative 'boot'
-
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -25,3 +24,4 @@ module Feelinfilmy
     # the framework and any gems in your application.
   end
 end
+
