@@ -1,16 +1,23 @@
-<%= render 'movies/search_header' %>
-<div class = "wrapper">
-  <div class="homepage-container">
-    <div class="flex">
-      <div class="flexbox-movies">
-        <%= render "movie_list" %>
-      </div>
-      <div class="flexbox-movie-info">
-        <div id="movie-sidebar"></div>
-      </div>
+
+<div class="main-container-index row">
+  <div class="movie-poster-mozaic col-xs-12 col-sm-12 col-md-9 col-lg-9">
+    <%= render 'movies/search_header' %>
+    <div class="flex-mozaic">
+      <%= render "movie_list" %>
     </div>
   </div>
+  <div class="movie-poster-sidebar col-xs-12 col-sm-12 col-md-3 col-lg-3">
+
+ <div class="flexbox-movie-info">
+        <div id="movie-sidebar"></div>
+      </div>
+
+
+  </div>
+
 </div>
+
+
 
 
 
