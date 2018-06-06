@@ -29,12 +29,12 @@ class ApplicationController < ActionController::Base
 private
 
 def load_quote
-
+  require "open-uri"
  response = open("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1000",
         {
-    "X-Mashape-Key" => "cG6SGJcfYDmshzKop80UmgWNqIhqp1NaNx3jsnPxNDl9cQydXX",
-    "Accept" => "application/json"
-  })
+          "X-Mashape-Key" => "cG6SGJcfYDmshzKop80UmgWNqIhqp1NaNx3jsnPxNDl9cQydXX",
+          "Accept" => "application/json"
+        })
 
     @quote = JSON.parse(response.read)[0]
   end
