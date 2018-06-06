@@ -29,6 +29,30 @@ class PagesController < ApplicationController
     my_profile
     @movie_tag = MovieTag.new
   end
+  def catalogue
+    respond_to do |format|
+      format.html
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
+
+  end
+  def watchlist
+    respond_to do |format|
+      format.html
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
+
+  end
+
+
+
+
+
+
+
+
+
+
 
   def search
     if params[:query].present?

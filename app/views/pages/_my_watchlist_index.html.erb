@@ -1,0 +1,40 @@
+
+    <div class="container container-my-movies display-none" id="my-watchlist">
+      <div class="row">
+        <% current_user.user_movies.select { |m| m.watched == true }.each_with_index do |user_movie, index| %>
+        <% if index < 4 %>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 my-movie-box" id=<%= "my-movie2"+index.to_s%>>
+          <div class="my-movies" style="background-image:url(<%= user_movie.movie.poster %>)">
+            <div class="movie-hover display-none" id=<%= "my-movie2"+index.to_s+"hover"%>>
+              <div class="my-movie-title">
+                <h2>
+                  <%= user_movie.movie.title.upcase %>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 display-none my-movie-box" id=<%= "my-movie2"+index.to_s%>>
+          <div class="my-movies" style="background-image:url(<%= user_movie.movie.poster %>)">
+            <div class="movie-hover display-none" id=<%= "my-movie2"+index.to_s+"hover"%>>
+              <div class="my-movie-title">
+                <h2>
+                  <%= user_movie.movie.title.upcase %>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+
+        <script>
+          const movie_length = "<%= current_user.user_movies.select { |m| m.watched == true }.count %>";
+        </script>
+
+      </div>
+      <div class="slidecontainer">
+        <input type="range" min="0" max=<%= (current_user.user_movies.select { |m| m.watched == true }.count - 4) %> value="0" class="slider" id="myRange2">
+      </div>
+    </div>
