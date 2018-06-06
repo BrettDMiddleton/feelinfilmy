@@ -212,12 +212,17 @@ end
 # ----------- USERS MOVIES SEED ------------
 
 @movies = Movie.all
-unique_movies = @movies.sample(5)
+unique_movies = @movies.sample(10)
+
 
 unique_movies.each do |movie|
+random_boolean = [true, false].sample
+
   user_movie = UserMovie.new(
     user_id: User.first.id,
-    movie_id: movie.id
+    movie_id: movie.id,
+    watched: random_boolean
+
     )
   user_movie.save!
 end
