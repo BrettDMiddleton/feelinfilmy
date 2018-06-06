@@ -1,5 +1,5 @@
 <div id="movies-index" class="flex-movie">
-  <% @my_movies.each do |movie|%>
+  <% @my_movies.first(50).each do |movie|%>
       <div 
         class="movie-card"
         style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)),
