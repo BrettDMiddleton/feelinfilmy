@@ -112,27 +112,27 @@ DBMOVIES = [
   "V for Vendetta"
 ]
 
-TAGS = [
-  "Hot Moms",
-  "Acting",
-  "Dialogue",
-  "Smart Lead",
-  "Special Effects",
-  "Characters",
-  "Not All White",
-  "Has Swords",
-  "Cool Villain",
-  "Storyline",
-  "Explosions",
-  "Witty Humour"
-]
+# TAGS = [
+#   "Hot Moms",
+#   "Acting",
+#   "Dialogue",
+#   "Smart Lead",
+#   "Special Effects",
+#   "Characters",
+#   "Not All White",
+#   "Has Swords",
+#   "Cool Villain",
+#   "Storyline",
+#   "Explosions",
+#   "Witty Humour"
+# ]
 
 # ----------- TAG SEED ------------
 
-TAGS.each do |tag|
-  newtag = Tag.new(name: tag)
-  newtag.save!
-end
+# TAGS.each do |tag|
+#   newtag = Tag.new(name: tag)
+#   newtag.save!
+# end
 
 # ----------- MOVIE SEED ------------
 
@@ -140,7 +140,8 @@ genre_array = []
 movie_genre_hash = {}
 
 
-DBMOVIES.each do |dbmovie|
+DBMOVIES.each_with_index do |dbmovie, index|
+  p "#{index} out of #{DBMOVIES.length} complete..."
 
   url = "http://www.omdbapi.com/?apikey=6d63447f&t=#{dbmovie}"
   movie_serialized = open(url).read
@@ -150,15 +151,43 @@ DBMOVIES.each do |dbmovie|
   poster_serialized = open(url_poster).read
   posterjson = JSON.parse(poster_serialized)
   poster_path = posterjson["results"][0]["poster_path"]
-
+  
   # url_trailer = "https://www.googleapis.com/youtube/v3/search?q=#{dbmovie}+official+trailer+#{moviejson['Year']}&order=date&part=snippet&type=video&maxResults=1&key=AIzaSyBpGfvPwLf49l-SLjxRw0sczKe2XIYniCk"
-
+  
   url_trailer = "https://www.googleapis.com/youtube/v3/search?q=#{moviejson["Title"]}+official+trailer+#{moviejson['Year']}&order=relevance&part=snippet&maxResults=1&key=AIzaSyBpGfvPwLf49l-SLjxRw0sczKe2XIYniCk"
-
+  
   trailer_serialized = open(url_trailer).read
   trailerjson = JSON.parse(trailer_serialized)
+  
+  movie_id = posterjson["results"].first["id"]
 
   trailer_path = trailerjson["items"][0]["id"]["videoId"]
+  similar_movies = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/similar?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read) 
+  similar_movies["results"].each do |result|
+    # p "movie -- #{result["original_title"]}"
+    movie = Movie.find_or_create_by!(
+      title: result["original_title"],
+      year: Date.parse(result["release_date"]).year,
+      # runtime: result["Runtime"],
+      rating: result["vote_average"].to_s,
+      plot: result["overview"],
+      # director: result[""],
+      poster: "http://image.tmdb.org/t/p/w500/#{result["poster_path"]}",
+      # trailer:"https://www.youtube.com/watch?v=#{trailer_path}"
+      # trailer: trailer_path
+    )
+    
+    movie_id = result["id"]
+
+    keywords_json = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/keywords?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read)
+
+    keywords_json["keywords"].each do |keyword|
+      # p "tag -- " + keyword["name"]
+      tag = Tag.find_or_create_by(name: keyword["name"])
+      MovieTag.create!(movie: movie, tag: tag, user: User.all.sample)
+      # movie.movie_tags.create(tag: tag)
+    end
+  end
 
   movie = Movie.new(
     title: moviejson["Title"],
@@ -172,6 +201,18 @@ DBMOVIES.each do |dbmovie|
     trailer:trailer_path
     )
   movie.save!
+  # p "movie -- #{movie.title}"
+
+
+  keywords_json = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/keywords?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read)
+
+  keywords_json["keywords"].each do |keyword|
+    # p "tag -- " + keyword["name"]
+    tag = Tag.find_or_create_by(name: keyword["name"])
+    MovieTag.create!(movie: movie, tag: tag, user: User.all.sample)
+    # movie.movie_tags.create(tag: tag)
+  end
+
 
   genre_movie = moviejson["Genre"].split(",")
   genre_movie.each do |genre_alone|
@@ -203,11 +244,11 @@ movie_genre_hash.each do |key, values|
   end
 end
 
-User.all.each do |user|
-  Movie.all.each do |movie|
-    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
-  end
-end
+# User.all.each do |user|
+#   Movie.all.each do |movie|
+#     MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
+#   end
+# end
 
 # ----------- USERS MOVIES SEED ------------
 
@@ -229,20 +270,20 @@ end
 
 # ----------- MOVIE TAGS SEED ------------
 
-@tags = Tag.all
-unique_user_movies = User.first.movies.sample(3)
+# @tags = Tag.all
+# unique_user_movies = User.first.movies.sample(3)
 
-unique_user_movies.each do |movie|
-  unique_movie_tags = @tags.sample(3)
-  unique_movie_tags.each do |tag|
-    movie_tag = MovieTag.new(
-      movie_id: movie.id,
-      user_id: User.first.id,
-      tag_id: tag.id
-      )
-    movie_tag.save!
-  end
-end
+# unique_user_movies.each do |movie|
+#   unique_movie_tags = @tags.sample(3)
+#   unique_movie_tags.each do |tag|
+#     movie_tag = MovieTag.new(
+#       movie_id: movie.id,
+#       user_id: User.first.id,
+#       tag_id: tag.id
+#       )
+#     movie_tag.save!
+#   end
+# end
 
 # ----------- REVIEW SEED ------------
 

@@ -1,4 +1,5 @@
 import "bootstrap";
+import { initializeTypeAhead } from "./../components/typeahead.js";
 // import "movie_caroussel";
 import { initTags } from "./../components/tag.js";
 
@@ -15,3 +16,4 @@ setInterval(function() {
     .appendTo('#slideshow');
 }, 3000);
 
+initializeTypeAhead();

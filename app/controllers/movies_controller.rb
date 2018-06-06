@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
     selected_tag_ids = params[:clicked_tag].keys
 
     # Not the most efficient way of doing things
-    @my_movies = @my_movies.select do |movie|
+    @my_movies = Movie.all.includes(:tags, :genres).select do |movie|
       movies_tags = movie.tags.pluck(:id)
       movies_genres = movie.genres.pluck(:id)
       clicked_tag_ids = params[:clicked_tag]&.keys&.map(&:to_i)
