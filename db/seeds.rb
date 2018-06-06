@@ -242,11 +242,11 @@ movie_genre_hash.each do |key, values|
   end
 end
 
-User.all.each do |user|
-  Movie.all.each do |movie|
-    MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
-  end
-end
+# User.all.each do |user|
+#   Movie.all.each do |movie|
+#     MovieTag.create(user: user, movie: movie, tag: Tag.all.sample)
+#   end
+# end
 
 # ----------- USERS MOVIES SEED ------------
 
@@ -268,20 +268,20 @@ end
 
 # ----------- MOVIE TAGS SEED ------------
 
-@tags = Tag.all
-unique_user_movies = User.first.movies.sample(3)
+# @tags = Tag.all
+# unique_user_movies = User.first.movies.sample(3)
 
-unique_user_movies.each do |movie|
-  unique_movie_tags = @tags.sample(3)
-  unique_movie_tags.each do |tag|
-    movie_tag = MovieTag.new(
-      movie_id: movie.id,
-      user_id: User.first.id,
-      tag_id: tag.id
-      )
-    movie_tag.save!
-  end
-end
+# unique_user_movies.each do |movie|
+#   unique_movie_tags = @tags.sample(3)
+#   unique_movie_tags.each do |tag|
+#     movie_tag = MovieTag.new(
+#       movie_id: movie.id,
+#       user_id: User.first.id,
+#       tag_id: tag.id
+#       )
+#     movie_tag.save!
+#   end
+# end
 
 # ----------- REVIEW SEED ------------
 
