@@ -17,12 +17,12 @@
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to "/pages/dashboard" do %>
+              <%= link_to dashboard_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Dashboard") %>
               <% end %>
             </li>
             <li>
-              <%= link_to "/movies/index" do %>
+              <%= link_to movies_path do %>
                 <i class="fa fa-search"></i> <%= t(".search", default: "Search") %>
               <% end %>
             </li>
