@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
     watched_movies = UserMovie.where(user_id: current_user)
     @my_movies = Movie.where.not(id: watched_movies.pluck(:movie_id))
   end
-
+  
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+  
   def resource_name
     :user
   end
@@ -28,14 +32,13 @@ class ApplicationController < ActionController::Base
 
 private
 
-def load_quote
+  def load_quote
 
- response = open("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1000",
+    response = open("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1000",
         {
     "X-Mashape-Key" => "cG6SGJcfYDmshzKop80UmgWNqIhqp1NaNx3jsnPxNDl9cQydXX",
     "Accept" => "application/json"
-  })
-
+    })
     @quote = JSON.parse(response.read)[0]
   end
 
