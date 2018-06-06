@@ -1,7 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: $black;
+  background: white;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -24,11 +24,11 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  border: 2px solid $lred;
+  border: 2px solid $bgreen;
 }
 
 .navbar-wagon .avatar:hover {
-  border: 2px solid $lblue;
+  border: 2px solid $bblue;
   }
 
 /* Right section */
@@ -46,11 +46,11 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: #616668;
+  color: $bdgrey;
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $blgrey;
   text-decoration: none;
 }
 
@@ -93,8 +93,8 @@
 
 .form-navbar input{
 background-color:transparent;
-border-color:$lred;
-color:white;
+border-color:$bgreen;
+color: $bdgrey;
 }
 
 .sign-in-form {
