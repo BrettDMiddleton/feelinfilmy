@@ -27,15 +27,13 @@
     </div>
   </div>
 
-  <%= simple_form_for(@movie_tag, remote: true) do |f| %>
-  <%= f.input :movie_id, input_html: { value: movie.id } %>
-
   <% @tags.uniq.each do |tag| %>
-    <%= f.label tag.name %>
-    <%= check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
+    <%# f.label tag.name %>
+    <%# check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
+    <%= link_to(
+      tag.name,
+      movie_tags_path(movie_id: movie.id, tag_id: tag.id),
+      remote: true, method: :post, class: "btn-filmy2 add-tag-#{tag.id}"
+    )%>
   <% end %>
-
-
-  <%= f.submit %>
-  <% end  %>
 </div>
