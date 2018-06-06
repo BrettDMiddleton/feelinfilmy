@@ -14,7 +14,7 @@
   </div>
   <div class="tag-box">
     <div class=" row" id="tags-row">
-      <% (@tags).limit(12).each do |filter|%>
+      <% ( @tags).limit(12).each do |filter|%>
       <div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 genre-bg">
         <div class = "tags text-center">
           <button class="btn-filmy2 list-inline"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
