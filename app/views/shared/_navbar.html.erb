@@ -45,11 +45,7 @@
             <%= f.input :email, required: false, autofocus: true, placeholder: "EMAIL", label: false %>
 
 
-  <div class="form-actions col-sm-2">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn-sign-up"  %>
+
 
 
             <%= f.input :password, required: false, placeholder: "PASSWORD", label: false %>
@@ -58,8 +54,8 @@
             <%= f.button :submit, "Log in" %>
 
         <% end %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn-sign-up"  %>
       </div>
-
     <% end %>
   </div>
 </div>
