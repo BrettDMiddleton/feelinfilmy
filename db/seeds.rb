@@ -117,7 +117,7 @@ TAGS = [
   "Acting",
   "Dialogue",
   "Smart Lead",
-  "Special Effects",
+  "Effects",
   "Characters",
   "Not All White",
   "Has Swords",
