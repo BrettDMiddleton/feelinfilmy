@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "/movies/:id", to: "movies#show", as:"movies_show"
   get 'pages/landing'
   get 'pages/dashboard'
+  get 'pages/catalogue'
+  get 'pages/watchlist'
   resources :profiles, only: [ :show ]
   resources :movie_tags, only: [:create]
 
