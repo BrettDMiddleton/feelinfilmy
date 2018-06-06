@@ -12,16 +12,16 @@
   </div>
   <div class="movie-box-buttons">
     <div class="more-info">
-      <%= link_to "More info", movies_show_path(movie), class: "btn-filmy" %>
+      <%= link_to "More info", movie_path(movie), class: "btn-filmy" %>
     </div>
     <div class="add-to-watchlist">
-      <%= simple_form_for movie, :url => user_movies_create_watch_path, :method => :get do |t| %>
+      <%= simple_form_for movie, :url => watch_user_movies_path, method: :post do |t| %>
         <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
         <%= t.submit "Watchlist", class: "btn-filmy" %>
       <% end %>
     </div>
     <div class="add-to-catalog">
-      <%= simple_form_for movie, :url => user_movies_create_catalog_path, :method => :get do |t| %>
+      <%= simple_form_for movie, :url => catalogue_user_movies_path, method: :post do |t| %>
         <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
       <% end %>
     </div>
