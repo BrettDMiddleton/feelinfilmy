@@ -20,6 +20,8 @@ class MoviesController < ApplicationController
     end
   end
 
+  private
+
   def reviews
     @reviews = @movie.reviews
     @users_with_reviews = @reviews.pluck(:user_id)
@@ -30,8 +32,6 @@ class MoviesController < ApplicationController
       filter_movies_by_selected_tags
     end
   end
-
-  private
   
   def filter_movies_by_selected_tags
     selected_tag_ids = params[:clicked_tag].keys
