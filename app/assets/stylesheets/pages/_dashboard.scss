@@ -12,8 +12,9 @@
 .friend-chat-container{
   background-color:$lblue;
   padding-top:150px;
-  padding-bottom:50px;
-
+  margin-bottom:0px;
+  padding-bottom:150px;
+  position:relative;
 }
 .friends-zone{
   border-left:1px solid $black;
@@ -137,9 +138,10 @@
 
 .bottom-section{
   background-color:$dblue;
+  margin-top:0px;
+  padding-top:100px;
 
 }
-
 
 .container-my-movies{
   height:600px;
@@ -166,17 +168,58 @@
 .display-none{
   display:none;
 }
+.dashboard-tab-title{
+  color:white;
+}
+.tab-row{
+  bottom:0px;
+  position:absolute;
+  width:100%;
+}
+.dashboard-tab{
+  height:100px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:2em;
+  background-color:$dblue;
+  margin-top:50px;
+  cursor:pointer;
+  opacity:0.7;
+}
+.dashboard-tab:hover{
+opacity:0.8;
+}
 
 
+
+
+#dashboard-tab1{
+border-top-right-radius:15px;
+
+}
+#dashboard-tab2{
+  border-top-left-radius:15px;
+}
+.tab-active{
+  opacity:1;
+
+}
 //Code for mouseOver on cards movie
 
 
 .movie-hover{
   position:absolute;
+  left:0px;
+  top:0px;
+  bottom:0px;
+  right:0px;
+
   width:100%;
   height:100%;
   background-color:rgba(0,0,0,0.8);
-  text-align:center;
+  // text-align:center;
 }
 .my-movie-title{
   width:100%;
@@ -192,62 +235,24 @@
   }
 
 }
-.upvote-downvote{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  width:74%;
-  margin-left:13%;
-  height:50px;
-  margin-bottom:30px;
-  cursor:pointer;
-  .up{
-    width:46%;
-    height:100%;
-    background-color:white;
-    display:flex;
-  align-items:center;
-  justify-content:center;
-  i{
-    color:$lred;
-    font-size:2em;
-  }
-  }
-  .down{width:46%;
-    height:100%;
-    background-color:white;
-    display:flex;
-  align-items:center;
-    justify-content:center;
-  i{
-    color:$lblue;
-    font-size:2em;
-  }
-  }
-}
-.tag-this-movie{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:74%;
-  margin-left:13%;
-  background-color:white;
-  height:50px;
-  margin-bottom:30px;
-  cursor:pointer;
 
+.my-movie-tags-list{
+  margin-left:-20px;
+  margin-right:20px;
+  text-align:center;
+  list-style-type:none;
+  li{
+    color:white;
+    list-style-type:none;
+    border:1px solid white;
+    border-radius:15px;
+    padding:10px;
+    margin-bottom:10px;
+  }
 }
-.add-to-watch{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:74%;
-  background-color:white;
-  height:50px;
-  margin-left:13%;
-  cursor:pointer;
 
-}
+
+
 // ---------------------------
 .my-movie-tags{
   color:white;
@@ -255,6 +260,6 @@
   text-align:center;
 
 }
-  .my-movie-tags:hover{
-color:$lblue;
-  }
+.my-movie-tags:hover{
+  color:$lblue;
+}

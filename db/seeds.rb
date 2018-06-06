@@ -90,22 +90,41 @@ DBMOVIES = [
   "Blade Runner",
   "Arrival",
   "Prometheus",
-  "Mad Max: Fury Road"
+  "Mad Max: Fury Road",
+  "1984",
+  "A Clockwork Orange",
+  "Dark City",
+  "Elysium",
+  "Escape from New York",
+  "Gattaca",
+  "Hobo with a Shotgun",
+  "Idiocracy",
+  "In Time",
+  "The Island",
+  "The Lobster",
+  "The Maze Runner",
+  "Moon",
+  "Outland",
+  "The Postman",
+  "Repo Man",
+  "A Scanner Darkly",
+  "Tank Girl",
+  "V for Vendetta"
 ]
 
 TAGS = [
-  "character development",
-  "acting",
-  "dialogue",
-  "cinematography",
-  "special effects",
-  "characters",
-  "music and sound design",
-  "thought-provoking",
-  "awesome villain",
-  "storyline/plot",
-  "explosions",
-  "witty humour"
+  "Hot Moms",
+  "Acting",
+  "Dialogue",
+  "Smart Lead",
+  "Special Effects",
+  "Characters",
+  "Not All White",
+  "Has Swords",
+  "Cool Villain",
+  "Storyline",
+  "Explosions",
+  "Witty Humour"
 ]
 
 # ----------- TAG SEED ------------
@@ -193,12 +212,17 @@ end
 # ----------- USERS MOVIES SEED ------------
 
 @movies = Movie.all
-unique_movies = @movies.sample(5)
+unique_movies = @movies.sample(10)
+
 
 unique_movies.each do |movie|
+random_boolean = [true, false].sample
+
   user_movie = UserMovie.new(
     user_id: User.first.id,
-    movie_id: movie.id
+    movie_id: movie.id,
+    watched: random_boolean
+
     )
   user_movie.save!
 end
@@ -233,7 +257,6 @@ end
 
 # ----------- FRIENDSHIPS SEED ------------
 
-
 unique_users_who_are_not_the_first_user = User.where.not(id: User.first.id).sample(3)
 
 unique_users_who_are_not_the_first_user.each do |user|
@@ -243,3 +266,14 @@ unique_users_who_are_not_the_first_user.each do |user|
     )
   friendship.save!
 end
+
+unique_users_who_are_not_the_second_user = User.where.not(id: User.second.id).sample(3)
+
+unique_users_who_are_not_the_first_user.each do |user|
+  friendship = Friendship.new(
+    user_id: User.second.id,
+    friend_user_id: user.id
+    )
+  friendship.save!
+end
+

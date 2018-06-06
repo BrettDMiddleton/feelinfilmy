@@ -1,1 +1,11 @@
-document.getElementById("<%= @tag_id %>").remove()
+//document.getElementById("movies-index").innerHTML = "<%# j(render 'movies/movie_list') %>"
+<%# document.getElementById("movie-sidebar").innerHTML = ""; %>
+
+var tagButton = document.querySelector(".add-tag-<%= @tag.id %>");
+
+(function fadeOutTagButton(tagButtonElement) {
+  tagButtonElement.style.opacity = "0";
+  setTimeout(function() {
+    tagButtonElement.remove();
+  }, 250)
+})(tagButton);
