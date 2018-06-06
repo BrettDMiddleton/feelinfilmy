@@ -1,29 +1,28 @@
 .footer {
-  background: $black;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 100px;
+  height: 60px;
   padding: 0px 50px;
   position:fixed;
   bottom:0px;
   width:100%;
+  z-index: 1000;
 }
 .footer-links {
-  // display: flex;
   align-items: center;
   text-align: center;
 }
 .footer-links a {
-  color: $lblue;
+  color: $bgreen;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
-  color: $lred;
+  color: $blgrey;
 }
-
 .discover{
   background-color: #00E2EC;
   padding: 31px;
@@ -32,16 +31,12 @@
 .discover a:hover {
   color: black;
 }
-
-
 .what {
   color: white;
 }
-
 #discover-word {
   color: #FF006F;
 }
-
 #question{
   color:white;
 }

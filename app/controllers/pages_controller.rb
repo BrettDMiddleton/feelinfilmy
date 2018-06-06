@@ -25,10 +25,13 @@ class PagesController < ApplicationController
 
   #------------Dashboard Methods-------------#
   def dashboard
+
     search
     my_profile
     @movie_tag = MovieTag.new
+    @user_movies = UserMovie.all
   end
+
   def catalogue
     respond_to do |format|
       format.html

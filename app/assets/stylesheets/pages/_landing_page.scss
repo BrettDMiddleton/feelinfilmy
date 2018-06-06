@@ -1,90 +1,48 @@
-.landing{
+.landing-image{
   background-size: cover !important;
   background-repeat: no-repeat;
   height: calc(100vh - 70px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-
 .landing-content{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
+  margin-right: 35px;
+  text-align: right;
+  height: 500px;
+  width: 60vw;
 }
-
-.landing .title {
-  h1{
-    font-family: $title-font;
-    font-size: 150px ! important;
-    color: $black;
-    line-height: 80px;
-    text-transform: uppercase;
-  }
-  h2{
-    font-size: 40px ! important;
-    color: #f3f3f3
-  }
-}
-
-#slideshow {
-    margin: 50px auto;
-    position: relative;
-    width: 320px;
-    height: 220px;
-    padding: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-}
-
-#slideshow > div {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-}
-
-.landing ul.liked.flexbox li img {
-  width: 100px;
-  flex: 0 0 0;
-}
-
-.landing .flexbox {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.landing .flex-item {
-  display: flex;
-  flex-direction: column;
-}
-
-.landing ul div.flexbox li div div img {
-  width: 100px;
-  margin: 10px;
-}
-
-.landing .avatar {
-  text-align: center;
-}
-
-.landing .avatar img {
-    border-radius: 50%;
-    margin-top: 10px;
-}
-
-.landing .bottom-third {
-  padding-top: 15px;
-}
-
-
-.image{
-  background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%);
-  top: 0;
-  bottom: 0;
+.title h1{
+  font-family: 'Pacifico', cursive;
+  font-size: 150px ! important;
+  color: $black;
+  line-height: 80px;
   position: absolute;
-  left: 0;
-  right: 0
+  top: 130px;
+  right: 60px;
+}
+.sub-title{
+  font-size: 40px ! important;
+  color: $bdgrey;
+  position: absolute;
+  top: 250px;
+  right: 170px;
+}
+.landing-button{
+  position: absolute;
+  top: 360px;
+  right: 400px;
+}
+.landing-btn{
+  padding:14px 26px;
+  background-color:rgba(255,255,255,0.6);
+  box-shadow: 0px 0px 10px rgba(238, 65, 61, 0.6);
+  border-radius:10px;
+  border: 2px solid $bred;
+  color: $bred;
+  font-weight: bolder;
+  transition: opacity 0.25s;
+}
+.landing-btn:hover {
+  text-decoration: none;
+  color: $bred;
+  background-color:rgba(255,255,255,0.9);
+  box-shadow: 0px 0px 10px rgba(238, 65, 61, 0.9);
 }
