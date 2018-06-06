@@ -112,27 +112,27 @@ DBMOVIES = [
   "V for Vendetta"
 ]
 
-TAGS = [
-  "Hot Moms",
-  "Acting",
-  "Dialogue",
-  "Smart Lead",
-  "Special Effects",
-  "Characters",
-  "Not All White",
-  "Has Swords",
-  "Cool Villain",
-  "Storyline",
-  "Explosions",
-  "Witty Humour"
-]
+# TAGS = [
+#   "Hot Moms",
+#   "Acting",
+#   "Dialogue",
+#   "Smart Lead",
+#   "Special Effects",
+#   "Characters",
+#   "Not All White",
+#   "Has Swords",
+#   "Cool Villain",
+#   "Storyline",
+#   "Explosions",
+#   "Witty Humour"
+# ]
 
 # ----------- TAG SEED ------------
 
-TAGS.each do |tag|
-  newtag = Tag.new(name: tag)
-  newtag.save!
-end
+# TAGS.each do |tag|
+#   newtag = Tag.new(name: tag)
+#   newtag.save!
+# end
 
 # ----------- MOVIE SEED ------------
 
@@ -150,15 +150,43 @@ DBMOVIES.each do |dbmovie|
   poster_serialized = open(url_poster).read
   posterjson = JSON.parse(poster_serialized)
   poster_path = posterjson["results"][0]["poster_path"]
-
+  
   # url_trailer = "https://www.googleapis.com/youtube/v3/search?q=#{dbmovie}+official+trailer+#{moviejson['Year']}&order=date&part=snippet&type=video&maxResults=1&key=AIzaSyBpGfvPwLf49l-SLjxRw0sczKe2XIYniCk"
-
+  
   url_trailer = "https://www.googleapis.com/youtube/v3/search?q=#{moviejson["Title"]}+official+trailer+#{moviejson['Year']}&order=relevance&part=snippet&maxResults=1&key=AIzaSyBpGfvPwLf49l-SLjxRw0sczKe2XIYniCk"
-
+  
   trailer_serialized = open(url_trailer).read
   trailerjson = JSON.parse(trailer_serialized)
+  
+  movie_id = posterjson["results"].first["id"]
 
   trailer_path = trailerjson["items"][0]["id"]["videoId"]
+  similar_movies = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/similar?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read) 
+  similar_movies["results"].first(3).each do |result|
+    p "movie -- #{result["original_title"]}"
+    movie = Movie.find_or_create_by!(
+      title: result["original_title"],
+      year: Date.parse(result["release_date"]).year,
+      # runtime: result["Runtime"],
+      rating: result["vote_average"].to_s,
+      plot: result["overview"],
+      # director: result[""],
+      poster: "http://image.tmdb.org/t/p/w500/#{result["poster_path"]}",
+      # trailer:"https://www.youtube.com/watch?v=#{trailer_path}"
+      # trailer: trailer_path
+    )
+    
+    movie_id = result["id"]
+
+    keywords_json = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/keywords?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read)
+
+    keywords_json["keywords"].each do |keyword|
+      p "tag -- " + keyword["name"]
+      tag = Tag.find_or_create_by(name: keyword["name"])
+      MovieTag.create!(movie: movie, tag: tag, user: User.all.sample)
+      # movie.movie_tags.create(tag: tag)
+    end
+  end
 
   movie = Movie.new(
     title: moviejson["Title"],
@@ -172,6 +200,17 @@ DBMOVIES.each do |dbmovie|
     trailer:trailer_path
     )
   movie.save!
+
+
+  keywords_json = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/keywords?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read)
+
+  keywords_json["keywords"].each do |keyword|
+    p keyword["name"]
+    tag = Tag.find_or_create_by(name: keyword["name"])
+    MovieTag.create!(movie: movie, tag: tag, user: User.all.sample)
+    # movie.movie_tags.create(tag: tag)
+  end
+
 
   genre_movie = moviejson["Genre"].split(",")
   genre_movie.each do |genre_alone|
