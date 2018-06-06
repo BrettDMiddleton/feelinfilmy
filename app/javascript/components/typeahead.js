@@ -83,7 +83,7 @@ export const initializeTypeAhead = () => {
         '</div>'
       ].join('\n'),
       suggestion: (data) => {
-        return `<div><strong>${data}</strong></div>`
+        return `<div>${data}</div>`
       }
     }    
   });
