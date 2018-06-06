@@ -33,7 +33,7 @@
     <%= link_to(
       tag.name,
       movie_tags_path(movie_id: movie.id, tag_id: tag.id),
-      remote: true, method: :post, class: "btn-filmy2 add-tag-#{tag.id}"
+      remote: true, method: :post, class: "btn-filmy add-tag-#{tag.id}"
     )%>
   <% end %>
 </div>
