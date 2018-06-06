@@ -71,3 +71,23 @@
   border: 2px solid $lred;
   color: $lred;
 }
+.btn-sign-up{
+    background-color: transparent;
+    border: solid 1px #91AA9D;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 2px;
+    margin-bottom: 27.7px;
+    font-size: 18px;
+  }
+.btn-sign-up a{
+  text-decoration: none;
+
+}
+
+.btn-sign-up:hover{
+  text-decoration: none;
+}

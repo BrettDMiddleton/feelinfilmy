@@ -11,7 +11,6 @@
   z-index: 1000;
 }
 .footer-links {
-  // display: flex;
   align-items: center;
   text-align: center;
 }
@@ -24,7 +23,6 @@
 .footer-links a:hover {
   color: $blgrey;
 }
-
 .discover{
   background-color: #00E2EC;
   padding: 31px;
@@ -33,16 +31,12 @@
 .discover a:hover {
   color: black;
 }
-
-
 .what {
   color: white;
 }
-
 #discover-word {
   color: #FF006F;
 }
-
 #question{
   color:white;
 }

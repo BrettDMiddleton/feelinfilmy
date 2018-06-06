@@ -28,6 +28,7 @@ class PagesController < ApplicationController
     search
     my_profile
     @movie_tag = MovieTag.new
+    @user_movies = UserMovie.all
   end
   def catalogue
     respond_to do |format|
