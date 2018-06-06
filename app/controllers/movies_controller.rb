@@ -20,20 +20,21 @@ class MoviesController < ApplicationController
     end
   end
 
-    def reviews
-      @reviews = @movie.reviews
-      @users_with_reviews = @reviews.pluck(:user_id)
-    end
+  private
 
-    def filter_movies
-      if params[:clicked_tag].present?
-        filter_movies_by_selected_tags
-      end
-    end
+  def reviews
+    @reviews = @movie.reviews
+    @users_with_reviews = @reviews.pluck(:user_id)
+  end
 
-    private
-    def filter_movies_by_selected_tags
-      selected_tag_ids = params[:clicked_tag].keys
+  def filter_movies
+    if params[:clicked_tag].present?
+      filter_movies_by_selected_tags
+    end
+  end
+  
+  def filter_movies_by_selected_tags
+    selected_tag_ids = params[:clicked_tag].keys
 
     # Not the most efficient way of doing things
     @my_movies = @my_movies.select do |movie|
@@ -46,10 +47,10 @@ class MoviesController < ApplicationController
         clicked_tag_ids.all? { |tag_id| movies_tags.include?(tag_id) } &&
         clicked_genre_ids.all? { |genre_id| movies_genres.include?(genre_id) }
       elsif clicked_genre_ids.present?
-       clicked_genre_ids.all? { |genre_id| movies_genres.include?(genre_id) }
-     else
-      clicked_tag_ids.all? { |tag_id| movies_tags.include?(tag_id) }
+        clicked_genre_ids.all? { |genre_id| movies_genres.include?(genre_id) }
+      else
+        clicked_tag_ids.all? { |tag_id| movies_tags.include?(tag_id) }
+      end
     end
   end
-end
 end
