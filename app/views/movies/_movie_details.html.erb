@@ -21,7 +21,7 @@
       <% end %>
     </div>
     <div class="add-to-catalog">
-      <%= simple_form_for movie, :url => catalogue_user_movies_path, method: :get do |t| %>
+      <%= simple_form_for movie, :url => catalogue_user_movies_path, method: :post do |t| %>
         <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
       <% end %>
     </div>
