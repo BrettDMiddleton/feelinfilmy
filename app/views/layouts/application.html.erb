@@ -12,7 +12,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <div class="fixed-navbar-adjust" style="margin-top:70px;">
     <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
