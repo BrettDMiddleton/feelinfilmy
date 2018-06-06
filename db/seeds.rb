@@ -140,7 +140,8 @@ genre_array = []
 movie_genre_hash = {}
 
 
-DBMOVIES.each do |dbmovie|
+DBMOVIES.each_with_index do |dbmovie, index|
+  p "#{index} out of #{DBMOVIES.length} complete..."
 
   url = "http://www.omdbapi.com/?apikey=6d63447f&t=#{dbmovie}"
   movie_serialized = open(url).read
@@ -162,8 +163,8 @@ DBMOVIES.each do |dbmovie|
 
   trailer_path = trailerjson["items"][0]["id"]["videoId"]
   similar_movies = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/similar?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read) 
-  similar_movies["results"].first(3).each do |result|
-    p "movie -- #{result["original_title"]}"
+  similar_movies["results"].each do |result|
+    # p "movie -- #{result["original_title"]}"
     movie = Movie.find_or_create_by!(
       title: result["original_title"],
       year: Date.parse(result["release_date"]).year,
@@ -181,7 +182,7 @@ DBMOVIES.each do |dbmovie|
     keywords_json = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/keywords?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read)
 
     keywords_json["keywords"].each do |keyword|
-      p "tag -- " + keyword["name"]
+      # p "tag -- " + keyword["name"]
       tag = Tag.find_or_create_by(name: keyword["name"])
       MovieTag.create!(movie: movie, tag: tag, user: User.all.sample)
       # movie.movie_tags.create(tag: tag)
@@ -200,12 +201,13 @@ DBMOVIES.each do |dbmovie|
     trailer:trailer_path
     )
   movie.save!
+  # p "movie -- #{movie.title}"
 
 
   keywords_json = JSON.parse(open("https://api.themoviedb.org/3/movie/#{movie_id}/keywords?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb").read)
 
   keywords_json["keywords"].each do |keyword|
-    p keyword["name"]
+    # p "tag -- " + keyword["name"]
     tag = Tag.find_or_create_by(name: keyword["name"])
     MovieTag.create!(movie: movie, tag: tag, user: User.all.sample)
     # movie.movie_tags.create(tag: tag)
