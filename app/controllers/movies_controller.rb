@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
   end
 
   def filter_movies
-    if params[:clicked_tag].present?
+    if params[:clicked_tag].present? || params[:clicked_genre].present?
       filter_movies_by_selected_tags
     end
   end

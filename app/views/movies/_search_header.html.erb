@@ -1,28 +1,28 @@
-
-<div class="header">
-  <div class="genre-box">
-    <div class="genres row" id="genre-row">
-      <%= form_tag movies_path, remote: true, method: :get, id: "form" do %>
-      <% (@genres).limit(12).each do |filter|%>
-      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 genre-bg">
-        <div class = "tags text-center">
-          <button class="btn-filmy2 list-inline"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
-        </div>
+<%= form_tag movies_path, remote: true, method: :get, id: "form" do %>
+  <div class="header">
+    <div class="genre-box">
+      <div class="genres row" id="genre-row">
+        <% (@genres).limit(12).each do |filter|%>
+          <div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 genre-bg">
+            <div class = "tags text-center">
+              <button class="btn-filmy2 list-inline"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <% end %>
+    </div>
+    <div class="tag-box">
+      <div class=" row" id="tags-row">
+        <% (@tags).limit(12).each do |filter|%>
+          <div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 genre-bg">
+            <div class = "tags text-center">
+              <button class="btn-filmy2 list-inline"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
+            </div>
+          </div>
+        <% end %>
+        <%= submit_tag "filter", id: "filter-movies", style: "display: none" %>
+      </div>
     </div>
   </div>
-  <div class="tag-box">
-    <div class=" row" id="tags-row">
-      <% ( @tags).limit(12).each do |filter|%>
-      <div class="col-xs-6 col-sm-4 col-md-2 col-lg-1 genre-bg">
-        <div class = "tags text-center">
-          <button class="btn-filmy2 list-inline"><%= filter.name %><%= check_box_tag "clicked_#{filter.class.to_s.downcase}[#{filter.id}]" %></button>
-        </div>
-      </div>
-      <% end %>
-      <%= submit_tag "filter", id: "filter-movies", style: "display: none" %>
-      <% end %>
-    </div>
-  </div>
-  <%= submit_tag "filter", id: "filter-movies", style: "display: none" %>
+<% end %>
+  <%# submit_tag "filter", id: "filter-movies", style: "display: none" %>
