@@ -1,20 +1,8 @@
-<div class="container">
-  <div class="row">
-    <% @my_movies.each do |movie|%>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= movie.poster? ? image_path(movie.poster, height: 300, width: 400, crop: :fill) : 'http://placeholder.it' ; %>');">
-        <%= link_to "", movies_show_path(movie), class: "card-link", remote: true %>
-        </div>
-      </div>
-      <!--<%= simple_form_for movie, :url => user_movies_create_catalog_path, :method => :get do |t| %>
-        <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
-        <%= t.submit "Catalog", class: "btn" %>
-      <% end %>
-      <%= simple_form_for movie, :url => user_movies_create_watch_path, :method => :get do |t| %>
-        <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
-        <%= t.submit "Watchlist", class: "btn" %>
-      <% end %>-->
-    <% end %>
-  </div>
+<div id="movies-index" class="flex-movie">
+  <% @my_movies.each do |movie|%>
+      <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= movie.poster? ? image_path(movie.poster, height: 300, width: 400, crop: :fill) : 'http://placeholder.it' ; %>');">
+      <%= link_to "", movies_show_path(movie), class: "card-link", remote: true %>
+    </div>
+  <% end %>
 </div>
 
