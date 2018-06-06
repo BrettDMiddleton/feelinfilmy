@@ -34,6 +34,7 @@
           </ul>
         </div>
       </div>
+
     <% else %>
       <!-- Login link (when logged out) -->
 
@@ -44,12 +45,16 @@
             <%= f.input :email, required: false, autofocus: true, placeholder: "EMAIL", label: false %>
 
 
+
+
+
             <%= f.input :password, required: false, placeholder: "PASSWORD", label: false %>
 
 
             <%= f.button :submit, "Log in" %>
 
         <% end %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn-sign-up"  %>
       </div>
     <% end %>
   </div>
