@@ -37,8 +37,6 @@
 					<% end %>
 				</div>
 			</div>
-
-
       <script>
         const switchTab = (event, contain, tab) => {
           const activeContain = document.getElementById(contain);
@@ -50,67 +48,49 @@
             document.getElementById('dashboard-tab2').classList.remove("tab-active");
             activeContain.classList.remove("display-none");
             activeTab.classList.add("tab-active");
-
-    // setSlider('myRange', 'my-movie', movie_length);
-  }
-  if (false) {
-      //setSlider('myRange', 'my-movie', movie_length2);
-    }
-  };
-</script>
-
-
-
-
-<div class="tab-row row">
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 dashboard-tab tab-active" id="dashboard-tab1" onclick="switchTab(event, 'my-catalogue', 'dashboard-tab1')">MY CATALOGUE</div>
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 dashboard-tab" id="dashboard-tab2" onclick="switchTab(event, 'my-watchlist','dashboard-tab2')">MY WATCHLIST</div>
-</div>
-</div>
-<!-- 			<div class="chat-zone col-xs-12 col-sm-12 col-md-6 col-lg-6">
-				<h1>CHAT</h1>
-				<div class="chat-container">
-					<div class="chat-title">
-						CURRENTLY TALKING TO BIFF TANNEN
-					</div>
-					<div class="chat-containt">
-					</div>
-					<div class="chat-footer">
-					</div> -->
-
-       </div>
-
-     </div>
-
-     <!-- TAB MY MOVIES -->
-     <div class="bottom-section" id="bottom-section">
-      <%= render "my_film_index"%>
-      <%= render "my_watchlist_index"%>
+          }
+          if (false) {
+          }
+        };
+      </script>
+      <div class="tab-row row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 dashboard-tab tab-active" id="dashboard-tab1" onclick="switchTab(event, 'my-catalogue', 'dashboard-tab1')">MY CATALOGUE</div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 dashboard-tab" id="dashboard-tab2" onclick="switchTab(event, 'my-watchlist','dashboard-tab2')">MY WATCHLIST</div>
+      </div>
     </div>
+  </dv>
 
-    <!-- TAB ADD TOWATCHLISTS -->
+</div>
+
+<!-- TAB MY MOVIES AND WATCHLIST -->
+<div class="bottom-section" id="bottom-section">
+  <div class="container container-my-movies" id="my-catalogue">
+    <%= render "my_film_index"%>
+  </div>
+  <div class="container container-my-movies display-none" id="my-watchlist">
+    <%= render "my_watchlist_index"%>
+  </div>
+</div>
 
 
-
-    <!-- TAB FIND A MOVIE -->
-    <div class="col-sm-12">
-      <div class="search-bar">
-       <div class="search">
-        <%= form_tag movies_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-         placeholder: "Find a movie"
-         %>
-         <% end %>
-       </div>
-     </div>
+<div class="col-sm-12">
+  <div class="search-bar">
+   <div class="search">
+    <%= form_tag movies_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+     placeholder: "Find a movie"
+     %>
+     <% end %>
    </div>
+ </div>
+</div>
 
-   <!-- TAB EDIT PROFILE -->
-   <div class="col-sm-12">
-     <div class="edit-profile">
-     </div>
-   </div>
+<!-- TAB EDIT PROFILE -->
+<div class="col-sm-12">
+ <div class="edit-profile">
+ </div>
+</div>
 
 
