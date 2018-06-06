@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <% @tags.uniq.each do |tag| %>
+  <% @tags.uniq.first(12).each do |tag| %>
     <%# f.label tag.name %>
     <%# check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
     <%= link_to(
