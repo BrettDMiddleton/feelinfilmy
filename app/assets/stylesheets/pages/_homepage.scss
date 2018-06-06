@@ -9,6 +9,9 @@
   width: 150px;
   color: $lblue;
   font-weight: bolder;
+
+  transition: opacity 0.25s;
+
   input {
     position: absolute;
     top: 0;
