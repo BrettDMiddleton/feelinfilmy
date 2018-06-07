@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 const initTags = () => {
   const form = document.getElementById("form")
   const tags = document.querySelectorAll(".btn-filmy2");

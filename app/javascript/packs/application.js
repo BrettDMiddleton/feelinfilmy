@@ -1,7 +1,9 @@
 import "bootstrap";
+//= require sweetalert
 // import "movie_caroussel";
-import { initTags } from "./../components/tag.js";
 
+
+import { initTags } from "./../components/tag.js";
 initTags();
 
 $("#slideshow > div:gt(0)").hide();

@@ -15,9 +15,9 @@
       <%= link_to "More info", movie_path(movie), class: "btn-filmy" %>
     </div>
     <div class="add-to-watchlist">
-      <%= simple_form_for movie, :url => watch_user_movies_path, method: :post do |t| %>
+      <%= simple_form_for movie, :url => watch_user_movies_path, method: :post, html: { onsubmit: "watchListButton(event, this)"} do |t| %>
         <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
-        <%= t.submit "Watchlist", class: "btn-filmy" %>
+        <%= t.submit "Watchlist", class: "btn-filmy", id: "watch"%>
       <% end %>
     </div>
     <div class="add-to-catalog">
