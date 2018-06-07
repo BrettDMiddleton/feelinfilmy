@@ -5,7 +5,6 @@
   <div class="movie-title">
     <h1><%= movie.title.upcase %><small> <%=movie.year %></small></h1>
   </div>
-  <hr>
   <div class="movie-description"><p>
     <%= movie.plot %>
   </p>
@@ -26,14 +25,15 @@
       <% end %>
     </div>
   </div>
-
-  <% @tags.uniq.each do |tag| %>
-    <%# f.label tag.name %>
-    <%# check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
-    <%= link_to(
-      tag.name,
-      movie_tags_path(movie_id: movie.id, tag_id: tag.id),
-      remote: true, method: :post, class: "btn-filmy2 add-tag-#{tag.id}"
-    )%>
-  <% end %>
+  <div class="add-tags">
+    <% @tags.uniq.each do |tag| %>
+      <%# f.label tag.name %>
+      <%# check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
+      <%= link_to(
+        tag.name,
+        movie_tags_path(movie_id: movie.id, tag_id: tag.id),
+        remote: true, method: :post, class: "btn-filmy add-tag-#{tag.id}"
+      )%>
+    <% end %>
+  </div>
 </div>

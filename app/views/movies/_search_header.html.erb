@@ -11,6 +11,7 @@
         <% end %>
       </div>
     </div>
+  </div>
     <div class="tag-box">
       <div class=" row" id="tags-row">
         <% (@tags).limit(12).each do |filter|%>
@@ -23,6 +24,4 @@
         <%= submit_tag "filter", id: "filter-movies", style: "display: none" %>
       </div>
     </div>
-  </div>
 <% end %>
-  <%# submit_tag "filter", id: "filter-movies", style: "display: none" %>

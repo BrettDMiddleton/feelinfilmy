@@ -1,6 +1,8 @@
 import "bootstrap";
+
 //= require sweetalert
 // import "movie_caroussel";
+
 
 
 import { initTags } from "./../components/tag.js";
@@ -16,4 +18,7 @@ setInterval(function() {
     .end()
     .appendTo('#slideshow');
 }, 3000);
+
+
+
 
