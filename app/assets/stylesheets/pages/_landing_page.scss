@@ -28,21 +28,20 @@
 .landing-button{
   position: absolute;
   top: 360px;
-  right: 400px;
+  right: 100px;
 }
 .landing-btn{
-  padding:14px 26px;
-  background-color:rgba(255,255,255,0.6);
-  box-shadow: 0px 0px 10px rgba(238, 65, 61, 0.6);
-  border-radius:10px;
-  border: 2px solid $bred;
-  color: $bred;
+  padding: 15px 38px;
+  background-color: white;
+  border-radius: 10px;
+  border: 3px solid $bblue;
+  color: $bblue;
   font-weight: bolder;
-  transition: opacity 0.25s;
+  text-align: center;
 }
 .landing-btn:hover {
   text-decoration: none;
-  color: $bred;
-  background-color:rgba(255,255,255,0.9);
-  box-shadow: 0px 0px 10px rgba(238, 65, 61, 0.9);
+  box-shadow: 0px 0px 10px $bblue;
+  font-weight: lighter;
+  color: $bblue;
 }
