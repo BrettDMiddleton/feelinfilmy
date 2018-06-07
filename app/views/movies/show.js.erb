@@ -1,1 +1,5 @@
 document.getElementById("movie-sidebar").innerHTML = '<%= j render "movie_details", movie: @movie %>';
+document.getElementById("movie-sidebar").classList.toggle("open-sidebar")
+document.getElementById("sidebar-wrapper").classList.toggle("open-bg-sidebar")
+document.getElementById("sidebar-container").classList.toggle("open-bg-sidebar")
+
