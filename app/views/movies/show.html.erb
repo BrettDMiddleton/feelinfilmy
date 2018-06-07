@@ -40,7 +40,15 @@
             <li class="btn-sites">Amazon</li>
           </ul>
         </div>
-        <div class="btn" id="add-catalogue">Add to Catalogue</div>
+
+        <div class="add-to-catalog">
+      <%= simple_form_for @movie, :url => catalogue_user_movies_path, method: :post do |t| %>
+        <%= t.input :@movie_id, as: :hidden, :input_html => { value: @movie.id } %>
+         <%= t.submit "Add to Catalogue", class: "btn-filmy"%>
+      <% end %>
+    </div>
+
+        <!-- <div class="btn" id="add-catalogue">Add to Catalogue</div> -->
 
       </div>
     </div>
