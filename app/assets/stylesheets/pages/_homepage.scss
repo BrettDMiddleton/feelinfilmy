@@ -81,13 +81,12 @@
   background-size: cover !important;
   background-position: center;
   position: relative;
-  border: 3px solid $bgreen;
   border-radius: 8px;
   margin-bottom:10px;
   margin-right: 10px;
 }
 .movie-card:hover {
-  border: 3px solid #05e6ff;
+  border: 3px solid $bgreen;
   box-shadow: 0px 0px 10px white;
   transform: scale(1.05, 1.05);
   transition-property: transform;
