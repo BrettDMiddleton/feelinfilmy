@@ -84,17 +84,11 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
-
-
-
-// .form-navbar .btn{
-// margin-top:30px;
-// }
-
 .form-navbar input{
-background-color:transparent;
-border-color:$bgreen;
-color: $bdgrey;
+  background-color:transparent;
+  border-radius:10px;
+  border: 2px solid $bgreen;
+  color: $bdgrey;
 }
 
 .sign-in-form {
