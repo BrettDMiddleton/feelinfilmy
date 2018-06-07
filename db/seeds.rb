@@ -212,21 +212,22 @@ end
 # ----------- USERS MOVIES SEED ------------
 
 @movies = Movie.all
-unique_movies = @movies.sample(10)
 
 
-unique_movies.each do |movie|
-random_boolean = [true, false].sample
+User.all.each do |user|
+  unique_movies = @movies.sample(10)
+  unique_movies.each do |movie|
+    random_boolean = [true, false].sample
 
-  user_movie = UserMovie.new(
-    user_id: User.first.id,
-    movie_id: movie.id,
-    watched: random_boolean
+    user_movie = UserMovie.new(
+      user_id: user.id,
+      movie_id: movie.id,
+      watched: random_boolean
 
-    )
-  user_movie.save!
+      )
+    user_movie.save!
+  end
 end
-
 # ----------- MOVIE TAGS SEED ------------
 
 @tags = Tag.all
@@ -244,6 +245,23 @@ unique_user_movies.each do |movie|
   end
 end
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ----------- REVIEW SEED ------------
 
 unique_user_movies.each do |movie|
@@ -257,23 +275,49 @@ end
 
 # ----------- FRIENDSHIPS SEED ------------
 
-unique_users_who_are_not_the_first_user = User.where.not(id: User.first.id).sample(3)
+User.all.each do |user|
 
-unique_users_who_are_not_the_first_user.each do |user|
-  friendship = Friendship.new(
-    user_id: User.first.id,
-    friend_user_id: user.id
-    )
-  friendship.save!
+  friends = User.where.not(id: user.id).sample(3)
+
+  friends.each do |friend|
+
+    friendship = Friendship.new(
+      user_id: user.id,
+      friend_user_id: friend.id
+      )
+    friendship.save!
+  end
+
+
 end
 
-unique_users_who_are_not_the_second_user = User.where.not(id: User.second.id).sample(3)
 
-unique_users_who_are_not_the_first_user.each do |user|
-  friendship = Friendship.new(
-    user_id: User.second.id,
-    friend_user_id: user.id
-    )
-  friendship.save!
-end
+
+
+
+
+
+
+
+
+
+# unique_users_who_are_not_the_first_user = User.where.not(id: User.first.id).sample(3)
+
+# unique_users_who_are_not_the_first_user.each do |user|
+#   friendship = Friendship.new(
+#     user_id: User.first.id,
+#     friend_user_id: user.id
+#     )
+#   friendship.save!
+# end
+
+# unique_users_who_are_not_the_second_user = User.where.not(id: User.second.id).sample(3)
+
+# unique_users_who_are_not_the_first_user.each do |user|
+#   friendship = Friendship.new(
+#     user_id: User.second.id,
+#     friend_user_id: user.id
+#     )
+#   friendship.save!
+# end
 
