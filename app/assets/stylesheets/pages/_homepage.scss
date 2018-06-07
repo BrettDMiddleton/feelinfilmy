@@ -104,25 +104,27 @@
 }
 .movie-title h1{
   color:$black;
+  margin: 30px;
 }
 .movie-description{
   color:$lblue;
+  margin: 30px;
 }
 .movie-box-buttons{
 
 }
-.add-tags{
-  display: flex;
-}
 .add-tags-btn{
-  margin:4px -8px;
+  margin:4px 4px;
   padding:10px 2px;
   background-color:transparent;
   border-radius:10px;
   border: 2px solid white;
   color:white;
   font-size:0.7em;
-  width:110%;
+  text-align: center;
+  width: 100px;
+  float: left;
+
 }
 .add-tags-btn:hover{
   text-decoration: none;
@@ -150,7 +152,8 @@
 .movie-box{
   border: 2px solid $green;
   padding: 3px;
-  background-color: $bgreen;
+  margin: 30px;
+  background-color: $bblue;
   border-radius: 10px;
 }
 .open-bg-sidebar{
@@ -177,6 +180,7 @@
 // }
 .infobox{
   background-color: $bgreen;
+  height: 300px;
 }
 .sidebar-container{
   height: calc(100vh);
