@@ -1,30 +1,39 @@
 .banner-dashboard{
   height:40vh;
-  background-color:red;
+  background-image:url(cinema.jpg);
+  background-size:cover;
+  background-position:center;
   z-index:4;
   text-align:center;
   display:flex;
   justify-content:center;
+
+
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .friend-chat-container{
-  background-color:$lblue;
+  background-color:#f4f4f4;
   padding-top:200px!important;
   margin-bottom:0px;
-  padding-bottom:300px;
+  padding-bottom:200px;
   position:relative;
   display:flex;
   justify-content:center;
   text-align:center;
   align-items:center;
+    box-shadow:-1px -1px 1px black;
 }
-
 .friends-zone{
   text-align:center;
   h1{
-    color:white;
+    color:$bblue;
   }
-.my-friends{
+  #friend-friends{
+   margin-top:30px;
+ }
+ .my-friends{
   display:flex;
   align-items:center;
   justify-content:center;
@@ -32,35 +41,50 @@
 
 }
 .friend-card-container{
-  border: 4px solid $lred;
+ // border: 1px solid black;
+ //  box-shadow: -1px -1px 1px white;
   margin:5px;
 }
-.friend-card-body{
-  width:100%;
-  background-color:$black;
-  padding:20px;
-}
+// .friend-card-body{
+//   width:100%;
+//   background-color:$bgreen;
+//   padding:20px;
+// }
 .friend-card-photo{
   width:100%;
   border-radius:50%;
+  border:1px solid $bblue;
+  box-shadow:1px 1px 1px black;
 }
 .friend-card-header{
-  background-color:$black;
-  border-bottom: 2px solid $lred;
+
   text-align:center;
   height:30px;
   display:flex;
   justify-content:center;
   align-items:center;
   p{margin:0px;
-    color:white;
+    color:black;
   }
 }
+.tags-friends{
+  width:auto!important;
+  font-size:1em!important;
+  margin:20px 10px!important;
+  width:calc(33% - 20px)!important;
+  /* Firefox */
+  height: -moz-calc(33% - 20px)!important;
+/* WebKit */
+height: -webkit-calc(33% - 20px)!important;
+/* Opera */
+height: -o-calc(33% - 20px)!important;
+/* Standard */
+height: calc(33% - 20px)!important;
 
-// .friend-chat-container{
-//   background-color:$lblue;
-//   padding-top:150px;
-// }
+}
+.container-friends-only{
+  padding-bottom:50px!important;
+}
 
 // .chat-zone{
 //   text-align:center;
@@ -93,7 +117,6 @@
 
 
 .friend-card-footer{
-  background-color:$black;
   text-align:center;
   height:50px;
   display:flex;
@@ -101,7 +124,7 @@
   align-items:center;
   padding:3px;
   p{margin:0px;
-    color:white;
+    color:black;
     line-height:20px;
 
   }
@@ -111,26 +134,30 @@
   padding:10px;
 }
 .current-user-card{
-    border: 4px solid $lred;
-
-  height:500px;
-  background-color:$black;
+  // border: 1px solid black;
+  // box-shadow: -1px -1px 1px white;
+  // height:500px;
+  // background-color:$bblue;
   width:35%;
   z-index:10;
-  margin-top:5vh;
+  margin-top:10vh;
   padding:50px;
   .card-details h2{
-    color:white;
+    font-weight:bolder;
+    color:$bgreen;
+    line-height:30px;
   }
   .card-details h3{
-    color:white;
+   color:$bgreen;
     font-weight:lighter;
   }
 }
 .card-user-pic{
   border-radius:50%!important;
   height:auto!important;
-  width:250px!important;
+  width:300px!important;
+  border:2px solid $bgreen;
+ box-shadow: 1px 1px 1px black;
 }
 
 
@@ -182,20 +209,18 @@
   justify-content:center;
   color:$black;
   font-size:2em;
-  background-color:$dblue;
+  background-color:#ddd!important;
   margin-top:50px;
   cursor:pointer;
-  opacity:0.7;
+  opacity:0.5;
 }
 .dashboard-tab:hover{
-opacity:0.8;
+  opacity:0.8;
 }
-
-
 
 
 #dashboard-tab1{
-border-top-right-radius:15px;
+  border-top-right-radius:15px;
 
 }
 #dashboard-tab2{
@@ -203,6 +228,7 @@ border-top-right-radius:15px;
 }
 .tab-active{
   opacity:1!important;
+  background-color:white!important;
 
 }
 //Code for mouseOver on cards movie
@@ -261,4 +287,9 @@ border-top-right-radius:15px;
 }
 .my-movie-tags:hover{
   color:$lblue;
+}
+.friends-tag-row{
+  background-color:$bgreen;
+  padding-left:20px;
+  padding-right: 20px;
 }
