@@ -73,21 +73,21 @@
 }
 .btn-sign-up{
     background-color: transparent;
-    border: solid 1px #91AA9D;
-    color: white;
+    border: solid 1px #61ca69;
+    color: #87877a;
     margin-top: 10px;
     margin-left: 10px;
     text-decoration: none;
     padding: 6px 12px;
-    border-radius: 2px;
+    border-radius: 10px;
     margin-bottom: 27.7px;
     font-size: 18px;
+    border: 2px solid $bgreen;
   }
 .btn-sign-up a{
   text-decoration: none;
-
 }
-
 .btn-sign-up:hover{
   text-decoration: none;
+  color: black;
 }

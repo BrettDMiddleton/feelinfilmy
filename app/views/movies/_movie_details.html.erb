@@ -9,31 +9,28 @@
     <%= movie.plot %>
   </p>
   </div>
-  <div class="movie-box-buttons">
-    <div class="more-info">
-      <%= link_to "More info", movie_path(movie), class: "btn-filmy" %>
-    </div>
-    <div class="add-to-watchlist">
-      <%= simple_form_for movie, :url => watch_user_movies_path, method: :post, html: { onsubmit: "watchListButton(event, this)"} do |t| %>
-        <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
-        <%= t.submit "Watchlist", class: "btn-filmy", id: "watch"%>
+  <div class="infobox">
+    <div class="add-tags">
+      <% @tags.uniq.each do |tag| %>
+        <%# f.label tag.name %>
+        <%# check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
+        <%= link_to(
+          tag.name,
+          movie_tags_path(movie_id: movie.id, tag_id: tag.id),
+          remote: true, method: :post, class: "add-tags-btn add-tag-#{tag.id}"
+        )%>
       <% end %>
     </div>
-    <div class="add-to-catalog">
-      <%= simple_form_for movie, :url => catalogue_user_movies_path, method: :post do |t| %>
-        <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
-      <% end %>
+    <div class="movie-box-buttons">
+<!--       <div class="more-info">
+        <%#= link_to "More info", movie_path(movie), class: "add-tags-btn" %>
+      </div> -->
+      <div class="add-to-watchlist">
+        <%= simple_form_for movie, :url => watch_user_movies_path, method: :post, html: { onsubmit: "watchListButton(event, this)"} do |t| %>
+          <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
+          <%= t.submit "Watchlist", class: "add-tags-btn", id: "watch"%>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="add-tags">
-    <% @tags.uniq.each do |tag| %>
-      <%# f.label tag.name %>
-      <%# check_box_tag "tag_ids[#{tag.id}]", tag.id,false, :name => "tag_ids[]" %>
-      <%= link_to(
-        tag.name,
-        movie_tags_path(movie_id: movie.id, tag_id: tag.id),
-        remote: true, method: :post, class: "btn-filmy add-tag-#{tag.id}"
-      )%>
-    <% end %>
   </div>
 </div>

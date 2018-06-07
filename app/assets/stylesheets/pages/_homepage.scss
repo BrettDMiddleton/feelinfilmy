@@ -30,8 +30,8 @@
 }
 .flex-movie{
   display:flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
+  justify-content: space-around;
+  flex-flow: row wrap;
 }
 .btn-filmy2 {
   border: 2px solid $lblue;
@@ -81,51 +81,64 @@
   background-size: cover !important;
   background-position: center;
   position: relative;
-  border: 3px solid $bgreen;
   border-radius: 8px;
   margin-bottom:10px;
   margin-right: 10px;
 }
 .movie-card:hover {
-  border: 3px solid #05e6ff;
+  border: 3px solid $bgreen;
   box-shadow: 0px 0px 10px white;
+  transform: scale(1.05, 1.05);
+  transition-property: transform;
+  transition-duration: 0.5s;
 }
 
 // SIDEBAR CLASSES
 
-#movie-sidebar{
-  margin-top:70px;
+.movie-sidebar{
+  width: 0px;
+  background-color: #F4F4F4;
   padding-top:10px;
+  border-left: 3px solid $bgreen;
 }
 .movie-title h1{
   color:$black;
+  margin: 30px;
 }
 .movie-description{
   color:$lblue;
-}
-.btn-filmy{
-  margin-bottom:10px;
+  margin: 30px;
 }
 .movie-box-buttons{
-  display:flex!important;
-  background-color:$bblue;
+
 }
-.add-tags{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: $bgreen;
+.add-tags-btn{
+  margin:4px 4px;
+  padding:10px 2px;
+  background-color:transparent;
+  border-radius:10px;
+  border: 2px solid white;
+  color:white;
+  font-size:0.7em;
+  text-align: center;
+  width: 100px;
+  float: left;
+
 }
-.btn-filmy{
-  margin-bottom:0px;
+.add-tags-btn:hover{
+  text-decoration: none;
+  border: 2px solid $dblue;
+  color: $dblue;
+  background-color:rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 10px white;
 }
 .movie-poster-sidebar{
-  height:100vh;
-  background-color:$light-gray;
-  position:fixed;
-  right:0px;
-  top:0px;
+   height: calc(100vh);
+  background-color: #000000a8;
+  position: fixed;
+  width: 0px;
+  right: 0px;
+  top: 70px;
 }
 .movie-show-container{
   width:100%;
@@ -136,6 +149,44 @@
   padding:30px;
 }
 .movie-box{
+  border: 2px solid $green;
+  padding: 3px;
+  margin: 30px;
   background-color: $bblue;
+  border-radius: 10px;
 }
+.open-bg-sidebar{
+    z-index: 3;
+  width:100% !important;
+}
+.open-sidebar{
+  z-index: 4;
+  width: 700px;
+}
+#movie-sidebar{
 
+  transition: all 0.8s cubic-bezier(0.58, 1.06, 0.78, 0.95);
+}
+#sidebar-wrapper{
+
+  transition: all 1.8s cubic-bezier(0.58, 1.06, 0.78, 0.95);
+}
+// .open-bg-sidebar{
+//   transition: all 2.5s ease;
+// }
+// .open-sidebar{
+//   transition: all 1.5s ease;
+// }
+.infobox{
+  background-color: $bgreen;
+  height: 300px;
+}
+.sidebar-container{
+  height: calc(100vh);
+  position: fixed;
+  width: 0px;
+  right: 0px;
+  top: 70px;
+  display: flex;
+  justify-content: flex-end;
+}

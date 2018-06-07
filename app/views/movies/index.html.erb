@@ -1,19 +1,15 @@
 
-<div class="main-container-index row">
-  <div class="movie-poster-mozaic col-xs-12 col-sm-12 col-md-9 col-lg-9">
+<div class="main-container-index">
+  <div class="movie-poster-mozaic">
     <%= render 'movies/search_header' %>
     <div class="flex-mozaic">
       <%= render "movie_list" %>
     </div>
   </div>
-  <div class="movie-poster-sidebar col-xs-12 col-sm-12 col-md-3 col-lg-3">
-  <div class="flexbox-movie-info">
-    <div id="movie-sidebar"></div>
+  <div id="sidebar-container" class="sidebar-container">
+    <div id="sidebar-wrapper" class="movie-poster-sidebar" onclick="sidebarClick(event, this)">
     </div>
+     <div id="movie-sidebar" class="movie-sidebar" ></div>
   </div>
 </div>
-
-
-
-
 
