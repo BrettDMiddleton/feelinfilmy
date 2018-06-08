@@ -21,6 +21,25 @@ class MoviesController < ApplicationController
     end
   end
 
+  def movie_availability
+    require "open-uri"
+    require "nokogiri"
+
+    url = "https://www.finder.com/amazon-prime-movies"
+
+    html_file = open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+    movie_title = "Ma Man"
+    @availability = false
+
+    html_doc.search('tr>td:first-child').each do |element|
+      if movie_title == element.text.strip
+        @availability = true
+        break
+      end
+    end
+  end
+
   private
 
   def reviews

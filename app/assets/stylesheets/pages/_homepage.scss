@@ -126,9 +126,6 @@
   color:$lblue;
   margin: 30px;
 }
-.movie-box-buttons{
-
-}
 .add-tags-btn{
   margin:4px 4px;
   padding:10px 2px;
@@ -208,4 +205,16 @@
   background-color: $bblue;
   position: absolute;
   bottom: 70;
+}
+.availability-icon-netflix{
+  margin-top: 5px;
+}
+.availability-icon-amazon{
+
+}
+.movie-box-buttons {
+  display: flex;
+  justify-content: center;
+  color: $bdgrey;
+  margin-bottom: -20px;
 }
