@@ -41,6 +41,8 @@
 .main-container-index{
   padding-top:130px;
   padding-bottom:10px;
+  min-height: calc( 100vh - 130px);
+    background-color: #F4F4F4;
 }
 .movie-poster-mozaic{
   background-color:$light-gray;
