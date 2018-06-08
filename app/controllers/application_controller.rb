@@ -6,13 +6,13 @@ class ApplicationController < ActionController::Base
 
   def my_movies
     watched_movies = UserMovie.where(user_id: current_user)
-    @my_movies = Movie.where.not(id: watched_movies.pluck(:movie_id))
+    @my_movies = Movie.where.not(id: watched_movies.pluck(:movie_id)).order(:created_at)
   end
-  
+
   def default_url_options
     { host: ENV["HOST"] || "localhost:3000" }
   end
-  
+
   def resource_name
     :user
   end
@@ -29,10 +29,14 @@ class ApplicationController < ActionController::Base
     @devise_mapping ||= Devise.mappings[:user]
   end
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
 
 private
 
-  
+
 def load_quote
   require "open-uri"
  response = open("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies&count=1000",
