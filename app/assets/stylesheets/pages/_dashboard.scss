@@ -53,8 +53,7 @@
 .friend-card-photo{
   width:100%;
   border-radius:50%;
-  border:1px solid $bblue;
-  box-shadow:1px 1px 1px black;
+  border:3px solid $bblue;
 }
 .friend-card-header{
 
@@ -157,8 +156,7 @@ height: calc(33% - 20px)!important;
   border-radius:50%!important;
   height:auto!important;
   width:300px!important;
-  border:2px solid $bgreen;
- box-shadow: 1px 1px 1px black;
+  border:3px solid $bgreen;
 }
 
 
@@ -277,8 +275,6 @@ height: calc(33% - 20px)!important;
   }
 }
 
-
-
 // ---------------------------
 .my-movie-tags{
   color:white;
@@ -290,10 +286,8 @@ height: calc(33% - 20px)!important;
   color:$lblue;
 }
 .friends-tag-row{
-  background-color:$bgreen;
-  padding-left:20px;
-  padding-right: 20px;
-  border-radius:15px;
+  display: flex;
+  justify-content: center;
 }
 .film2-genre{
   // background-color:blue!important;
