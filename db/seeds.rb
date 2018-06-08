@@ -68,6 +68,7 @@ ben = User.new(
   avatar: "http://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1527864798/feelin-filmy/mubariz-mehdizadeh-364026-unsplash.jpg"
 
   )
+
 ben.save!
 
 Friendship.create!({
@@ -171,10 +172,10 @@ DBMOVIES = {
 TAGS = [
   "Story Arch",
   "Acting",
-  "Dialogue",
+  "Characters",
   "Smart Lead",
   "Effects",
-  "Characters",
+  "Dialogue",
   "Diversity",
   "Morbid",
   "Cool Villain",
@@ -299,7 +300,7 @@ end
 
 
 User.all.each do |user|
-  unique_movies = @movies.sample(10)
+  unique_movies = @movies.sample(20)
   unique_movies.each do |movie|
     random_boolean = [true, false].sample
 

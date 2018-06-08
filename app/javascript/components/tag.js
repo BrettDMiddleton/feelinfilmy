@@ -6,9 +6,15 @@ const initTags = () => {
 
   tags.forEach(function(tag){
     tag.addEventListener("click", function() {
-     this.classList.toggle('active')
-      document.getElementById("filter-movies").click();
-    });
+      if (this.classList.contains("film2-genre")){
+       this.classList.toggle('active1')
+       document.getElementById("filter-movies").click();
+     }
+      else if (this.classList.contains("film2-tag")){
+       this.classList.toggle('active2')
+       document.getElementById("filter-movies").click();
+     }
+   });
   });
 }
 
