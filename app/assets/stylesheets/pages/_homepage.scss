@@ -106,6 +106,8 @@
   background-color: #F4F4F4;
   padding-top:10px;
   border-left: 3px solid $bgreen;
+  overflow:scroll;
+  padding-bottom:50px;
 }
 .movie-title{
   text-align: center;
@@ -115,18 +117,18 @@
   margin: 0px 30px;
 }
 .watchlist-btn{
-  padding: 10px 20px;
+  margin-top:10px;
+  padding: 6px 10px;
   background-color: transparent;
   border-radius: 10px;
   border: 2px solid $bblue;
   color: $bblue;
-  font-weight: bolder;
   text-align: center;
   margin-top: 5px;
 }
 .watchlist-btn:hover{
   text-decoration: none;
-  box-shadow: 0px 0px 10px $bblue;
+  // box-shadow: 0px 0px 10px $bblue;
 }
 .movie-description{
   color:$lblue;
@@ -199,7 +201,9 @@
 // }
 .infobox{
   background-color: $bgreen;
-  height: 300px;
+  height: 400px;
+  padding:15px;
+  padding-bottom:50px;
 }
 .sidebar-container{
   height: calc(100vh);
