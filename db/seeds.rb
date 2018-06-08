@@ -4,12 +4,19 @@ require 'json'
 require 'open-uri'
 
 MovieGenre.destroy_all
+puts "destroyed MovieGenre"
 Movie.destroy_all
+puts "destroyed Movie"
 Tag.destroy_all
+puts "destroyed Tag"
 User.destroy_all
+puts "destroyed User"
 MovieTag.destroy_all
+puts "destroyed MovieTag"
 Review.destroy_all
+puts "destroyed Review"
 Genre.destroy_all
+puts "destroyed Genre"
 
 
 user = User.new(
@@ -78,7 +85,7 @@ Friendship.create!({
 
 CHARACTER_AND_DIALOGUE_MOVIES = ["Forrest Gump", "Alien", "American Beauty", "terminator 2", "Shawshank Redemption",
 "Moonlight", "The Dark Knight", "Star Wars", "The Green Mile", "Back to the Future", "1984", "A Clockwork Orange",
-"Moon", "V for Vendetta", "Fight Club", "A League of their Own", "Before Sunrise", "Before Sunset", "Before Midnight"]
+"Moon", "V for Vendetta", "Fight Club", "A League of Their Own", "Before Sunrise", "Before Sunset", "Before Midnight"]
 
 DBMOVIES = {
   "Forrest Gump" => [],
@@ -148,7 +155,7 @@ DBMOVIES = {
   "The Wizard of Oz" => [],
   "Get Out" => [],
   "Metropolis" => [],
-  "A League of their Own" => [],
+  "A League of Their Own" => [],
   "Casablanca" => [],
   "King Kong" => [],
   "Footloose" => [],
@@ -198,7 +205,7 @@ movie_genre_hash = {}
 
 
 DBMOVIES.each do |dbmovie, tag_array|
-  # begin
+  begin
     url = "http://www.omdbapi.com/?apikey=6d63447f&t=#{dbmovie}"
     movie_serialized = open(url).read
     moviejson = JSON.parse(movie_serialized)
@@ -242,18 +249,18 @@ DBMOVIES.each do |dbmovie, tag_array|
       movie_genre_hash[moviejson["Title"]] = genre_movie
 
     end
-  #   puts "#{dbmovie} added"
-  # rescue Exception => e
-  #   puts "Error adding #{dbmovie}"
-  #   puts e
-  # end
+    puts "#{dbmovie} added"
+  rescue Exception => e
+    puts "Error adding #{dbmovie}"
+    puts e
+  end
 
 end
 
 character_tag = Tag.find_by(name: "Characters")
 dialogue_tag = Tag.find_by(name: "Dialogue")
 
-["Before Sunrise", "Forrest Gump", "A League of their Own"].each do |title|
+["Before Sunrise", "Forrest Gump", "A League of Their Own"].each do |title|
   movie = Movie.find_by(title: title)
   MovieTag.create!(movie: movie, user: liane, tag: character_tag)
   MovieTag.create!(movie: movie, user: liane, tag: dialogue_tag)
