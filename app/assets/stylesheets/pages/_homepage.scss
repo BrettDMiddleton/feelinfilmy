@@ -124,7 +124,7 @@
 }
 .movie-description{
   color:$lblue;
-  margin: 30px;
+  text-align: center;
 }
 .add-tags-btn{
   margin:4px 4px;
@@ -170,7 +170,7 @@
 .open-bg-sidebar{
   z-index: 3;
   width:100% !important;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.5);
 }
 .open-sidebar{
   z-index: 4;
@@ -212,9 +212,12 @@
 .availability-icon-amazon{
 
 }
+.watchlist-button{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
 .movie-box-buttons {
   display: flex;
   justify-content: center;
-  color: $bdgrey;
-  margin-bottom: -20px;
 }
