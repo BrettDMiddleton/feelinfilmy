@@ -57,7 +57,7 @@ brett = User.new(
   email: Faker::Internet.email,
   bio: "I am a big fan of movies that have a lot of action.",
   password: "feelinfilmy",
-  username: Faker::DrWho.character,
+  username: "MooseisLoose77",
   last_name: "Middleton",
   first_name: "Brett",
   avatar: "https://res.cloudinary.com/chimeraggeddon/image/upload/c_scale,h_200,w_200/v1528484914/brett.png"

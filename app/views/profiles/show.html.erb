@@ -30,7 +30,7 @@
 <% end %>
 <% end %>
 </div>
-<h2><%= @friend.username.upcase %>'S TOP 3 TAGS</h2>
+<h2><%= @friend.username.upcase %>'S TOP TAGS</h2>
 <div class="friends-tag-row">
 
 
@@ -48,7 +48,7 @@
  <div id="movies-index" class="flex-movie">
   <% @friend.user_movies.select { |m| m.watched }.each do |user_movie|%>
   <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= user_movie.movie.poster? ? image_path(user_movie.movie.poster, height: 300, width: 400, crop: :fill) : 'http://placeholder.it' ; %>');">
-    <%= link_to "", movie_path(user_movie.movie), class: "card-link" %>
+    <%= link_to "", movie_path(user_movie), class: "card-link", remote: true %>
   </div>
   <% end %>
 </div>
