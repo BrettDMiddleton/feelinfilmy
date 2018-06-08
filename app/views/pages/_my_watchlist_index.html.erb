@@ -1,5 +1,5 @@
 <div id="movies-index" class="flex-movie">
-  <% current_user.user_movies.select { |m| m.watched == true }.each do |user_movie|%>
+  <% current_user.user_movies.reject { |m| m.watched }.each do |user_movie|%>
 
       <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= user_movie.movie.poster? ? image_path(user_movie.movie.poster, height: 300, width: 400, crop: :fill) : 'http://placeholder.it' ; %>');">
         <%= link_to "", movie_path(user_movie.movie), class: "card-link" %>
