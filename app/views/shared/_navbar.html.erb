@@ -51,10 +51,10 @@
             <%= f.input :password, required: false, placeholder: "PASSWORD", label: false %>
 
 
-            <%= f.button :submit, "Log in" %>
+            <%= f.button :submit, "Log in", :class => "btn-navbar"%>
 
         <% end %>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn-sign-up"  %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn-sign-up btn-navbar btn-sign-up-navbar"  %>
       </div>
     <% end %>
   </div>
