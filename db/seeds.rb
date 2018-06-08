@@ -142,13 +142,13 @@ TAGS = [
   "Dialogue",
   "Smart Lead",
   "Effects",
-  "Character Development",
+  "Character",
   "Diversity",
   "Morbid",
   "Cool Villain",
   "Storyline",
   "Explosions",
-  "Witty Humour"
+  "Witty"
 ]
 
 # ----------- TAG SEED ------------
@@ -239,7 +239,7 @@ end
 
 
 User.all.each do |user|
-  unique_movies = @movies.sample(10)
+  unique_movies = @movies.sample(20)
   unique_movies.each do |movie|
     random_boolean = [true, false].sample
 

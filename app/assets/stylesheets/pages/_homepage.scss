@@ -62,9 +62,15 @@
   font-size:0.7em;
   width:110%;
 }
-.btn-filmy2.active {
-  border: 2px solid $dblue;
-  color: $dblue;
+.btn-filmy2.active1 {
+  border: 2px solid $bgreen!important;
+  color: $bgreen!important;
+  background-color:rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 10px white;
+}
+.btn-filmy2.active2 {
+  border: 2px solid $bblue!important;
+  color: $bblue!important;
   background-color:rgba(255,255,255,0.8);
   box-shadow: 0px 0px 10px white;
 }
@@ -208,4 +214,14 @@
   background-color: $bblue;
   position: absolute;
   bottom: 70;
+}
+.film2-tag:hover{
+  color:$bblue;
+  border:2px solid $bblue;
+
+}
+.film2-genre:hover{
+  color:$bgreen;
+  border:2px solid $bgreen;
+
 }
