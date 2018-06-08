@@ -14,10 +14,30 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie_tag = MovieTag.new
     reviews
+    movie_availability
 
     respond_to do |format|
       format.html
       format.js  # <-- will render `app/views/reviews/create.js.erb`
+    end
+  end
+
+  def movie_availability
+    require "open-uri"
+    require "nokogiri"
+
+    url = "https://www.finder.com/amazon-prime-movies"
+
+    html_file = open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+    movie_title = @movie.title
+    @availability = false
+
+    html_doc.search('tr>td:first-child').each do |element|
+      if movie_title == element.text.strip
+        @availability = true
+        break
+      end
     end
   end
 

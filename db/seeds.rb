@@ -99,7 +99,6 @@ DBMOVIES = [
   "Hobo with a Shotgun",
   "Idiocracy",
   "In Time",
-  "The Island",
   "The Lobster",
   "The Maze Runner",
   "Moon",
@@ -133,7 +132,8 @@ DBMOVIES = [
   "Titanic",
   "Biloxi Blues",
   "Inception",
-  "Shutter Island"
+  "Shutter Island",
+  "Black Sheep"
 ]
 
 TAGS = [
