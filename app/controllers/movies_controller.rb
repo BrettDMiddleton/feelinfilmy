@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @movie_tag = MovieTag.new
     reviews
+    movie_availability
 
     respond_to do |format|
       format.html
@@ -29,7 +30,7 @@ class MoviesController < ApplicationController
 
     html_file = open(url).read
     html_doc = Nokogiri::HTML(html_file)
-    movie_title = "Ma Man"
+    movie_title = @movie.title
     @availability = false
 
     html_doc.search('tr>td:first-child').each do |element|

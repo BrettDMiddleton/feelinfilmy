@@ -24,6 +24,12 @@
   background-color:$light-gray;
   padding:0px;
   padding-bottom:150px;
+  width: 100%;
+  form{
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+  }
 }
 .flex-mozaic{
   background-color: $light-gray;
@@ -32,6 +38,7 @@
   display:flex;
   justify-content: space-around;
   flex-flow: row wrap;
+  padding-top: 140px;
 }
 .btn-filmy2 {
   border: 2px solid $lblue;
@@ -200,6 +207,7 @@
   top: 70px;
   display: flex;
   justify-content: flex-end;
+  overflow-x: hidden;
 }
 .add-to-watchlist{
   background-color: $bblue;
@@ -208,9 +216,7 @@
 }
 .availability-icon-netflix{
   margin-top: 5px;
-}
-.availability-icon-amazon{
-
+  opacity: 0.4;
 }
 .watchlist-button{
   display: flex;
@@ -220,4 +226,10 @@
 .movie-box-buttons {
   display: flex;
   justify-content: center;
+}
+.available {
+
+}
+.unavailable {
+  opacity: 0.4;
 }
