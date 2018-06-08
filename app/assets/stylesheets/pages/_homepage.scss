@@ -1,23 +1,45 @@
 .header{
   margin-top:0px;
   text-align:center;
+    top:70px;
+  z-index:2;
+    position:fixed;
+    width:100%;
+    background-color:white;
 }
 .genre-box{
-  background-color:$bgreen;
-  width:100%;
+  background-color:rgba(97, 202, 105,0.9);
   padding:10px 0px;
   padding-right:10px;
   box-shadow:0px 2px 2px black;
+
+
+
 }
+@media only screen and (max-width: 990px) {
+    .header {
+        position:static!important;
+        z-index:1;
+    }
+    .main-container-index{
+  padding-top:0px!important;
+
+}
+
+ }
+
+
+
 .tag-box{
-  background-color:$bblue;
+  background-color:rgba(107, 178, 253,0.9);
   padding:10px 0px;
   width:100%;
   padding-right:10px;
   box-shadow:0px 2px 2px $bblue;
-  margin-bottom:20px;
+  margin-bottom:1px;
 }
 .main-container-index{
+  padding-top:130px;
   padding-bottom:10px;
 }
 .movie-poster-mozaic{
@@ -43,7 +65,7 @@
 .btn-filmy2 {
   border: 2px solid $lblue;
   padding: 2px 8px;
-  border-radius: 20px;
+  border-radius: 60px;
   text-align: center;
   width: 150px;
   color: $lblue;
@@ -63,28 +85,28 @@
   margin:4px -8px;
   padding:10px 2px;
   background-color:transparent;
-  border-radius:10px;
   border: 2px solid white;
   color:white;
   font-size:0.7em;
   width:110%;
 }
 .btn-filmy2.active1 {
-  border: 2px solid $bgreen!important;
-  color: $bgreen!important;
+  border: 2px solid #2ca234;
+  color: #2ca234!important;
   background-color:rgba(255,255,255,0.8);
   box-shadow: 0px 0px 10px white;
+  font-weight:bold;
 }
 .btn-filmy2.active2 {
-  border: 2px solid $bblue!important;
-  color: $bblue!important;
+  border: 2px solid #378fec!important;
+  color: #378fec!important;
   background-color:rgba(255,255,255,0.8);
   box-shadow: 0px 0px 10px white;
 }
 .btn-filmy2:hover {
   text-decoration: none;
-  border: 2px solid $dblue;
-  color: $dblue;
+  border: 2px solid #3991ef;
+  color: #3991ef;
   background-color:rgba(255,255,255,0.8);
   box-shadow: 0px 0px 10px white;
 }
@@ -176,7 +198,6 @@
   padding:30px;
 }
 .movie-box{
-  border: 2px solid $green;
   padding: 0px;
   margin: 3px;
   background-color: $bblue;
