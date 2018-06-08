@@ -96,3 +96,17 @@
   justify-content: space-between;
   align-items: center;
 }
+.btn-navbar{
+  background-color:$bblue!important;
+  border:none!important;
+  box-shadow:1px 1px 1px #ddd;
+  color:white!important;
+  margin-left:0px!important;
+  opacity:0.8;
+}
+.btn-sign-up-navbar{
+  margin-left:5px!important;
+}
+.btn-navbar:hover{
+  opacity:1!important;
+}

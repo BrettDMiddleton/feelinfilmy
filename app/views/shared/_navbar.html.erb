@@ -2,6 +2,7 @@
 <div class="navbar-wagon">
   <div>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
+
       <%= image_tag url="https://res.cloudinary.com/chimeraggeddon/image/upload/v1528465150/favicon.png", height: 50 %>
     <% end %>
   </div>
@@ -51,10 +52,10 @@
             <%= f.input :password, required: false, placeholder: "PASSWORD", label: false %>
 
 
-            <%= f.button :submit, "Log in" %>
+            <%= f.button :submit, "Log in", :class => "btn-navbar"%>
 
         <% end %>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn-sign-up"  %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn-sign-up btn-navbar btn-sign-up-navbar"  %>
       </div>
     <% end %>
   </div>

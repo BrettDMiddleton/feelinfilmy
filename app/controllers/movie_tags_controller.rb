@@ -4,7 +4,8 @@ class MovieTagsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @tag = Tag.find(params[:tag_id])
 
-    UserMovie.find_or_create(current_user.id, @movie.id)
+    user_movie = UserMovie.find_or_create(current_user.id, @movie.id)
+    user_movie.update(watched: true)
 
     MovieTag.create!(
       user: current_user,

@@ -7,7 +7,7 @@
     <div class="watchlist-button">
       <%= simple_form_for movie, :url => watch_user_movies_path, method: :post, html: { onsubmit: "watchListButton(event, this)"} do |t| %>
       <%= t.input :movie_id, as: :hidden, :input_html => { value: movie.id } %>
-      <%= t.submit "Add to Watchlist", class: "watchlist-btn", id: "watch"%>
+      <%= t.submit "Add to Watchlist", class: "watchlist-btn btn-navbar", id: "watch"%>
     <% end %>
     <div class="movie-box-buttons">
       <%= link_to "https://www.netflix.com", class: "availability-icon-netflix" do %>
@@ -23,8 +23,9 @@
     <%= movie.plot %>
   </p>
   </div>
+
   <div class="infobox">
-    <h4 style="text-align: center">Click tags to add to catalog:</h4>
+    <h4 style="text-align: center; font-weight:bolder; padding-bottom:20px">Click tags to add to catalog:</h4>
     <div class="add-tags">
       <% @tags.uniq.each do |tag| %>
         <%# f.label tag.name %>
@@ -32,7 +33,7 @@
         <%= link_to(
           tag.name,
           movie_tags_path(movie_id: movie.id, tag_id: tag.id),
-          remote: true, method: :post, class: "add-tags-btn add-tag-#{tag.id}"
+          remote: true, method: :post, class: "add-tags-btn add-tag-#{tag.id} film2-genre"
         )%>
       <% end %>
     </div>
