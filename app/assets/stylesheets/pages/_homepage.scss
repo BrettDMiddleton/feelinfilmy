@@ -101,9 +101,26 @@
   padding-top:10px;
   border-left: 3px solid $bgreen;
 }
+.movie-title{
+  text-align: center;
+}
 .movie-title h1{
   color:$black;
-  margin: 30px;
+  margin: 0px 30px;
+}
+.watchlist-btn{
+  padding: 10px 20px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid $bblue;
+  color: $bblue;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 5px;
+}
+.watchlist-btn:hover{
+  text-decoration: none;
+  box-shadow: 0px 0px 10px $bblue;
 }
 .movie-description{
   color:$lblue;
@@ -123,7 +140,6 @@
   text-align: center;
   width: 100px;
   float: left;
-
 }
 .add-tags-btn:hover{
   text-decoration: none;
@@ -133,8 +149,7 @@
   box-shadow: 0px 0px 10px white;
 }
 .movie-poster-sidebar{
-   height: calc(100vh);
-  background-color: #000000a8;
+  height: calc(100vh);
   position: fixed;
   width: 0px;
   right: 0px;
@@ -150,26 +165,25 @@
 }
 .movie-box{
   border: 2px solid $green;
-  padding: 3px;
-  margin: 30px;
+  padding: 0px;
+  margin: 3px;
   background-color: $bblue;
   border-radius: 10px;
 }
 .open-bg-sidebar{
-    z-index: 3;
+  z-index: 3;
   width:100% !important;
+  background-color: rgba(0,0,0,0.2);
 }
 .open-sidebar{
   z-index: 4;
   width: 700px;
 }
 #movie-sidebar{
-
   transition: all 0.8s cubic-bezier(0.58, 1.06, 0.78, 0.95);
 }
 #sidebar-wrapper{
-
-  transition: all 1.8s cubic-bezier(0.58, 1.06, 0.78, 0.95);
+  transition: background-color 1.25s ease-in-out;
 }
 // .open-bg-sidebar{
 //   transition: all 2.5s ease;
@@ -189,4 +203,9 @@
   top: 70px;
   display: flex;
   justify-content: flex-end;
+}
+.add-to-watchlist{
+  background-color: $bblue;
+  position: absolute;
+  bottom: 70;
 }
